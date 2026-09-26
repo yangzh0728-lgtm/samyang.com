@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <meta name="description" content="Sam Yang — student, builder, and athlete. Exploring engineering, restoring a classic Corvair, building CaliGuide, and playing floorball.">
+  <title>Sam Yang — Always Curious</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23d1fa39'/%3E%3Ctext x='20' y='27' text-anchor='middle' font-family='Arial' font-size='21' font-weight='bold' fill='%2310110f'%3ESY%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;450;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"><script type="module" src="app.js"></script>
+</head>
+<body id="home">
+  <a class="skip-link" href="#work">Skip to selected work</a>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="Sam Yang home">S<span>Y</span></a>
+    <nav aria-label="Main navigation"><a href="#work">Work <sup>03</sup></a><a href="#about">About</a><a href="#sports">Sports</a></nav>
+    <button class="motion-toggle" aria-pressed="false" aria-label="Pause animations"><span class="motion-symbol" aria-hidden="true">Ⅱ</span><span class="motion-label">Motion on</span></button>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-top"><p class="eyebrow">STUDENT / BUILDER / ATHLETE</p><p class="eyebrow">BASED IN CALIFORNIA</p></div>
+      <h1 id="hero-title" aria-label="Sam Yang"><span class="hero-name">Sam</span><em>Yang.</em><span class="hero-asterisk" aria-hidden="true">✳</span></h1>
+      <div class="hero-bottom"><p>Curious about how things work.<br> Even more curious about<br> <span>what they could become.</span></p><div class="hero-aside"><p>Engineering, ideas, and everything<br> that keeps me moving.</p><a class="round-link" href="#work"><span>Explore my work</span><span class="arrow-disc" aria-hidden="true">↓</span></a></div></div>
+      <div class="hero-index"><span>A PERSONAL WORK IN PROGRESS</span><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>BUILD. <i>PLAY.</i> REPEAT. <b>✳</b> ALWAYS <i>CURIOUS.</i> <b>✳</b> </span><span>BUILD. <i>PLAY.</i> REPEAT. <b>✳</b> ALWAYS <i>CURIOUS.</i> <b>✳</b> </span></div></div>
+    <section class="intro section-pad" id="about" aria-labelledby="about-title">
+      <div class="section-kicker"><span class="eyebrow">01 / A LITTLE ABOUT ME</span><span class="mini-mark" aria-hidden="true">SY</span></div>
+      <h2 class="intro-statement reveal" id="about-title">I’m a high school student who likes turning <em>“what if”</em> into something <span>real.</span></h2>
+      <div class="intro-bottom reveal"><p>From Hangzhou to Canada to California, I’ve learned to find my feet in new places. Now I’m finding my way through engineering, entrepreneurship, and the occasional very stubborn car part.</p><button class="text-link" data-profile="story">More about me <span aria-hidden="true">↗</span></button></div>
+      <div class="journey reveal" aria-label="Sam's journey"><span>HANGZHOU</span><span aria-hidden="true">→</span><span>CANADA</span><span aria-hidden="true">→</span><span>CALIFORNIA</span></div>
+    </section>
+    <section class="work section-pad" id="work" aria-labelledby="work-title">
+      <div class="section-kicker"><span class="eyebrow">02 / SELECTED WORK</span><span class="eyebrow">IDEAS INTO ACTION</span></div>
+      <div class="section-heading reveal"><h2 id="work-title">Less someday.<br> <em>More let’s try.</em></h2><p>A classic car. A useful website.<br> A workbench full of possibilities.</p></div>
+      <article class="featured-project reveal">
+        <button class="project-image-button" data-profile="garage" aria-label="Explore Legacy Garage 26"><div class="project-image car-image"><img src="assets/corvair-editorial.jpg" width="1400" height="933" loading="lazy" alt="Editorial concept of a silver classic Corvair in a workshop"><span class="image-caption">RESTORATION / CONCEPT IMAGE</span><span class="image-open" aria-hidden="true">↗</span></div></button>
+        <div class="project-info"><span class="project-number">01 / RESTORATION & STORYTELLING</span><h3>Legacy<br> Garage <em>26.</em></h3><p>Getting my hands dirty with a 1968 Chevrolet Corvair. Learning its engineering, uncovering its history, and sharing the people behind the project.</p><div class="tags"><span>Engineering</span><span>Community</span><span>Media</span></div><button class="text-link" data-profile="garage">Inside the project <span aria-hidden="true">↗</span></button></div>
+      </article>
+      <div class="project-pair">
+        <article class="project-card reveal"><button class="project-cover engineering-cover" data-profile="engineering" aria-label="Explore engineering projects"><span class="cover-meta">EXPERIMENTS / PROTOTYPES / POSSIBILITIES</span><span class="engineering-type">SKETCH.<br> BUILD.<br> <i>REPEAT.</i></span><span class="cover-bottom">ROBOTICS + CAD + 3D PRINTING<span aria-hidden="true">↗</span></span></button><div class="project-row"><span>02</span><h3>Engineering lab</h3><button data-profile="engineering" aria-label="Read about the engineering lab">↗</button></div><p>Robots, servo systems, and ideas that get better with every version.</p></article>
+        <article class="project-card reveal"><button class="project-cover caliguide-cover" data-profile="caliguide" aria-label="Explore CaliGuide"><span class="cover-meta">MAKING A NEW PLACE FEEL FAMILIAR</span><span class="caliguide-type">Cali<span>Guide</span><i>Find your way.</i></span><span class="cover-bottom">CALIFORNIA / A PLACE TO START<span aria-hidden="true">↗</span></span></button><div class="project-row"><span>03</span><h3>CaliGuide</h3><button data-profile="caliguide" aria-label="Read about CaliGuide">↗</button></div><p>A practical guide to everyday life for people starting somewhere new.</p></article>
+      </div>
+    </section>
+    <section class="sports section-pad" id="sports" aria-labelledby="sports-title">
+      <div class="section-kicker"><span class="eyebrow">03 / BEYOND THE DESK</span><span class="eyebrow">SAME ENERGY. DIFFERENT ARENA.</span></div>
+      <div class="sports-heading reveal"><h2 id="sports-title">Always<br> <em>in motion.</em></h2><p>Building things is only half the story.<br> The other half usually involves a team,<br> a ball, and one more practice.</p></div>
+      <div class="sports-grid"><div class="sports-photo reveal"><img src="assets/floorball-editorial.jpg" width="1400" height="933" loading="lazy" alt="Editorial concept of a floorball stick and perforated ball on a dark court"><span class="image-caption">FLOORBALL / CONCEPT IMAGE</span></div><div class="sports-info reveal"><div class="sports-years">9<span>+</span><p>YEARS OF FLOORBALL</p></div><h3>Center. Captain.<br> Always a teammate.</h3><p>Floorball has taught me how to read a situation, trust a team, and keep showing up. Those lessons travel with me, on and off the court.</p><button class="text-link" data-profile="sports">My sports story <span aria-hidden="true">↗</span></button></div></div>
+      <div class="interests reveal"><span>ALSO IN THE MIX</span><p>Basketball · Soccer · Badminton · Golf · Tennis · Rowing · Squash</p></div>
+    </section>
+    <section class="off-duty section-pad" aria-labelledby="off-duty-title"><p class="eyebrow">AND IN BETWEEN IT ALL</p><div class="off-duty-line reveal"><h2 id="off-duty-title">Still making room<br> for <em>play.</em></h2><p>LEGO, writing, and following an idea just to see where it goes. Some things don’t need a bigger reason.</p></div></section>
+  </main>
+  <footer class="site-footer"><div class="footer-top"><p>KEEP LEARNING.<br> KEEP BUILDING.</p><a href="#home">Back to top <span aria-hidden="true">↑</span></a></div><div class="footer-name" aria-hidden="true">Sam <em>Yang.</em></div><div class="footer-bottom"><span>© <span id="year">2026</span> SAM YANG</span><span>STUDENT. BUILDER. ATHLETE.</span><span>ALWAYS CURIOUS.</span></div></footer>
+  <dialog id="profile-dialog" aria-labelledby="profile-title"><div class="dialog-top"><span>SAM YANG / A CLOSER LOOK</span><button class="dialog-close" aria-label="Close profile">×</button></div><div class="dialog-content" id="dialog-content"></div></dialog>
+  <noscript><p class="noscript-note">Explore the project summaries and biography on this page. Enable JavaScript to open the full project stories.</p></noscript>
+</body>
+</html>
