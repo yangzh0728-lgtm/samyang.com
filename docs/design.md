@@ -43,3 +43,17 @@ Main text color pairings have contrast ratios of at least 6.1:1, including purpl
 Sam requested that the portfolio show his passion for video editing. A dedicated section after Sports pairs oversized editorial type with a decorative purple editing timeline. A moving playhead follows the site's motion control and reduced-motion preference. The new Editing navigation link and Behind the edit button lead to the section and an accessible profile dialog. The biography also includes this interest. Copy describes the passion without inventing specific software, films, clients, or achievements; no playable showreel is implied.
 
 Verified the desktop and 390px section visually, and confirmed no horizontal overflow at 390px or 320px. The new dialog opens with the correct heading, Escape closes it and returns focus, and the motion toggle disables the playhead animation. Navigation fits at 320px. JavaScript syntax and diff whitespace checks pass; the browser reported no errors or warnings.
+
+## React Bits motion direction
+
+User supplied React Bits as an animation reference. Inspected the live examples and configuration for:
+
+- [Split Text](https://www.reactbits.dev/text-animations/split-text): staggered name-letter entrance.
+- [Scroll Reveal](https://www.reactbits.dev/text-animations/scroll-reveal): biography words sharpen and brighten with scroll progress, preserving the italic phrase and purple highlight.
+- [Spotlight Card](https://www.reactbits.dev/components/spotlight-card): pointer-positioned violet light on project covers and the editing artwork.
+- [Magnet](https://www.reactbits.dev/animations/magnet): restrained magnetic movement on action arrows, with stable button hit areas.
+- [Aurora](https://www.reactbits.dev/backgrounds/aurora): slow violet light behind the hero typography, interpreted with CSS gradients.
+
+The implementation is original JavaScript/CSS rather than copied React component source. It preserves the traditional scrolling layout, contains no 3D scene or canvas, and introduces no external dependencies. Name and biography accessible labels remain intact. Motion off cancels Web Animations, clears pointer effects, and restores readable words; OS reduced motion sets the initial paused state. The hero background pauses when out of view and CSS animations pause when the page is hidden.
+
+Verified progressive and complete biography states in the browser, the pointer spotlight, the hero's out-of-view pause, the editing profile dialog, and motion-off styles. Desktop and 390px hero screenshots reviewed; no page overflow at 390px or 320px. Both JavaScript modules pass syntax checks. Browser console has no errors or warnings.

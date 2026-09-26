@@ -15,6 +15,7 @@ Open http://127.0.0.1:4173. No installation or build is required.
 - Page content: `dist/index.html`.
 - Layout, type, responsive behavior, and animations: `dist/styles.css`.
 - Full project and personal stories, dialogs, motion control, section reveals: `dist/app.js`.
+- Split-letter entrances, biography scroll reveal, card spotlights and magnetic arrows: `dist/motion.js`.
 - Images: `dist/assets/corvair-purple.jpg` and `dist/assets/floorball-purple.jpg`.
 
 ## Interactions and accessibility
@@ -22,6 +23,8 @@ Open http://127.0.0.1:4173. No installation or build is required.
 Navigation anchors scroll to Work, About, Sports, and Editing. Project buttons open native modal dialogs with Escape dismissal, focus containment and focus restoration. Existing `#profile/garage`, `#profile/engineering`, `#profile/caliguide`, `#profile/sports`, and `#profile/story` URLs remain supported; `#profile/editing` opens the video-editing story.
 
 The ticker, entrance animations, scroll reveals, editing timeline, rotating accent, and hover transitions respect reduced-motion preferences and the visible motion toggle. Core summaries and biography remain readable without JavaScript. The editing timeline is decorative; it does not imply a playable showreel.
+
+Motion ideas draw on [React Bits](https://www.reactbits.dev/): Split Text, Scroll Reveal, Spotlight Card, Magnet, and Aurora. These are original native-JavaScript/CSS adaptations for this static site, with no React, GSAP, WebGL, or third-party component code added. The hero's violet background pauses out of view; pointer effects apply to fine pointers. Motion off cancels active entrance animations and restores fully readable text.
 
 ## Content and artwork
 

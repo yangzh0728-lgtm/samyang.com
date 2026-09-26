@@ -1,3 +1,5 @@
+import { createPortfolioMotion } from './motion.js';
+
 const profiles = {
   garage: {
     eyebrow: '01 / RESTORATION · ENGINEERING · STORYTELLING', title: 'Legacy Garage 26', location: 'THE CORVAIR / LEGACY GARAGE 26', position: '22% center', mobileLabel: 'The Corvair',
@@ -64,6 +66,7 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let returnFocus = null;
 let previousHash = '';
 let motionPaused = reduceMotion.matches;
+const portfolioMotion = createPortfolioMotion({ paused: motionPaused });
 
 function textElement(tag, className, text) {
   const element = document.createElement(tag);
@@ -144,6 +147,7 @@ syncHash();
 
 function updateMotion(paused) {
   motionPaused = paused;
+  portfolioMotion.setPaused(paused);
   document.body.classList.toggle('motion-paused', paused);
   document.body.classList.toggle('motion-enabled', !paused);
   motionButton.setAttribute('aria-pressed', String(paused));
