@@ -10,6 +10,7 @@ import TiltedCard from '../vendor/react-bits/TiltedCard';
 import Magnet from '../vendor/react-bits/Magnet';
 import ClickSpark from '../vendor/react-bits/ClickSpark';
 import './portfolio.css';
+import './chapters.css';
 
 // Continuous effects sleep outside the viewport and in background tabs.
 function ActiveEffect({ host, children, fallback = null }) {
@@ -78,15 +79,27 @@ export function createPortfolioMotion({ paused = false } = {}) {
   register('.chapter-card', ({ html }) => {
     const fragment = document.createElement('div');
     fragment.innerHTML = html;
-    const image = fragment.querySelector('img');
+    const art = fragment.querySelector('.chapter-art');
+    const image = art.querySelector('img');
     const imageSrc = image?.getAttribute('src');
     image?.remove();
-    return <TiltedCard imageSrc={imageSrc} altText="" containerHeight="100%" imageHeight="100%" imageWidth="100%"
-      rotateAmplitude={finePointer.matches ? 7 : 0} scaleOnHover={finePointer.matches ? 1.025 : 1}
-      showMobileWarning={false} showTooltip={false} displayOverlayContent
-      overlayContent={<SpotlightCard className={`rb-chapter-spotlight${imageSrc ? ' rb-photo-overlay' : ''}`} spotlightColor="rgba(195, 113, 255, 0.55)">
-        <Markup className="rb-card-content" html={fragment.innerHTML} />
-      </SpotlightCard>} />;
+    const caption = fragment.querySelector('.chapter-art-caption')?.outerHTML || '';
+    return <SpotlightCard className="rb-chapter-spotlight" spotlightColor="rgba(153, 74, 255, 0.19)">
+      <div className="chapter-row">
+        <Markup className="chapter-label-slot" html={fragment.querySelector('.chapter-label').outerHTML} />
+        <Markup className="chapter-copy-slot" html={fragment.querySelector('.chapter-card-copy').outerHTML} />
+        <div className="chapter-visual" aria-hidden="true">
+          <div className={art.className}>
+            <TiltedCard imageSrc={imageSrc} altText="" containerHeight="100%" imageHeight="100%" imageWidth="100%"
+              rotateAmplitude={finePointer.matches ? 6 : 0} scaleOnHover={finePointer.matches ? 1.035 : 1}
+              showMobileWarning={false} showTooltip={false} displayOverlayContent
+              overlayContent={imageSrc ? null : <Markup html={art.innerHTML} className="chapter-art-content" />} />
+          </div>
+          {caption && <Markup html={caption} />}
+        </div>
+        <span className="chapter-go" aria-hidden="true">↗</span>
+      </div>
+    </SpotlightCard>;
   }, 'rb-card');
 
   register('.resume-entry-content', ({ html }) => <SpotlightCard className="rb-resume-spotlight" spotlightColor="rgba(179, 107, 255, 0.22)">

@@ -82,3 +82,8 @@ Verified progressive and complete biography states in the browser, the pointer s
 ## September 2026: official React Bits motion
 
 The current implementation replaces the earlier vanilla-JavaScript interpretations with nine upstream React Bits components. See `motion-plan.md` for the design and `../src/vendor/react-bits/README.md` for the pinned source and modifications. The purple Aurora, rotating roles, scroll ribbon, blurred entrances, tilted chapter cards, spotlights, magnets, and click sparks make motion a prominent part of the visual identity. Content, routes, and résumé structure are unchanged.
+
+
+## Chapter navigation redesign
+
+The oversized car-background card was replaced with a typography-led chapter list. Each full-row link has an index, a large title, a concise summary, a compact visual, and a clear arrow. Work and Sports use small concept-image thumbnails; About, Editing, and Off Duty use restrained graphic accents. The React Bits spotlight covers the row, while tilt is limited to the thumbnail. Mobile stacks the index above the title and keeps the visual separate from the text. Static and paused layouts share the same markup structure.

@@ -31,7 +31,7 @@ Open http://127.0.0.1:4173/. The site is static HTML with locally bundled React 
 - Shared page layout, navigation, and page-specific sections: `scripts/build-pages.mjs`.
 - Résumé entries, education, sports results, skills, and languages: `src/resume.mjs`.
 - Short biography and editing copy: `src/profiles.mjs`.
-- Reusable homepage hero and editing artwork: `src/*.html`.
+- Homepage hero, chapter directory, and editing artwork: `src/*.html`.
 - Shared styling: `dist/styles.css`.
 - Motion preferences, scroll entrances, and old-link compatibility: `src/app.js`.
 - React Bits mounting, pause/resume, and responsive effects: `src/motion/`.
@@ -44,7 +44,7 @@ Run `npm run build` after changing source, templates, or profile copy. Generated
 
 The site uses the official [React Bits](https://www.reactbits.dev/) source for Aurora, BlurText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, and ClickSpark. Upstream is pinned and licensed in `src/vendor/react-bits/README.md`. React, Motion, and OGL are bundled locally; there is no runtime component CDN.
 
-The homepage has a moving violet Aurora, blurred letter entrances, a rotating role label, a scroll-responsive ribbon, tilted/spotlit chapter cards, a magnetic link, and click sparks. Inner pages share the Aurora, decrypting labels, blurred heading entrances, and click sparks; résumé entries also have a pointer spotlight.
+The homepage has a moving violet Aurora, blurred letter entrances, a rotating role label, a scroll-responsive ribbon, a spotlight chapter list with tilting thumbnails, a magnetic link, and click sparks. Inner pages share the Aurora, decrypting labels, blurred heading entrances, and click sparks; résumé entries also have a pointer spotlight.
 
 Motion off restores static HTML, removes animation roots and canvases, and carries between pages for the session. OS reduced motion sets the default. Continuous effects unmount outside the viewport and in hidden tabs. Click sparks render only while active. Touch uses ordinary tap navigation without card tilt. The background has a non-WebGL fallback, and all six pages remain readable without JavaScript. Native links, skip links, breadcrumbs, active navigation, and category anchors remain intact.
 

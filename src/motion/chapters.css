@@ -1,0 +1,56 @@
+/* Chapter navigation: typography first, with small visual accents. */
+.chapter-index{display:block;border-bottom:1px solid var(--line)}
+.chapter-index .chapter-card{display:block;min-height:0;height:auto;padding:0;border:0;border-top:1px solid var(--line);background:transparent;overflow:visible;isolation:isolate;transition:border-color .35s,background .35s}
+.chapter-index .chapter-card:before,.chapter-index .chapter-card:after{display:none}
+.chapter-index .chapter-card:hover,.chapter-index .chapter-card:focus-visible{border-top-color:#b36bff;background:#160e2180}
+.chapter-index .chapter-row{display:grid;grid-template-columns:60px minmax(0,1fr) minmax(190px,23%) 58px;gap:32px;align-items:center;min-height:268px;padding:32px 12px 32px 0}
+.chapter-label,.chapter-label-slot{align-self:start;padding-top:6px}
+.chapter-label-slot .chapter-label{padding:0}
+.chapter-label{display:flex;flex-direction:column;gap:12px}
+.chapter-index .chapter-number{font:400 25px/1 var(--serif);color:#b36bff;letter-spacing:-.02em}
+.chapter-type{font:10px/1.3 ui-monospace,monospace;letter-spacing:.09em;color:#8f849e;white-space:nowrap}
+.chapter-index .chapter-card-copy{margin:0;max-width:none;min-width:0}
+.chapter-copy-slot{min-width:0}
+.chapter-index .chapter-card h3{font:600 clamp(42px,4.3vw,70px)/1.03 var(--condensed);letter-spacing:-.03em;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.chapter-index .chapter-card h3 em{display:inline;color:#b68bdd;font-size:1.06em;transition:color .35s}
+.chapter-index .chapter-card p{font-size:15px;line-height:1.7;max-width:410px;margin-top:18px;color:#a99fb6}
+.chapter-index .chapter-link{display:inline-block;border:0;padding:0;margin-top:22px;font:10px/1.5 ui-monospace,monospace;letter-spacing:.1em;color:#c6b7db;transition:color .3s,letter-spacing .3s}
+.chapter-index .chapter-card:hover h3,.chapter-index .chapter-card:focus-visible h3{transform:translateX(5px)}
+.chapter-index .chapter-card:hover h3 em,.chapter-index .chapter-card:focus-visible h3 em{color:#dfbaff}
+.chapter-index .chapter-card:hover .chapter-link{color:#d7b0ff;letter-spacing:.13em}
+.chapter-visual{min-width:0;position:relative;align-self:center}
+.chapter-art{position:relative;width:100%;height:158px;background:#1a1025;overflow:visible}
+.chapter-art>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border:1px solid #b36bff29}
+.chapter-work .chapter-art>img,.chapter-work .tilted-card-img{object-position:42% center}
+.chapter-art-caption{display:block;font:9px/1.4 ui-monospace,monospace;letter-spacing:.04em;color:#92839f;margin-top:10px}
+.chapter-go{display:flex;align-items:center;justify-content:center;width:54px;height:54px;border:1px solid #b36bff55;border-radius:50%;font:300 29px/1 var(--font);color:#c696ff;transition:background .3s,color .3s,transform .45s cubic-bezier(.16,1,.3,1)}
+.chapter-card:hover .chapter-go,.chapter-card:focus-visible .chapter-go{background:#b36bff;color:#09070d;transform:rotate(45deg)}
+.chapter-index .rb-chapter-spotlight{padding:0;border:0;border-radius:0;background:transparent;overflow:visible}
+.chapter-index .rb-chapter-spotlight:before{inset:0;z-index:-1}
+.chapter-index .tilted-card-figure{margin:0}
+.chapter-index .tilted-card-inner{background:transparent;box-shadow:none;border:0}
+.chapter-index .tilted-card-img{border-radius:0;border:1px solid #b36bff29;object-fit:cover}
+.chapter-index .tilted-card-overlay{inset:0;transform:translateZ(0);width:100%;height:100%}
+.chapter-art-content{width:100%;height:100%;position:relative}
+.chapter-route-art{background:linear-gradient(125deg,#20132f,#110c19);padding:24px;border:1px solid #b36bff29}
+.chapter-route-art:has(.tilted-card-figure),.chapter-edit-art:has(.tilted-card-figure),.chapter-play-art:has(.tilted-card-figure){padding:0;border:0}
+.chapter-route-art .chapter-art-content,.chapter-edit-art .chapter-art-content{padding:24px;border:1px solid #b36bff29}
+.route-stops{display:flex;align-items:center;justify-content:space-between;font:600 39px/1 var(--condensed);letter-spacing:-.04em}
+.route-stops i{font:400 26px/1 var(--font);color:#b36bff}
+.route-line{height:1px;background:#b36bff66;display:flex;justify-content:space-between;margin:19px 0 14px}
+.route-line i{display:block;width:5px;height:5px;border-radius:50%;background:#c995ff;transform:translateY(-2px)}
+.art-small-label{display:block;font:8px/1.4 ui-monospace,monospace;letter-spacing:.08em;color:#c7a9e6}
+.chapter-edit-art{padding:23px;background:#1e102c;border:1px solid #b36bff29}
+.chapter-cut-tracks{position:relative;display:flex;align-items:flex-end;gap:5px;height:50px;margin:12px 0 10px;border-top:1px solid #b36bff55;padding-top:9px}
+.chapter-cut-tracks span{flex:1;height:32px;background:#994de0}
+.chapter-cut-tracks span:nth-child(2){flex:1.6;height:39px;background:#c58ffa}
+.chapter-cut-tracks span:nth-child(3){height:26px;background:#7534b8}
+.chapter-cut-tracks>i{position:absolute;left:12%;top:0;bottom:-3px;width:1px;background:#f2dfff;animation:edit-scrub 5s ease-in-out infinite alternate}
+.art-timecode{font:9px/1.2 ui-monospace,monospace;color:#9678b2}
+.chapter-play-art{display:flex;align-items:center;justify-content:center;flex-direction:column;background:#251036;border:1px solid #b36bff29}
+.chapter-play-art .chapter-art-content{display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #b36bff29}
+.chapter-play-symbol{display:block;font:80px/1 var(--font);color:#b577f7;animation:turn 32s linear infinite;margin-bottom:14px}
+@media(min-width:1500px){.chapter-index .chapter-row{grid-template-columns:80px minmax(0,1fr) 285px 65px;min-height:290px;gap:42px}.chapter-art{height:175px}.chapter-route-art .chapter-art-content,.chapter-edit-art .chapter-art-content,.chapter-route-art,.chapter-edit-art{padding:28px}.chapter-index .chapter-card p{font-size:17px}}
+@media(max-width:1000px){.chapter-index .chapter-row{grid-template-columns:45px minmax(0,1fr) 180px 44px;gap:22px;padding:28px 6px 28px 0;min-height:245px}.chapter-index .chapter-card h3{font-size:44px}.chapter-index .chapter-card p{font-size:14px}.chapter-art{height:140px}.chapter-go{width:42px;height:42px;font-size:26px}.chapter-route-art,.chapter-edit-art,.chapter-route-art .chapter-art-content,.chapter-edit-art .chapter-art-content{padding:18px}.route-stops{font-size:32px}}
+@media(max-width:700px){.chapter-index .chapter-row{grid-template-columns:minmax(0,1fr) 100px;gap:20px;padding:27px 0;min-height:0}.chapter-label,.chapter-label-slot{grid-column:1;grid-row:1;padding:0;align-self:center}.chapter-label{flex-direction:row;align-items:center;gap:13px}.chapter-index .chapter-number{font-size:22px}.chapter-type{font-size:10px}.chapter-card-copy,.chapter-copy-slot{grid-column:1;grid-row:2}.chapter-visual{grid-column:2;grid-row:2;align-self:start;padding-top:4px}.chapter-go{grid-column:2;grid-row:1;justify-self:end;width:36px;height:36px;font-size:23px}.chapter-index .chapter-card h3{font-size:clamp(34px,7.2vw,46px);line-height:1.04}.chapter-index .chapter-card h3 em{display:block;line-height:1.12}.chapter-index .chapter-card p{font-size:14px;line-height:1.65;margin-top:15px}.chapter-index .chapter-card p br{display:none}.chapter-index .chapter-link{font-size:9px;letter-spacing:.04em;margin-top:20px}.chapter-art{height:100px}.chapter-art-caption{font-size:8px;line-height:1.5;letter-spacing:0;margin-top:7px}.chapter-route-art,.chapter-edit-art,.chapter-route-art .chapter-art-content,.chapter-edit-art .chapter-art-content{padding:12px}.route-stops{font-size:23px}.route-stops i{font-size:16px}.route-line{margin:12px 0 10px}.art-small-label{font-size:6px;letter-spacing:0}.chapter-cut-tracks{height:32px;margin-top:10px;margin-bottom:8px;gap:3px}.chapter-cut-tracks span{height:21px}.chapter-cut-tracks span:nth-child(2){height:26px}.chapter-cut-tracks span:nth-child(3){height:16px}.art-timecode{font-size:7px}.chapter-play-symbol{font-size:50px;margin-bottom:9px}}
+@media(max-width:360px){.chapter-index .chapter-row{grid-template-columns:minmax(0,1fr) 78px;gap:16px}.chapter-index .chapter-card h3{font-size:34px}.chapter-art{height:85px}.chapter-route-art,.chapter-edit-art,.chapter-route-art .chapter-art-content,.chapter-edit-art .chapter-art-content{padding:9px}.route-stops{font-size:20px}.chapter-play-symbol{font-size:42px}.chapter-play-art .art-small-label{max-width:60px;text-align:center}}

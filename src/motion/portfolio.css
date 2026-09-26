@@ -19,23 +19,6 @@
 .rb-scroller{display:flex;width:max-content;white-space:nowrap;will-change:transform;font:600 clamp(34px,4.4vw,65px)/1 var(--condensed);letter-spacing:-.025em}
 .rb-ticker-copy{display:block;flex-shrink:0;padding-right:26px}
 .rb-ticker-static{font:600 42px/1 var(--condensed);white-space:nowrap}
-.rb-card{padding:0!important;height:460px;min-height:0!important;overflow:visible;border:0;background:none!important;isolation:auto}
-.rb-card.chapter-work{height:510px}
-.rb-card:after,.rb-card:before{display:none}
-.rb-card .tilted-card-figure{margin:0}
-.rb-card .tilted-card-inner{border:1px solid #b36bff55;background:#14101c;box-shadow:0 12px 50px #0004}
-.rb-card .tilted-card-img{border-radius:0;object-position:center}
-.rb-card.chapter-work .tilted-card-img{object-position:center 58%}
-.rb-card .tilted-card-overlay{inset:0;transform:translateZ(0);width:100%;height:100%}
-.rb-card .rb-chapter-spotlight{height:100%;padding:0;border:0;border-radius:0;background:transparent}
-.rb-card .rb-photo-overlay{background:linear-gradient(180deg,#09070d25 0%,#09070d6b 30%,#09070df2 100%)}
-.rb-card-content{height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:30px;position:relative}
-.rb-card-content .chapter-card-copy{margin-top:auto;padding-top:28px}
-.rb-card .chapter-route{margin:30px 0 5px}
-.rb-card.chapter-editing .tilted-card-inner{background:#1c102b}
-.rb-card.chapter-play .tilted-card-inner{background:#351451}
-.rb-card .mini-timeline{margin-top:42px;margin-bottom:14px;flex-shrink:0}
-.rb-card:focus-visible .tilted-card-inner{outline:2px solid #e5c8ff;outline-offset:5px}
 .rb-resume-spotlight{padding:20px;margin:-20px;border:0;border-radius:0;background:transparent;overflow:visible}
 .rb-resume-spotlight:before{inset:-1px;border-left:2px solid #ba80ff;opacity:0}
 .rb-resume-spotlight>div{position:relative}
@@ -49,8 +32,8 @@
 .reveal{transition:opacity .85s ease,transform .85s cubic-bezier(.16,1,.3,1),filter .85s ease}
 .reveal-pending{transform:translateY(45px);filter:blur(8px)}
 @keyframes chapter-glow{to{background-position:100% 50%}}
-@media(max-width:1000px){.rb-card{height:470px}.rb-card-content{padding:24px}.hero-roles{margin-bottom:32px}}
-@media(max-width:600px){.hero h1{margin-top:42px;margin-bottom:23px}.hero-roles{gap:12px;margin-bottom:34px;min-height:42px}.role-prefix{font-size:10px}.rotating-role{min-width:0;width:190px;font-size:27px;padding:9px 11px}.rb-ticker{padding:17px 0}.rb-card{height:420px}.rb-card.chapter-work{height:440px}.rb-card-content{padding:24px}.rb-resume-spotlight{padding:12px;margin:-12px}.rb-magnet-content{gap:20px}.hero .hero-aurora,.page-hero .hero-aurora{opacity:.9}.rb-scroller{font-size:38px}}
+@media(max-width:1000px){.hero-roles{margin-bottom:32px}}
+@media(max-width:600px){.hero h1{margin-top:42px;margin-bottom:23px}.hero-roles{gap:12px;margin-bottom:34px;min-height:42px}.role-prefix{font-size:10px}.rotating-role{min-width:0;width:190px;font-size:27px;padding:9px 11px}.rb-ticker{padding:17px 0}.rb-resume-spotlight{padding:12px;margin:-12px}.rb-magnet-content{gap:20px}.hero .hero-aurora,.page-hero .hero-aurora{opacity:.9}.rb-scroller{font-size:38px}}
 @media(hover:none){.rb-card .tilted-card-inner{transform:none!important}.rb-resume-spotlight:before{display:none}}
 .motion-static .reveal-pending{filter:none}
 .motion-static .hero-aurora{background:radial-gradient(ellipse at top,#6b299955,transparent 75%)}

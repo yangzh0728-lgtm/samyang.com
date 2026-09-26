@@ -5,8 +5,8 @@ import { profiles } from '../src/profiles.mjs';
 import { experienceGroups, education, sportsExperience, skills, languages } from '../src/resume.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const [homeHero, editArt] = await Promise.all(
-  ['home-hero.html', 'edit-art.html'].map(file => readFile(resolve(root, 'src', file), 'utf8'))
+const [homeHero, editArt, chapterDirectory] = await Promise.all(
+  ['home-hero.html', 'edit-art.html', 'chapter-directory.html'].map(file => readFile(resolve(root, 'src', file), 'utf8'))
 );
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const slug = value => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -66,18 +66,7 @@ function photo(file, alt, caption) {
   return `<figure class="chapter-photo reveal"><img src="/assets/${file}" alt="${escape(alt)}" width="1400" height="933"><figcaption>${caption} / EDITORIAL CONCEPT IMAGE</figcaption></figure>`;
 }
 
-const home = `${homeHero}
-<section class="chapter-directory section-pad" id="explore" aria-labelledby="explore-title">
-  <div class="section-kicker"><span class="eyebrow">PICK A CHAPTER</span><span class="eyebrow">THERE’S MORE TO THE STORY</span></div>
-  <div class="section-heading reveal"><h2 id="explore-title">A few sides.<br><em>One me.</em></h2><p>Things I build. Things I love.<br>A place for each part of the story.</p></div>
-  <div class="chapter-grid">
-    <a class="chapter-card chapter-work reveal" href="/work/"><img src="/assets/corvair-purple.jpg" alt="" width="1400" height="933" loading="lazy"><span class="chapter-number">01 / WORK</span><div class="chapter-card-copy"><h3>Work & <em>experience.</em></h3><p>Engineering projects, competition teams, and student leadership.</p><span class="chapter-link">View my experience <b aria-hidden="true">↗</b></span></div><span class="chapter-concept">CONCEPT IMAGE</span></a>
-    <a class="chapter-card chapter-about reveal" href="/about/"><span class="chapter-number">02 / ABOUT</span><div class="chapter-route" aria-hidden="true">HZ <span>→</span> CA<br><em>Always curious.</em></div><div class="chapter-card-copy"><h3>My <em>story.</em></h3><p>Hangzhou, Canada, California — and the curiosity that comes with me.</p><span class="chapter-link">Get to know me <b aria-hidden="true">↗</b></span></div></a>
-    <a class="chapter-card chapter-sports reveal" href="/sports/"><img src="/assets/floorball-purple.jpg" alt="" width="1400" height="933" loading="lazy"><span class="chapter-number">03 / SPORTS</span><div class="chapter-card-copy"><h3>Always <em>in motion.</em></h3><p>Eleven-plus years of floorball, badminton, and team leadership.</p><span class="chapter-link">On and off the court <b aria-hidden="true">↗</b></span></div><span class="chapter-concept">CONCEPT IMAGE</span></a>
-    <a class="chapter-card chapter-editing reveal" href="/editing/"><span class="chapter-number">04 / VIDEO EDITING</span><div class="mini-timeline" aria-hidden="true"><span></span><span></span><span></span><i></i></div><div class="chapter-card-copy"><h3>Cut to the <em>feeling.</em></h3><p>Finding a story in the footage, the rhythm, and the details.</p><span class="chapter-link">Behind the edit <b aria-hidden="true">↗</b></span></div></a>
-    <a class="chapter-card chapter-play reveal" href="/interests/"><span class="chapter-number">05 / OFF DUTY</span><span class="play-mark" aria-hidden="true">✳</span><div class="chapter-card-copy"><h3>Room for <em>play.</em></h3><p>LEGO, writing, and following an idea just to see where it goes.</p><span class="chapter-link">The other things I love <b aria-hidden="true">↗</b></span></div></a>
-  </div>
-</section>`;
+const home = `${homeHero}${chapterDirectory}`;
 
 function resumeEntry(entry) {
   return `<article class="resume-entry reveal" id="${entry.id}"><div class="resume-period">${escape(entry.period || '')}</div><div class="resume-entry-content"><h3>${escape(entry.title)}</h3><p class="resume-role">${escape(entry.role)}</p>${entry.summary ? `<p class="resume-summary">${escape(entry.summary)}</p>` : ''}${entry.points?.length ? `<ul class="resume-points">${entry.points.map(point => `<li>${escape(point)}</li>`).join('')}</ul>` : ''}${entry.recognition?.length ? `<div class="resume-recognition" aria-label="Recognition">${entry.recognition.map(item => `<span>${escape(item)}</span>`).join('')}</div>` : ''}${entry.link ? `<a class="resume-external" href="${entry.link.url}" target="_blank" rel="noopener noreferrer">${entry.link.label}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ''}</div></article>`;
