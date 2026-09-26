@@ -2,15 +2,15 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { profiles } from '../src/profiles.mjs';
+import { experienceGroups, education, sportsExperience, skills, languages } from '../src/resume.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const [homeHero, workCards, editArt] = await Promise.all(
-  ['home-hero.html', 'work.html', 'edit-art.html'].map(file => readFile(resolve(root, 'src', file), 'utf8'))
+const [homeHero, editArt] = await Promise.all(
+  ['home-hero.html', 'edit-art.html'].map(file => readFile(resolve(root, 'src', file), 'utf8'))
 );
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const slug = value => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const paths = { story: '/about/', garage: '/work/legacy-garage/', engineering: '/work/engineering/', caliguide: '/work/caliguide/', sports: '/sports/', editing: '/editing/', interests: '/interests/' };
-const names = { '/': 'Home', '/about/': 'About', '/work/': 'Work', '/sports/': 'Sports', '/editing/': 'Video editing', '/interests/': 'Off duty', '/work/legacy-garage/': 'Legacy Garage 26', '/work/engineering/': 'Engineering lab', '/work/caliguide/': 'CaliGuide' };
+const names = { '/': 'Home', '/about/': 'About', '/work/': 'Work', '/sports/': 'Sports', '/editing/': 'Video editing', '/interests/': 'Off duty' };
 
 function header(current) {
   return `<a class="skip-link" href="#main">Skip to content</a>
@@ -38,7 +38,7 @@ function documentPage({ path, title, description, content }) {
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;450;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <script>try{const p=sessionStorage.getItem('sam-motion');document.documentElement.classList.toggle('motion-static',p==='off'||(p!=='on'&&matchMedia('(prefers-reduced-motion: reduce)').matches));}catch{}</script>
   <link rel="stylesheet" href="/styles.css"><script type="module" src="/app.js"></script>
-</head><body id="top" data-page="${path}">
+</head><body id="top" data-page="${path}"${['/about/', '/work/', '/sports/'].includes(path) ? ' class="resume-page"' : ''}>
 ${header(path)}<main id="main">${content}</main>${footer()}
 </body></html>\n`;
 }
@@ -71,26 +71,35 @@ const home = `${homeHero}
   <div class="section-kicker"><span class="eyebrow">PICK A CHAPTER</span><span class="eyebrow">THERE’S MORE TO THE STORY</span></div>
   <div class="section-heading reveal"><h2 id="explore-title">A few sides.<br><em>One me.</em></h2><p>Things I build. Things I love.<br>A place for each part of the story.</p></div>
   <div class="chapter-grid">
-    <a class="chapter-card chapter-work reveal" href="/work/"><img src="/assets/corvair-purple.jpg" alt="" width="1400" height="933" loading="lazy"><span class="chapter-number">01 / WORK</span><div class="chapter-card-copy"><h3>Ideas into <em>action.</em></h3><p>Classic cars, engineering experiments, and a guide to finding your way.</p><span class="chapter-link">Explore three projects <b aria-hidden="true">↗</b></span></div><span class="chapter-concept">CONCEPT IMAGE</span></a>
+    <a class="chapter-card chapter-work reveal" href="/work/"><img src="/assets/corvair-purple.jpg" alt="" width="1400" height="933" loading="lazy"><span class="chapter-number">01 / WORK</span><div class="chapter-card-copy"><h3>Work & <em>experience.</em></h3><p>Engineering projects, competition teams, and student leadership.</p><span class="chapter-link">View my experience <b aria-hidden="true">↗</b></span></div><span class="chapter-concept">CONCEPT IMAGE</span></a>
     <a class="chapter-card chapter-about reveal" href="/about/"><span class="chapter-number">02 / ABOUT</span><div class="chapter-route" aria-hidden="true">HZ <span>→</span> CA<br><em>Always curious.</em></div><div class="chapter-card-copy"><h3>My <em>story.</em></h3><p>Hangzhou, Canada, California — and the curiosity that comes with me.</p><span class="chapter-link">Get to know me <b aria-hidden="true">↗</b></span></div></a>
-    <a class="chapter-card chapter-sports reveal" href="/sports/"><img src="/assets/floorball-purple.jpg" alt="" width="1400" height="933" loading="lazy"><span class="chapter-number">03 / SPORTS</span><div class="chapter-card-copy"><h3>Always <em>in motion.</em></h3><p>Nine-plus years of floorball. Center, captain, and always a teammate.</p><span class="chapter-link">On and off the court <b aria-hidden="true">↗</b></span></div><span class="chapter-concept">CONCEPT IMAGE</span></a>
+    <a class="chapter-card chapter-sports reveal" href="/sports/"><img src="/assets/floorball-purple.jpg" alt="" width="1400" height="933" loading="lazy"><span class="chapter-number">03 / SPORTS</span><div class="chapter-card-copy"><h3>Always <em>in motion.</em></h3><p>Eleven-plus years of floorball, badminton, and team leadership.</p><span class="chapter-link">On and off the court <b aria-hidden="true">↗</b></span></div><span class="chapter-concept">CONCEPT IMAGE</span></a>
     <a class="chapter-card chapter-editing reveal" href="/editing/"><span class="chapter-number">04 / VIDEO EDITING</span><div class="mini-timeline" aria-hidden="true"><span></span><span></span><span></span><i></i></div><div class="chapter-card-copy"><h3>Cut to the <em>feeling.</em></h3><p>Finding a story in the footage, the rhythm, and the details.</p><span class="chapter-link">Behind the edit <b aria-hidden="true">↗</b></span></div></a>
     <a class="chapter-card chapter-play reveal" href="/interests/"><span class="chapter-number">05 / OFF DUTY</span><span class="play-mark" aria-hidden="true">✳</span><div class="chapter-card-copy"><h3>Room for <em>play.</em></h3><p>LEGO, writing, and following an idea just to see where it goes.</p><span class="chapter-link">The other things I love <b aria-hidden="true">↗</b></span></div></a>
   </div>
 </section>`;
 
-const aboutHero = pageHero({ path: '/about/', label: 'ABOUT / SAM YANG', first: 'Always', second: 'curious.', lede: profiles.story.lede, chips: ['Student', 'Builder', 'Athlete', 'Creator'] });
-const about = `${aboutHero}<section class="about-journey section-pad" aria-labelledby="journey-title"><p class="eyebrow" id="journey-title">A FEW DIFFERENT PLACES</p><div class="journey reveal" aria-label="Hangzhou to Canada to California"><span>HANGZHOU</span><span aria-hidden="true">→</span><span>CANADA</span><span aria-hidden="true">→</span><span>CALIFORNIA</span></div><h2 class="intro-statement">I like turning <em>“what if”</em> into something <span class="intro-highlight">real.</span></h2></section>${storySections(profiles.story.sections)}<section class="values-strip section-pad" aria-label="What matters to me"><article><span>01 / CURIOSITY</span><h2>Ask why.</h2><p>Understanding how something works is often the start of the next idea.</p></article><article><span>02 / PRACTICE</span><h2>Try again.</h2><p>A prototype, a cut, a practice session — each version teaches me something.</p></article><article><span>03 / PEOPLE</span><h2>Build together.</h2><p>The people around a project matter just as much as the thing we’re making.</p></article></section>${nextChapter('/work/')}`;
+function resumeEntry(entry) {
+  return `<article class="resume-entry reveal" id="${entry.id}"><div class="resume-period">${escape(entry.period || '')}</div><div class="resume-entry-content"><h3>${escape(entry.title)}</h3><p class="resume-role">${escape(entry.role)}</p>${entry.summary ? `<p class="resume-summary">${escape(entry.summary)}</p>` : ''}${entry.points?.length ? `<ul class="resume-points">${entry.points.map(point => `<li>${escape(point)}</li>`).join('')}</ul>` : ''}${entry.recognition?.length ? `<div class="resume-recognition" aria-label="Recognition">${entry.recognition.map(item => `<span>${escape(item)}</span>`).join('')}</div>` : ''}${entry.link ? `<a class="resume-external" href="${entry.link.url}" target="_blank" rel="noopener noreferrer">${entry.link.label}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ''}</div></article>`;
+}
 
-const work = `${pageHero({ path: '/work/', label: 'WORK / THREE PLACES TO START', first: 'Ideas into', second: 'action.', lede: 'A classic car, a workbench full of possibilities, and a website built around everyday questions. Each project is a different way to learn by doing.', chips: ['Engineering', 'Entrepreneurship', 'Storytelling'] })}<section class="work section-pad" aria-label="Selected projects">${workCards}</section>${nextChapter('/sports/')}`;
+function resumeGroup(id, title, entries, index) {
+  return `<section class="resume-group" id="${id}" aria-labelledby="${id}-title"><div class="resume-group-heading"><span class="eyebrow">${index}</span><h2 id="${id}-title">${title}</h2><span class="resume-count">${String(entries.length).padStart(2, '0')}</span></div>${entries.map(resumeEntry).join('')}</section>`;
+}
 
-const garage = `${pageHero({ path: paths.garage, label: 'PROJECT 01 / RESTORATION & STORYTELLING', first: 'Legacy', second: 'Garage 26.', lede: profiles.garage.lede, chips: profiles.garage.chips })}${photo('corvair-purple.jpg', 'Editorial concept of a silver classic Corvair in a workshop', 'THE CORVAIR')}${storySections(profiles.garage.sections, '<div class="story-note"><span class="eyebrow">THE THREAD CONNECTING IT ALL</span><p>A car is a machine, a piece of history, and a reason for people to come together.</p></div>')}${nextChapter(paths.engineering, 'NEXT PROJECT')}`;
+const about = `${pageHero({ path: '/about/', label: 'ABOUT / SAM ZHIHUAN YANG', first: 'Student. Builder.', second: 'Always curious.', lede: profiles.story.lede })}
+<section class="about-background section-pad"><p>From Hangzhou to Canada to California, I’ve learned to find my feet in new places. I’m interested in engineering, entrepreneurship, sports, and telling the stories behind the things I build.</p></section>
+<div class="resume-sheet section-pad">${resumeGroup('education', 'Education', education, '01')}
+<section class="resume-group" id="languages" aria-labelledby="languages-title"><div class="resume-group-heading"><span class="eyebrow">02</span><h2 id="languages-title">Languages</h2></div><dl class="language-list">${languages.map(([name, level]) => `<div><dt>${name}</dt><dd>${level}</dd></div>`).join('')}</dl></section></div>${nextChapter('/work/')}`;
 
-const engineering = `${pageHero({ path: paths.engineering, label: 'PROJECT 02 / DESIGN · BUILD · TEST', first: 'The engineering', second: 'lab.', lede: profiles.engineering.lede, chips: profiles.engineering.chips })}<div class="process-banner section-pad reveal" aria-label="Sketch, build, test, repeat"><span>SKETCH.</span><span>BUILD.</span><span>TEST.</span><em>Repeat.</em></div>${storySections(profiles.engineering.sections)}<section class="values-strip section-pad" aria-label="Ways I explore engineering"><article><span>MECHANISMS</span><h2>Make it move.</h2><p>Robotics and servo systems connect an idea to movement in the real world.</p></article><article><span>CAD + PRINTING</span><h2>Give it form.</h2><p>A digital model is a way to think through a part before making a physical version.</p></article><article><span>TESTING</span><h2>Learn from it.</h2><p>Physics experiments and prototypes turn assumptions into questions I can test.</p></article></section>${nextChapter(paths.caliguide, 'NEXT PROJECT')}`;
+const work = `${pageHero({ path: '/work/', label: 'SELECTED EXPERIENCE', first: 'Work &', second: 'experience.', lede: 'Engineering, product development, competition teams, and student leadership.' })}
+<nav class="resume-jump" aria-label="Experience categories"><a href="#projects">Projects <sup>02</sup></a><a href="#engineering">Engineering <sup>03</sup></a><a href="#leadership">Leadership <sup>01</sup></a><a href="#skills">Skills</a></nav>
+<div class="resume-sheet section-pad">${experienceGroups.map((group, i) => resumeGroup(group.id, group.title, group.entries, `0${i + 1}`)).join('')}
+<section class="resume-group" id="skills" aria-labelledby="skills-title"><div class="resume-group-heading"><span class="eyebrow">04</span><h2 id="skills-title">Skills</h2></div><dl class="resume-skills">${skills.map(([name, detail]) => `<div><dt>${name}</dt><dd>${detail}</dd></div>`).join('')}</dl></section></div>${nextChapter('/sports/')}`;
 
-const caliguide = `${pageHero({ path: paths.caliguide, label: 'PROJECT 03 / A NEW PLACE, A CLEARER START', first: 'Finding your way', second: 'with CaliGuide.', lede: profiles.caliguide.lede, chips: profiles.caliguide.chips })}<div class="guide-banner section-pad reveal"><span class="eyebrow">EVERYDAY QUESTIONS. A PLACE TO START.</span><p>New place.<br><em>A little more familiar.</em></p><div class="tags"><span>Transportation</span><span>Housing</span><span>Banking</span><span>Education</span><span>Healthcare</span></div></div>${storySections(profiles.caliguide.sections)}${nextChapter('/editing/')}`;
-
-const sports = `${pageHero({ path: '/sports/', label: 'SPORTS / ON AND OFF THE COURT', first: 'Always', second: 'in motion.', lede: profiles.sports.lede, chips: ['Floorball', 'Center', 'Team captain'] })}<section class="sports-feature section-pad" aria-label="Floorball profile"><div class="sports-feature-stat"><span>9<em>+</em></span><p>YEARS OF FLOORBALL</p><h2>Center. Captain.<br>Always a teammate.</h2></div>${photo('floorball-purple.jpg', 'Editorial concept of a floorball stick and ball on a dark court', 'FLOORBALL')}</section>${storySections(profiles.sports.sections)}${nextChapter('/editing/')}`;
+const sports = `${pageHero({ path: '/sports/', label: 'SPORTS / COMPETITION & TEAMWORK', first: 'On the', second: 'playing field.', lede: '11+ years of floorball, school badminton, and experience leading teams on and off the court.' })}
+<div class="resume-sheet section-pad">${resumeGroup('competitive-sports', 'Competitive sports', sportsExperience, '01')}
+<section class="resume-group" id="other-sports" aria-labelledby="other-sports-title"><div class="resume-group-heading"><span class="eyebrow">02</span><h2 id="other-sports-title">Also in the mix</h2></div><p class="other-sports">Basketball · Soccer · Golf · Tennis · Rowing · Squash</p></section></div>${nextChapter('/editing/')}`;
 
 const editing = `${pageHero({ path: '/editing/', label: 'VIDEO EDITING / PICTURE + SOUND', first: 'Finding', second: 'the feeling.', lede: profiles.editing.lede, chips: ['Visual storytelling', 'Rhythm & pacing', 'Sound & color'] })}<section class="editing-feature section-pad" aria-labelledby="edit-feature-title">${editArt}<div class="editing-feature-copy reveal"><p class="eyebrow">A DIFFERENT WAY TO BUILD</p><h2 id="edit-feature-title">Every cut<br><em>counts.</em></h2><p>It’s where my technical curiosity meets my creative side — a chance to shape how a story looks, sounds, and feels.</p></div></section>${storySections(profiles.editing.sections)}${nextChapter('/interests/')}`;
 
@@ -103,10 +112,7 @@ const interests = `${pageHero({ path: '/interests/', label: 'OFF DUTY / THE OTHE
 const pages = [
   ['/', 'Always Curious', 'Sam Yang — student, builder, athlete, and creator. Explore my projects, story, sports, video editing, and interests.', home],
   ['/about/', 'About', profiles.story.lede, about],
-  ['/work/', 'Selected Work', 'Explore Legacy Garage 26, the Engineering Lab, and CaliGuide — projects by Sam Yang.', work],
-  [paths.garage, 'Legacy Garage 26', profiles.garage.lede, garage],
-  [paths.engineering, 'Engineering Lab', profiles.engineering.lede, engineering],
-  [paths.caliguide, 'CaliGuide', profiles.caliguide.lede, caliguide],
+  ['/work/', 'Work & Experience', 'Sam Yang’s projects, engineering competitions, student leadership, and technical skills.', work],
   ['/sports/', 'Sports', profiles.sports.lede, sports],
   ['/editing/', 'Video Editing', profiles.editing.lede, editing],
   ['/interests/', 'Off Duty', 'LEGO, writing, and the other things Sam Yang loves.', interests]
@@ -116,4 +122,15 @@ for (const [path, title, description, content] of pages) {
   await mkdir(directory, { recursive: true });
   await writeFile(resolve(directory, 'index.html'), documentPage({ path, title, description, content }));
 }
-console.log(`Built ${pages.length} static pages.`);
+// Keep existing bookmarks useful without maintaining individual project pages.
+const redirects = {
+  '/work/legacy-garage/': '/work/#legacy-garage',
+  '/work/engineering/': '/work/#engineering',
+  '/work/caliguide/': '/work/#caliguide'
+};
+for (const [path, target] of Object.entries(redirects)) {
+  const directory = resolve(root, 'dist', `.${path}`);
+  await mkdir(directory, { recursive: true });
+  await writeFile(resolve(directory, 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=${target}"><title>Work &amp; Experience — Sam Yang</title><link rel="canonical" href="${target}"><link rel="stylesheet" href="/styles.css"></head><body><main class="section-pad"><h1>Work &amp; experience</h1><p><a href="${target}">Continue to the experience overview ↗</a></p></main></body></html>\n`);
+}
+console.log(`Built ${pages.length} pages and ${Object.keys(redirects).length} legacy redirects.`);

@@ -2,8 +2,8 @@ import { createPortfolioMotion } from './motion.js';
 
 const legacyRoutes = {
   '#about': '/about/', '#work': '/work/', '#sports': '/sports/', '#editing': '/editing/',
-  '#profile/story': '/about/', '#profile/garage': '/work/legacy-garage/',
-  '#profile/engineering': '/work/engineering/', '#profile/caliguide': '/work/caliguide/',
+  '#profile/story': '/about/', '#profile/garage': '/work/#legacy-garage',
+  '#profile/engineering': '/work/#engineering', '#profile/caliguide': '/work/#caliguide',
   '#profile/sports': '/sports/', '#profile/editing': '/editing/'
 };
 

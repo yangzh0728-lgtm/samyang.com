@@ -1,6 +1,14 @@
 # Sam Yang — Always Curious
 
-## Current structure: separate pages
+## Current structure: grouped résumé overview
+
+Sam clarified that each broad section should be a page, while individual projects should be covered briefly within their category. The Work page follows the clear title, role/context, and concise description approach of Timmy Li's experience listing, with Sam's own black/purple styling. It contains six entries grouped into Projects & Entrepreneurship, Engineering & Innovation, and Student Leadership, followed by Skills. Category links navigate within the page; entries do not open detailed project pages.
+
+The supplied résumé screenshot is the factual source for roles, dates/grade periods, engineering competitions and recognition, education, languages, and sports results. The original Word file could not be read from its WeChat container; the later user-supplied screenshot resolved the content dependency. Contact data and original source files are not published. About now includes four education entries and languages; Sports covers floorball and badminton, including the corrected 11+ years of floorball.
+
+Six content pages remain. The three former project routes are small redirects to the corresponding Work entry, and old homepage profile hashes target those same overview anchors. `src/resume.mjs` contains the structured résumé facts. `scripts/check-pages.py` verifies the six-page/three-redirect structure, category and entry IDs, local links, and updated sports tenure.
+
+## Earlier structure: separate project pages
 
 The user asked to give each section a detailed page. The homepage is now an overview with five chapter links. Separate static pages cover About, Work, Sports, Video Editing, and Off Duty. Work links to individual Legacy Garage 26, Engineering Lab, and CaliGuide pages, for nine HTML routes including Home.
 
