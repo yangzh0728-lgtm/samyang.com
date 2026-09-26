@@ -1,31 +1,46 @@
 # Sam Yang — Always Curious
 
-A traditional, animated personal portfolio inspired by the direct personal introduction at timmy.li and the oversized editorial typography, electric purple accents, and sports energy at landonorris.com.
+A personal portfolio with separate pages for Sam's story, work, sports, video editing, and interests. Black and electric purple, editorial typography, and motion inspired by React Bits.
 
-The rejected 3D viewer, geometry, camera controls, raycasting logic, vendor dependencies, and dedicated tests have been removed. The garage survives only as the name of Sam's real restoration project, Legacy Garage 26.
+## Pages
 
-## Run
+- `/` — a concise introduction and visual chapter directory.
+- `/about/` — background, interests, and values.
+- `/work/` — selected projects.
+- `/work/legacy-garage/` — the Corvair restoration and storytelling project.
+- `/work/engineering/` — robotics, CAD, prototyping, and experiments.
+- `/work/caliguide/` — the newcomer guide and product idea.
+- `/sports/` — floorball, teamwork, and other sports.
+- `/editing/` — video editing, pacing, and visual storytelling.
+- `/interests/` — LEGO, writing, and curiosity outside the main projects.
 
-`python3 -m http.server 4173 --bind 127.0.0.1 --directory dist`
+Every route is a static HTML document, so direct links, refresh, browser history, navigation, and content work without client-side routing. Older homepage section/profile hashes redirect to their corresponding pages when JavaScript is enabled.
 
-Open http://127.0.0.1:4173. No installation or build is required.
+## Build and run
+
+```sh
+node scripts/build-pages.mjs
+python3 scripts/check-pages.py
+python3 -m http.server 4173 --bind 127.0.0.1 --directory dist
+```
+
+Open http://127.0.0.1:4173/. No package installation is required.
 
 ## Edit
 
-- Page content: `dist/index.html`.
-- Layout, type, responsive behavior, and animations: `dist/styles.css`.
-- Full project and personal stories, dialogs, motion control, section reveals: `dist/app.js`.
-- Split-letter entrances, biography scroll reveal, card spotlights and magnetic arrows: `dist/motion.js`.
-- Images: `dist/assets/corvair-purple.jpg` and `dist/assets/floorball-purple.jpg`.
+- Shared page layout, navigation, and page-specific sections: `scripts/build-pages.mjs`.
+- Existing detailed profile copy: `src/profiles.mjs`.
+- Reusable hero, project list, and editing artwork: `src/*.html`.
+- Shared styling: `dist/styles.css`.
+- Motion preferences, scroll entrances, and old-link compatibility: `dist/app.js`.
+- React Bits-inspired typography, spotlights, and magnetic arrows: `dist/motion.js`.
 
-## Interactions and accessibility
+Run the build after changing templates or profile copy. Generated `dist/**/index.html` files are committed for static hosting.
 
-Navigation anchors scroll to Work, About, Sports, and Editing. Project buttons open native modal dialogs with Escape dismissal, focus containment and focus restoration. Existing `#profile/garage`, `#profile/engineering`, `#profile/caliguide`, `#profile/sports`, and `#profile/story` URLs remain supported; `#profile/editing` opens the video-editing story.
+## Motion and accessibility
 
-The ticker, entrance animations, scroll reveals, editing timeline, rotating accent, and hover transitions respect reduced-motion preferences and the visible motion toggle. Core summaries and biography remain readable without JavaScript. The editing timeline is decorative; it does not imply a playable showreel.
-
-Motion ideas draw on [React Bits](https://www.reactbits.dev/): Split Text, Scroll Reveal, Spotlight Card, Magnet, and Aurora. These are original native-JavaScript/CSS adaptations for this static site, with no React, GSAP, WebGL, or third-party component code added. The hero's violet background pauses out of view; pointer effects apply to fine pointers. Motion off cancels active entrance animations and restores fully readable text.
+Motion ideas draw on [React Bits](https://www.reactbits.dev/): Split Text, Scroll Reveal, Spotlight Card, Magnet, and Aurora. These are original JavaScript/CSS adaptations, with no React, GSAP, WebGL, or third-party component code added. Motion off carries between pages for the session and cancels entrances, animated backgrounds, and pointer effects. OS reduced motion sets the default. Native links, skip links, breadcrumbs, active navigation, and page tables of contents support navigation.
 
 ## Content and artwork
 
-Biography and project details use Sam's supplied notes. The two photographic-style images are generated editorial concepts, labeled as such on the page; they are not photographs of Sam's actual vehicle, equipment, or restoration results. No portrait, awards, contact address, or social accounts were invented.
+Copy builds on Sam's supplied notes and existing profile stories. The car and floorball images are labeled editorial concepts, not photos of Sam's actual vehicle or equipment. The video-editing timeline is decorative, not a playable showreel. No awards, project results, software expertise, or contact details were invented.

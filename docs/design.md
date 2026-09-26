@@ -1,5 +1,17 @@
 # Sam Yang — Always Curious
 
+## Current structure: separate pages
+
+The user asked to give each section a detailed page. The homepage is now an overview with five chapter links. Separate static pages cover About, Work, Sports, Video Editing, and Off Duty. Work links to individual Legacy Garage 26, Engineering Lab, and CaliGuide pages, for nine HTML routes including Home.
+
+Each detailed story has an introduction, existing profile content presented as full sections, a table of contents, and a next-chapter link. Shared navigation, footer links, breadcrumbs, and active section styling make the page hierarchy clear. The old modal UI and event handlers are removed. Old section and profile hashes redirect to their corresponding pages, while native links handle normal navigation and browser history.
+
+Templates live in `scripts/build-pages.mjs` and `src/`. Generated static HTML is committed in `dist/`. The shared motion module tolerates pages without a homepage hero or biography. Motion preferences persist in session storage, with a pre-paint reduced-motion check on each page. No new personal achievements or project results were added.
+
+Verified all nine routes' local links, assets, anchors, and heading structure using `scripts/check-pages.py`. Browser checks covered navigation between chapters and projects, project table-of-contents anchors, direct page refresh, browser Back, old profile-link redirection, and motion preference persistence. Desktop and mobile layouts were visually reviewed; checked 320px and 390px widths for overflow. Browser console reported no errors or warnings.
+
+The entries below record the earlier iterations of the design.
+
 ## Current direction
 
 The user rejected the 3D garage and explicitly requested a traditional site referencing https://www.timmy.li/ and https://landonorris.com/. Both references were inspected in the browser. Timmy's direct introduction and minimal navigation informed the structure. Lando's scale, mixed typography, and athlete-oriented editorial sections informed the visual design; Sam selected the final black and purple palette. No reference artwork or branding was copied.

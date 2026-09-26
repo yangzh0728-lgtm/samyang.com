@@ -3,9 +3,9 @@
 export function createPortfolioMotion({ paused = false } = {}) {
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const activeAnimations = new Set();
-  const hero = document.querySelector('.hero');
+  const hero = document.querySelector('.hero, .page-hero');
   const statement = document.querySelector('.intro-statement');
-  const spotlights = [...document.querySelectorAll('.project-cover, .project-image, .edit-art')];
+  const spotlights = [...document.querySelectorAll('.project-cover, .project-image, .edit-art, .chapter-card')];
   const magneticTargets = [...document.querySelectorAll('.round-link, .text-link')].map(control => ({
     control, arrow: control.querySelector('span:last-child')
   })).filter(target => target.arrow);
@@ -23,7 +23,7 @@ export function createPortfolioMotion({ paused = false } = {}) {
 
   // Preserve the heading's accessible name while its visual letters move separately.
   let letterIndex = 0;
-  hero.classList.add('split-ready');
+  hero?.classList.add('split-ready');
   document.querySelectorAll('.hero-name, .hero h1 > em').forEach(word => {
     const letters = [...word.textContent].map(character => {
       const letter = document.createElement('span');
@@ -42,30 +42,32 @@ export function createPortfolioMotion({ paused = false } = {}) {
   });
 
   // Keep the italic words and highlight intact when splitting the biography.
-  statement.setAttribute('aria-label', statement.textContent);
-  const walker = document.createTreeWalker(statement, NodeFilter.SHOW_TEXT);
-  const textNodes = [];
-  while (walker.nextNode()) textNodes.push(walker.currentNode);
   const words = [];
-  textNodes.forEach(node => {
-    const fragment = document.createDocumentFragment();
-    node.textContent.split(/(\s+)/).forEach(part => {
-      if (!part.trim()) fragment.append(document.createTextNode(part));
-      else {
-        const word = document.createElement('span');
-        word.className = 'scroll-word';
-        word.textContent = part;
-        word.setAttribute('aria-hidden', 'true');
-        words.push(word);
-        fragment.append(word);
-      }
+  if (statement) {
+    statement.setAttribute('aria-label', statement.textContent);
+    const walker = document.createTreeWalker(statement, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    textNodes.forEach(node => {
+      const fragment = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(part => {
+        if (!part.trim()) fragment.append(document.createTextNode(part));
+        else {
+          const word = document.createElement('span');
+          word.className = 'scroll-word';
+          word.textContent = part;
+          word.setAttribute('aria-hidden', 'true');
+          words.push(word);
+          fragment.append(word);
+        }
+      });
+      node.replaceWith(fragment);
     });
-    node.replaceWith(fragment);
-  });
+  }
 
   function renderScroll() {
     frame = 0;
-    if (isPaused || document.hidden || !visibleStatement) return;
+    if (!statement || isPaused || document.hidden || !visibleStatement) return;
     const bounds = statement.getBoundingClientRect();
     const progress = Math.min(1, Math.max(0, (innerHeight * .9 - bounds.top) / (innerHeight * .46)));
     words.forEach((word, index) => {
@@ -87,7 +89,7 @@ export function createPortfolioMotion({ paused = false } = {}) {
       visibleStatement = entries[0].isIntersecting;
       if (visibleStatement) scheduleScroll();
     }, { rootMargin: '15% 0px' });
-    scrollObserver.observe(statement);
+    if (statement) scrollObserver.observe(statement);
 
     // Give section titles a short, staggered entrance as they arrive in view.
     const headingObserver = new IntersectionObserver(entries => {
@@ -107,7 +109,7 @@ export function createPortfolioMotion({ paused = false } = {}) {
     const heroObserver = new IntersectionObserver(entries => {
       hero.classList.toggle('motion-out-of-view', !entries[0].isIntersecting);
     });
-    heroObserver.observe(hero);
+    if (hero) heroObserver.observe(hero);
   }
 
   spotlights.forEach(card => {
