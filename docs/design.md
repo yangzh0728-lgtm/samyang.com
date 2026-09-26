@@ -77,3 +77,8 @@ User supplied React Bits as an animation reference. Inspected the live examples 
 The implementation is original JavaScript/CSS rather than copied React component source. It preserves the traditional scrolling layout, contains no 3D scene or canvas, and introduces no external dependencies. Name and biography accessible labels remain intact. Motion off cancels Web Animations, clears pointer effects, and restores readable words; OS reduced motion sets the initial paused state. The hero background pauses when out of view and CSS animations pause when the page is hidden.
 
 Verified progressive and complete biography states in the browser, the pointer spotlight, the hero's out-of-view pause, the editing profile dialog, and motion-off styles. Desktop and 390px hero screenshots reviewed; no page overflow at 390px or 320px. Both JavaScript modules pass syntax checks. Browser console has no errors or warnings.
+
+
+## September 2026: official React Bits motion
+
+The current implementation replaces the earlier vanilla-JavaScript interpretations with nine upstream React Bits components. See `motion-plan.md` for the design and `../src/vendor/react-bits/README.md` for the pinned source and modifications. The purple Aurora, rotating roles, scroll ribbon, blurred entrances, tilted chapter cards, spotlights, magnets, and click sparks make motion a prominent part of the visual identity. Content, routes, and résumé structure are unchanged.

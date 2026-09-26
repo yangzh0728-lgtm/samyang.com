@@ -1,6 +1,6 @@
 # Sam Yang — Always Curious
 
-A personal portfolio with concise résumé-style entries for work, education, and sports. Black and electric purple, editorial typography, and motion inspired by React Bits.
+A personal portfolio with concise résumé-style entries for work, education, and sports. Black and electric purple, editorial typography, and nine official React Bits animation components.
 
 ## Pages
 
@@ -18,12 +18,13 @@ Every route is a static HTML document, so direct links, refresh, browser history
 ## Build and run
 
 ```sh
-node scripts/build-pages.mjs
-python3 scripts/check-pages.py
-python3 -m http.server 4173 --bind 127.0.0.1 --directory dist
+npm ci
+npm run build
+npm run check
+npm run preview
 ```
 
-Open http://127.0.0.1:4173/. No package installation is required.
+Open http://127.0.0.1:4173/. The site is static HTML with locally bundled React animation islands. Node.js 22+ and Python 3 are required for the build and preview commands.
 
 ## Edit
 
@@ -32,14 +33,20 @@ Open http://127.0.0.1:4173/. No package installation is required.
 - Short biography and editing copy: `src/profiles.mjs`.
 - Reusable homepage hero and editing artwork: `src/*.html`.
 - Shared styling: `dist/styles.css`.
-- Motion preferences, scroll entrances, and old-link compatibility: `dist/app.js`.
-- React Bits-inspired typography, spotlights, and magnetic arrows: `dist/motion.js`.
+- Motion preferences, scroll entrances, and old-link compatibility: `src/app.js`.
+- React Bits mounting, pause/resume, and responsive effects: `src/motion/`.
+- Pinned upstream components and license: `src/vendor/react-bits/`.
+- The esbuild animation bundle: `scripts/build-motion.mjs`.
 
-Run the build after changing templates or profile copy. Generated `dist/**/index.html` files are committed for static hosting.
+Run `npm run build` after changing source, templates, or profile copy. Generated `dist/**/index.html` files are committed for static hosting.
 
 ## Motion and accessibility
 
-Motion ideas draw on [React Bits](https://www.reactbits.dev/): Split Text, Scroll Reveal, Spotlight Card, Magnet, and Aurora. These are original JavaScript/CSS adaptations, with no React, GSAP, WebGL, or third-party component code added. Motion off carries between pages for the session and cancels entrances, animated backgrounds, and pointer effects. OS reduced motion sets the default. Native links, skip links, breadcrumbs, active navigation, and page tables of contents support navigation.
+The site uses the official [React Bits](https://www.reactbits.dev/) source for Aurora, BlurText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, and ClickSpark. Upstream is pinned and licensed in `src/vendor/react-bits/README.md`. React, Motion, and OGL are bundled locally; there is no runtime component CDN.
+
+The homepage has a moving violet Aurora, blurred letter entrances, a rotating role label, a scroll-responsive ribbon, tilted/spotlit chapter cards, a magnetic link, and click sparks. Inner pages share the Aurora, decrypting labels, blurred heading entrances, and click sparks; résumé entries also have a pointer spotlight.
+
+Motion off restores static HTML, removes animation roots and canvases, and carries between pages for the session. OS reduced motion sets the default. Continuous effects unmount outside the viewport and in hidden tabs. Click sparks render only while active. Touch uses ordinary tap navigation without card tilt. The background has a non-WebGL fallback, and all six pages remain readable without JavaScript. Native links, skip links, breadcrumbs, active navigation, and category anchors remain intact.
 
 ## Content and artwork
 
