@@ -22,3 +22,32 @@ body.motion-paused *,body.motion-paused *:before,body.motion-paused *:after{anim
 .off-duty{border-top:1px solid #bf85ff;border-bottom:1px solid #bf85ff}
 .site-footer{background:#09070d}
 .project-image-button:focus-visible .image-open{background:var(--accent);color:var(--ink)}
+
+/* The editing timeline is a decorative expression of Sam's creative interests. */
+.editing{background:var(--bg)}
+.editing .section-kicker{color:var(--accent)}
+.editing-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:8%;align-items:center}
+.edit-art{min-width:0;padding:28px;background:#1c102b;border:1px solid #b36bff55;overflow:hidden}
+.edit-art-top{display:flex;justify-content:space-between;gap:15px;font-size:10px;letter-spacing:.08em;color:#c99afa}
+.edit-art-title{padding:48px 0 55px;font:600 clamp(64px,7.2vw,120px)/.9 var(--condensed);letter-spacing:-.04em;white-space:nowrap}
+.edit-art-title em{display:block;font-size:1.22em;line-height:1;color:var(--accent);padding-left:13%}
+.edit-timeline{position:relative;border-top:1px solid #b36bff55;padding-top:13px;overflow:hidden}
+.edit-ruler{display:flex;justify-content:space-between;font:10px/1.5 ui-monospace,monospace;color:#c5addc;margin-bottom:15px}
+.edit-track{display:flex;gap:5px;margin-top:6px;height:45px;font-size:9px;letter-spacing:.05em}
+.edit-track-picture>span{display:flex;align-items:center;padding:0 11px;background:var(--accent);color:var(--ink);flex:1}
+.edit-track-picture>span:nth-child(2){flex:1.4;background:#dcc0ff}
+.edit-track-picture>span:nth-child(3){background:#9153d3;color:var(--ink)}
+.edit-track-sound{background:#352149;color:#dfbcff;align-items:center;padding:0 11px}
+.edit-track-sound>i{flex:1;height:21px;margin-left:13px;background:repeating-linear-gradient(90deg,transparent 0 3px,#b36bff 3px 5px,transparent 5px 8px);clip-path:polygon(0 35%,8% 18%,16% 40%,24% 0,32% 28%,40% 12%,48% 35%,56% 2%,64% 22%,72% 5%,80% 32%,88% 15%,100% 35%,100% 65%,88% 85%,80% 68%,72% 95%,64% 78%,56% 98%,48% 65%,40% 88%,32% 72%,24% 100%,16% 60%,8% 82%,0 65%)}
+.edit-playhead{position:absolute;left:12%;top:0;bottom:0;width:1px;background:var(--white);box-shadow:0 0 9px #f5efff44;animation:edit-scrub 9s ease-in-out infinite alternate}
+.edit-playhead:before{content:'';position:absolute;top:0;left:-4px;width:9px;height:9px;background:var(--white);clip-path:polygon(0 0,100% 0,100% 55%,50% 100%,0 55%)}
+.editing-copy{min-width:0}
+.editing-copy>.eyebrow{color:var(--muted);margin-bottom:24px}
+.editing-copy h2{font:600 clamp(55px,6.5vw,105px)/.85 var(--condensed);letter-spacing:-.035em;text-transform:uppercase;margin-bottom:30px}
+.editing-copy h2 em{text-transform:none;line-height:1.15;color:var(--accent);font-size:1.06em}
+.editing-copy>p:not(.eyebrow){font-size:16px;line-height:1.75;color:#bbb2cc;margin-bottom:17px;max-width:420px}
+.editing-copy .tags{margin-top:25px}
+.editing-copy .text-link{width:100%;color:var(--accent)}
+@keyframes edit-scrub{from{left:12%}to{left:87%}}
+@media(max-width:900px){.editing-grid{gap:5%}.edit-art{padding:22px}.edit-art-title{font-size:8vw}.edit-track{font-size:8px}.edit-track-picture>span{padding:0 7px}.editing-copy h2{font-size:67px}}
+@media(max-width:600px){.site-header{gap:12px}.site-header nav{gap:13px;font-size:11px}.editing-grid{grid-template-columns:1fr;gap:35px}.edit-art{padding:22px}.edit-art-title{font-size:19vw;padding:35px 0 40px}.edit-art-top{font-size:9px}.edit-track{font-size:8px;height:38px}.editing-copy h2{font-size:75px}.editing-copy>.eyebrow{margin-bottom:18px}.editing-copy>p:not(.eyebrow){font-size:16px}.editing-copy .tags{gap:6px}.editing-copy .tags span{font-size:11px}}

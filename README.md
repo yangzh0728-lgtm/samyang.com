@@ -19,9 +19,9 @@ Open http://127.0.0.1:4173. No installation or build is required.
 
 ## Interactions and accessibility
 
-Navigation anchors scroll to Work, About, and Sports. Project buttons open native modal dialogs with Escape dismissal, focus containment and focus restoration. Existing `#profile/garage`, `#profile/engineering`, `#profile/caliguide`, `#profile/sports`, and `#profile/story` URLs remain supported.
+Navigation anchors scroll to Work, About, Sports, and Editing. Project buttons open native modal dialogs with Escape dismissal, focus containment and focus restoration. Existing `#profile/garage`, `#profile/engineering`, `#profile/caliguide`, `#profile/sports`, and `#profile/story` URLs remain supported; `#profile/editing` opens the video-editing story.
 
-The ticker, entrance animations, scroll reveals, rotating accent, and hover transitions respect reduced-motion preferences and the visible motion toggle. Core summaries and biography remain readable without JavaScript.
+The ticker, entrance animations, scroll reveals, editing timeline, rotating accent, and hover transitions respect reduced-motion preferences and the visible motion toggle. Core summaries and biography remain readable without JavaScript. The editing timeline is decorative; it does not imply a playable showreel.
 
 ## Content and artwork
 

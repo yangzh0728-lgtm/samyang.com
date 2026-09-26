@@ -8,7 +8,7 @@ The user rejected the 3D garage and explicitly requested a traditional site refe
 
 - Semantic scrolling portfolio: name-led hero, biography, selected work, sports, personal interests and footer.
 - Black and deep violet sections, electric purple accents, pale neutral text; DM Sans, Instrument Serif and Barlow Condensed.
-- All five existing full profiles retained as accessible native dialogs.
+- All five existing full profiles retained as accessible native dialogs, plus a video-editing profile.
 - Entrance animations, marquee, scroll reveals, hover treatments and optional motion.
 - All 3D components, vendored Three.js files and obsolete interaction tests deleted.
 - LEGO passion remains in the personal-interests text.
@@ -37,3 +37,9 @@ User requested black and purple for a cool punk feel. Replaced cream sections wi
 Both editorial concepts were edited with imagegen to replace lime lighting and court markings with violet. Edited source images: `/private/tmp/sam-purple-assets/corvair-editorial-purple.png` and `/private/tmp/sam-purple-assets/floorball-editorial-purple.png`. Final JPEGs retain 1400 × 933 dimensions.
 
 Main text color pairings have contrast ratios of at least 6.1:1, including purple-on-black and text over the solid purple section.
+
+## Video editing
+
+Sam requested that the portfolio show his passion for video editing. A dedicated section after Sports pairs oversized editorial type with a decorative purple editing timeline. A moving playhead follows the site's motion control and reduced-motion preference. The new Editing navigation link and Behind the edit button lead to the section and an accessible profile dialog. The biography also includes this interest. Copy describes the passion without inventing specific software, films, clients, or achievements; no playable showreel is implied.
+
+Verified the desktop and 390px section visually, and confirmed no horizontal overflow at 390px or 320px. The new dialog opens with the correct heading, Escape closes it and returns focus, and the motion toggle disables the playhead animation. Navigation fits at 320px. JavaScript syntax and diff whitespace checks pass; the browser reported no errors or warnings.

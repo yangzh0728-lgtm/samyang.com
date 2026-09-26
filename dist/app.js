@@ -34,16 +34,25 @@ const profiles = {
       ['The idea', 'Moving is exciting. Figuring out unfamiliar systems can be overwhelming. CaliGuide brings practical information together so people have a clearer place to start.'],
       ['Everyday questions', ['DMV and transportation', 'Banking and housing', 'Education and healthcare']],
       ['What I’m learning', 'How to organize information around real questions, make a website easier to use, and turn a personal experience into something useful for other people.']
-    ], next: 'garage'
+    ], next: 'editing'
   },
   story: {
     eyebrow: '05 / STUDENT · BUILDER · ATHLETE', title: 'Sam Yang', location: 'THE PHOTO WALL / MY PROFILE', position: '13% top', mobileLabel: 'My profile',
-    lede: 'I’m a high school student interested in engineering, entrepreneurship, sports, and storytelling. I like turning curiosity into something I can build, test, or share.', chips: ['Hangzhou', 'Canada', 'California'],
+    lede: 'I’m a high school student interested in engineering, entrepreneurship, sports, and video editing. I like turning curiosity into something I can build, test, or share.', chips: ['Hangzhou', 'Canada', 'California'],
     sections: [
       ['A few different places', 'I grew up in Hangzhou, studied in Canada, and now attend school in California. Moving between different environments made me curious about how people, systems, and technology connect.'],
       ['Making things happen', 'I enjoy the people side of a project too: bringing a team together, telling the story, and figuring out how an idea can become useful to someone else.'],
-      ['Away from the workbench', 'Sports, community, and writing give me other ways to explore. This is a place to share the different things I’m learning and building.']
+      ['Away from the workbench', 'Sports, video editing, LEGO, and writing give me other ways to explore. This is a place to share the different things I’m learning and building.']
     ], next: 'sports'
+  },
+  editing: {
+    eyebrow: '06 / VIDEO EDITING · VISUAL STORYTELLING', title: 'Finding the story in the cut', mobileLabel: 'Video editing',
+    lede: 'Video editing is one of my creative passions. I love taking individual moments and shaping them into a story that feels like something.', chips: ['Video editing', 'Storytelling', 'Picture + sound'],
+    sections: [
+      ['Why I edit', 'An edit can change the way a moment feels. A different cut, a little more space, or the right sound can give the same footage a completely different energy. That is what keeps me curious.'],
+      ['The details I love', ['Finding a rhythm between the footage and the sound', 'Choosing what to keep, what to cut, and when to let a moment breathe', 'Using color and pacing to give a story its own mood']],
+      ['Another way to build', 'Like engineering, editing is a process of trying something, watching it back, and refining it. I enjoy that mix of technical decisions and creative instinct.']
+    ], next: 'garage'
   }
 };
 
