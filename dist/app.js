@@ -173,5 +173,5 @@ if ('IntersectionObserver' in window) {
       });
     });
   }, { rootMargin: '-20% 0px -45% 0px' });
-  document.querySelectorAll('main > section[id]').forEach(section => navigation.observe(section));
+  document.querySelectorAll('.hero, main > section[id]').forEach(section => navigation.observe(section));
 }
