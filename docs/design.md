@@ -2,12 +2,12 @@
 
 ## Current direction
 
-The user rejected the 3D garage and explicitly requested a traditional site referencing https://www.timmy.li/ and https://landonorris.com/. Both references were inspected in the browser. Timmy's direct introduction and minimal navigation informed the structure. Lando's scale, mixed typography, lime accent, and athlete-oriented editorial sections informed the visual design. No reference artwork or branding was copied.
+The user rejected the 3D garage and explicitly requested a traditional site referencing https://www.timmy.li/ and https://landonorris.com/. Both references were inspected in the browser. Timmy's direct introduction and minimal navigation informed the structure. Lando's scale, mixed typography, and athlete-oriented editorial sections informed the visual design; Sam selected the final black and purple palette. No reference artwork or branding was copied.
 
 ## Implementation
 
 - Semantic scrolling portfolio: name-led hero, biography, selected work, sports, personal interests and footer.
-- Dark charcoal, bright lime, near-white sections; DM Sans, Instrument Serif and Barlow Condensed.
+- Black and deep violet sections, electric purple accents, pale neutral text; DM Sans, Instrument Serif and Barlow Condensed.
 - All five existing full profiles retained as accessible native dialogs.
 - Entrance animations, marquee, scroll reveals, hover treatments and optional motion.
 - All 3D components, vendored Three.js files and obsolete interaction tests deleted.
@@ -29,3 +29,11 @@ Corvair source: /Users/mac/.codex/generated_images/01a0dc55-5f3b-7083-a9f5-cc60c
 Floorball source: /Users/mac/.codex/generated_images/01a0dc55-5f3b-7083-a9f5-cc60c9725ee4/exec-ec0c71c4-3ece-416b-88c4-59bffc65fe02.png
 
 Original images produced by built-in imagegen and converted to optimized JPEGs using sips. Concept captions remain visible on the site.
+
+## Black and purple update
+
+User requested black and purple for a cool punk feel. Replaced cream sections with deep violet-black, moved all accent tokens to electric purple, updated cards, dialogs, favicon, focus styles, and sharpened the arrow controls. Existing layout, content and animations are retained.
+
+Both editorial concepts were edited with imagegen to replace lime lighting and court markings with violet. Edited source images: `/private/tmp/sam-purple-assets/corvair-editorial-purple.png` and `/private/tmp/sam-purple-assets/floorball-editorial-purple.png`. Final JPEGs retain 1400 × 933 dimensions.
+
+Main text color pairings have contrast ratios of at least 6.1:1, including purple-on-black and text over the solid purple section.

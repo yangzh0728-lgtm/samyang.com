@@ -1,6 +1,6 @@
 # Sam Yang — Always Curious
 
-A traditional, animated personal portfolio inspired by the direct personal introduction at timmy.li and the oversized editorial typography, lime accents, and sports energy at landonorris.com.
+A traditional, animated personal portfolio inspired by the direct personal introduction at timmy.li and the oversized editorial typography, electric purple accents, and sports energy at landonorris.com.
 
 The rejected 3D viewer, geometry, camera controls, raycasting logic, vendor dependencies, and dedicated tests have been removed. The garage survives only as the name of Sam's real restoration project, Legacy Garage 26.
 
@@ -15,7 +15,7 @@ Open http://127.0.0.1:4173. No installation or build is required.
 - Page content: `dist/index.html`.
 - Layout, type, responsive behavior, and animations: `dist/styles.css`.
 - Full project and personal stories, dialogs, motion control, section reveals: `dist/app.js`.
-- Images: `dist/assets/corvair-editorial.jpg` and `dist/assets/floorball-editorial.jpg`.
+- Images: `dist/assets/corvair-purple.jpg` and `dist/assets/floorball-purple.jpg`.
 
 ## Interactions and accessibility
 
