@@ -2,6 +2,7 @@ import { Component, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import Aurora from '../vendor/react-bits/Aurora';
 import BlurText from '../vendor/react-bits/BlurText';
+import GlitchText from '../vendor/react-bits/GlitchText';
 import DecryptedText from '../vendor/react-bits/DecryptedText';
 import RotatingText from '../vendor/react-bits/RotatingText';
 import ScrollVelocity from '../vendor/react-bits/ScrollVelocity';
@@ -11,6 +12,8 @@ import Magnet from '../vendor/react-bits/Magnet';
 import ClickSpark from '../vendor/react-bits/ClickSpark';
 import './portfolio.css';
 import './chapters.css';
+import './zine.css';
+import './stickers.css';
 
 // Continuous effects sleep outside the viewport and in background tabs.
 function ActiveEffect({ host, children, fallback = null }) {
@@ -52,16 +55,19 @@ export function createPortfolioMotion({ paused = false } = {}) {
     <Aurora colorStops={auroraColors} amplitude={1.25} blend={.55} speed={1.05} />
   </ActiveEffect>, 'rb-aurora');
 
-  register('.hero-name, .hero h1 > em, .page-title > span, .page-title > em, .resume-group-heading h2, .story-section h2',
+  register('.hero-name, .hero h1 > em, .footer-name > span, .footer-name > em',
+    ({ text }) => <span aria-hidden="true"><GlitchText as="span" enableOnHover speed={.35} className="zine-glitch">{text}</GlitchText></span>, 'rb-heading', { label: true });
+
+  register('.page-title > span, .page-title > em, .resume-group-heading h2, .story-section h2',
     ({ text, host }) => <span aria-hidden="true"><BlurText as="span" text={text} animateBy={host.closest('.hero') ? 'letters' : 'words'}
-      delay={host.closest('h1') ? 65 : 85} direction="bottom" stepDuration={.36} className="rb-blur"
-      animationFrom={{ filter: 'blur(18px)', opacity: 0, y: 65, rotate: 4 }}
-      animationTo={[{ filter: 'blur(7px)', opacity: .6, y: -5, rotate: -1 }, { filter: 'blur(0)', opacity: 1, y: 0, rotate: 0 }]} />
+      delay={25} direction="bottom" stepDuration={.06} className="rb-blur"
+      animationFrom={{ filter: 'none', opacity: 1, x: -7, y: 3 }}
+      animationTo={[{ x: 7, y: -2 }, { x: -3, y: 1 }, { x: 0, y: 0 }]} />
     </span>, 'rb-heading', { label: true });
 
   register('.hero-top .eyebrow:first-child, .page-hero > .eyebrow, .section-kicker > .eyebrow:first-child, .hero-index > span:first-child',
     ({ text }) => <span aria-hidden="true"><DecryptedText text={text} animateOn="inViewHover" speed={38}
-      maxIterations={15} characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_/" encryptedClassName="rb-encrypted"
+      maxIterations={8} characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_/" encryptedClassName="rb-encrypted"
       parentClassName="rb-decrypt" /></span>, 'rb-label', { label: true });
 
   register('.rotating-role', ({ host, text }) => <ActiveEffect host={host} fallback={text}>
@@ -71,7 +77,7 @@ export function createPortfolioMotion({ paused = false } = {}) {
   </ActiveEffect>);
 
   register('.ticker', ({ host }) => <ActiveEffect host={host} fallback={<div className="rb-ticker-static">BUILD. PLAY. REPEAT. ✳ ALWAYS CURIOUS. ✳</div>}>
-    <ScrollVelocity texts={['BUILD. PLAY. REPEAT. ✳ ALWAYS CURIOUS. ✳']} velocity={70} numCopies={4}
+    <ScrollVelocity texts={['BUILD. PLAY. REPEAT. ✳ ALWAYS CURIOUS. ✳']} velocity={55} stutter={true} numCopies={4}
       velocityMapping={{ input: [0, 1000], output: [0, 3] }} className="rb-ticker-copy"
       parallaxClassName="rb-parallax" scrollerClassName="rb-scroller" />
   </ActiveEffect>, 'rb-ticker');

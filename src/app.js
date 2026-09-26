@@ -1,4 +1,5 @@
 import { createPortfolioMotion } from './motion/portfolio.jsx';
+import { createStickerWall } from './interactions/sticker-wall.js';
 
 const legacyRoutes = {
   '#about': '/about/', '#work': '/work/', '#sports': '/sports/', '#editing': '/editing/',
@@ -18,6 +19,7 @@ function redirectLegacyLink() {
 window.addEventListener('hashchange', redirectLegacyLink);
 
 if (!redirectLegacyLink()) {
+  createStickerWall();
   const motionButton = document.querySelector('.motion-toggle');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let savedMotion;
@@ -54,6 +56,7 @@ if (!redirectLegacyLink()) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.remove('reveal-pending');
+          if (!motionPaused) entry.target.classList.add('glitch-enter');
           observer.unobserve(entry.target);
         }
       });

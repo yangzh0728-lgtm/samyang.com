@@ -6,11 +6,11 @@ export const profiles = {
     "lede": "Floorball has been part of my life for 11+ years. As a former team captain and starting center, I’ve competed in regional and national youth tournaments."
   },
   "editing": {
-    "lede": "Video editing is one of my creative passions. I love taking individual moments and shaping them into a story that feels like something.",
+    "lede": "I cut footage. Move things around. Watch it again. Keep the parts that make me feel something.",
     "sections": [
       [
         "Why I edit",
-        "An edit can change the way a moment feels. A different cut, a little more space, or the right sound can give the same footage a completely different energy. That is what keeps me curious."
+        "The same footage can tell a different story. Change the cut. Leave a pause. Find the right sound. That’s the part I love."
       ],
       [
         "The details I love",
@@ -22,7 +22,7 @@ export const profiles = {
       ],
       [
         "Another way to build",
-        "Like engineering, editing is a process of trying something, watching it back, and refining it. I enjoy that mix of technical decisions and creative instinct."
+        "Try it. Watch it. Change it. Editing scratches the same itch as building something: small decisions can change everything."
       ]
     ]
   }

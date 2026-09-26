@@ -31,6 +31,7 @@ export const ScrollVelocity = ({
   scrollContainerRef,
   texts = [],
   velocity = 100,
+  stutter = false,
   className = '',
   damping = 50,
   stiffness = 400,
@@ -81,7 +82,8 @@ export const ScrollVelocity = ({
 
     const x = useTransform(baseX, v => {
       if (copyWidth === 0) return '0px';
-      return `${wrap(-copyWidth, 0, v)}px`;
+      const position = wrap(-copyWidth, 0, v);
+      return `${stutter ? Math.round(position / 5) * 5 : position}px`;
     });
 
     const directionFactor = useRef(1);

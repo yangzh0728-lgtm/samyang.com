@@ -5,8 +5,8 @@ import { profiles } from '../src/profiles.mjs';
 import { experienceGroups, education, sportsExperience, skills, languages } from '../src/resume.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const [homeHero, editArt, chapterDirectory] = await Promise.all(
-  ['home-hero.html', 'edit-art.html', 'chapter-directory.html'].map(file => readFile(resolve(root, 'src', file), 'utf8'))
+const [homeHero, editArt, chapterDirectory, stickerWall] = await Promise.all(
+  ['home-hero.html', 'edit-art.html', 'chapter-directory.html', 'sticker-wall.html'].map(file => readFile(resolve(root, 'src', file), 'utf8'))
 );
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const slug = value => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -22,9 +22,9 @@ function header(current) {
 }
 
 function footer() {
-  return `<footer class="site-footer"><div class="footer-top"><p>KEEP LEARNING.<br>KEEP BUILDING.</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+  return `<footer class="site-footer"><div class="footer-top"><p>MAKE STUFF.<br>KEEP GOING.</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
     <nav class="footer-nav" aria-label="Explore the site">${['/', '/about/', '/work/', '/sports/', '/editing/', '/interests/'].map(url => `<a href="${url}">${names[url]}</a>`).join('')}</nav>
-    <div class="footer-name" aria-hidden="true">Sam <em>Yang.</em></div><div class="footer-bottom"><span>© <span id="year">2026</span> SAM YANG</span><span>STUDENT. BUILDER. ATHLETE. CREATOR.</span><span>ALWAYS CURIOUS.</span></div></footer>`;
+    <div class="footer-name" aria-hidden="true"><span>Sam</span> <em>Yang.</em></div><div class="footer-bottom"><span>© <span id="year">2026</span> SAM YANG</span><span>STUDENT. BUILDER. ATHLETE. CREATOR.</span><span>ALWAYS CURIOUS.</span></div></footer>`;
 }
 
 function documentPage({ path, title, description, content }) {
@@ -35,7 +35,7 @@ function documentPage({ path, title, description, content }) {
   <title>${escape(title)} — Sam Yang</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23b36bff'/%3E%3Ctext x='20' y='27' text-anchor='middle' font-family='Arial' font-size='21' font-weight='bold' fill='%2309070d'%3ESY%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;450;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;450;500;600;700&family=Black+Ops+One&display=swap" rel="stylesheet">
   <script>try{const p=sessionStorage.getItem('sam-motion');document.documentElement.classList.toggle('motion-static',p==='off'||(p!=='on'&&matchMedia('(prefers-reduced-motion: reduce)').matches));}catch{}</script>
   <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/app.css"><script type="module" src="/app.js"></script>
 </head><body id="top" data-page="${path}"${['/about/', '/work/', '/sports/'].includes(path) ? ' class="resume-page"' : ''}>
@@ -81,7 +81,7 @@ const about = `${pageHero({ path: '/about/', label: 'ABOUT / SAM ZHIHUAN YANG', 
 <div class="resume-sheet section-pad">${resumeGroup('education', 'Education', education, '01')}
 <section class="resume-group" id="languages" aria-labelledby="languages-title"><div class="resume-group-heading"><span class="eyebrow">02</span><h2 id="languages-title">Languages</h2></div><dl class="language-list">${languages.map(([name, level]) => `<div><dt>${name}</dt><dd>${level}</dd></div>`).join('')}</dl></section></div>${nextChapter('/work/')}`;
 
-const work = `${pageHero({ path: '/work/', label: 'SELECTED EXPERIENCE', first: 'Work &', second: 'experience.', lede: 'Engineering, product development, competition teams, and student leadership.' })}
+const work = `${pageHero({ path: '/work/', label: 'SELECTED EXPERIENCE', first: 'Work &', second: 'experience.', lede: 'I like turning an idea into something that works. Here’s what I’ve been building.' })}
 <nav class="resume-jump" aria-label="Experience categories"><a href="#projects">Projects <sup>02</sup></a><a href="#engineering">Engineering <sup>03</sup></a><a href="#leadership">Leadership <sup>01</sup></a><a href="#skills">Skills</a></nav>
 <div class="resume-sheet section-pad">${experienceGroups.map((group, i) => resumeGroup(group.id, group.title, group.entries, `0${i + 1}`)).join('')}
 <section class="resume-group" id="skills" aria-labelledby="skills-title"><div class="resume-group-heading"><span class="eyebrow">04</span><h2 id="skills-title">Skills</h2></div><dl class="resume-skills">${skills.map(([name, detail]) => `<div><dt>${name}</dt><dd>${detail}</dd></div>`).join('')}</dl></section></div>${nextChapter('/sports/')}`;
@@ -92,7 +92,7 @@ const sports = `${pageHero({ path: '/sports/', label: 'SPORTS / COMPETITION & TE
 
 const editing = `${pageHero({ path: '/editing/', label: 'VIDEO EDITING / PICTURE + SOUND', first: 'Finding', second: 'the feeling.', lede: profiles.editing.lede, chips: ['Visual storytelling', 'Rhythm & pacing', 'Sound & color'] })}<section class="editing-feature section-pad" aria-labelledby="edit-feature-title">${editArt}<div class="editing-feature-copy reveal"><p class="eyebrow">A DIFFERENT WAY TO BUILD</p><h2 id="edit-feature-title">Every cut<br><em>counts.</em></h2><p>It’s where my technical curiosity meets my creative side — a chance to shape how a story looks, sounds, and feels.</p></div></section>${storySections(profiles.editing.sections)}${nextChapter('/interests/')}`;
 
-const interests = `${pageHero({ path: '/interests/', label: 'OFF DUTY / THE OTHER THINGS I LOVE', first: 'Room', second: 'for play.', lede: 'LEGO, writing, and following an idea just to see where it goes. Some things don’t need a bigger reason.', chips: ['LEGO', 'Writing', 'Curiosity'] })}<div class="play-banner section-pad reveal"><span aria-hidden="true">✳</span><p>Build it.<br>Take it apart.<br><em>Try something else.</em></p></div>${storySections([
+const interests = `${pageHero({ path: '/interests/', label: 'OFF DUTY / THE OTHER THINGS I LOVE', first: 'Room', second: 'for play.', lede: 'Build it. Take it apart. Try something else. These are the things I keep coming back to.', chips: ['LEGO', 'Writing', 'Curiosity'] })}${stickerWall}${storySections([
   ['LEGO', 'I love LEGO for the possibilities in a handful of pieces. It’s a place to build, take something apart, and try a different idea simply because I’m curious where it might go.'],
   ['Writing and ideas', 'Writing gives me another way to explore the things I care about. Engineering, moving between places, sports, and the people behind a project all leave me with questions worth thinking through.'],
   ['Following curiosity', 'Not everything needs to become a finished project. I like making room for the ideas that begin as play — a different way to build something, a story to tell, or a question I want to follow.']

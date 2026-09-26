@@ -5,6 +5,7 @@ await build({
   entryPoints: ['src/app.js'],
   outfile: 'dist/app.js',
   bundle: true,
+  external: ['/assets/*'],
   format: 'esm',
   jsx: 'automatic',
   minify: true,
