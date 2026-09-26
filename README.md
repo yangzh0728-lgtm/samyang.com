@@ -26,6 +26,12 @@ npm run preview
 
 Open http://127.0.0.1:4173/. The site is static HTML with locally bundled React animation islands. Node.js 22+ and Python 3 are required for the build and preview commands.
 
+## Deploy with Vercel
+
+Import `yangzh0728-lgtm/samyang.com` from GitHub and keep the repository root (`./`) as the Root Directory. `vercel.json` configures the Other framework preset, `npm ci`, `npm run build`, and the `dist` output directory. No environment variables are required. The production branch is `main`; once the GitHub integration is connected, pushes to it deploy automatically.
+
+Add the custom domain under the Vercel project's Settings → Domains. If DNS is managed at GoDaddy, copy the exact A/CNAME values Vercel shows into GoDaddy DNS, then verify the domain in Vercel. Keep existing mail and verification records. Vercel provisions HTTPS after domain verification.
+
 ## Edit
 
 - Shared page layout, navigation, and page-specific sections: `scripts/build-pages.mjs`.
