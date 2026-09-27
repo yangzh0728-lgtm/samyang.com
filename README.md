@@ -18,7 +18,7 @@ My personal website: a place for the things I build, the sports I play, and the 
 | [Sports](https://samyangzh.com/sports/) | Badminton and floorball, a floorball photo gallery, and the other sports I enjoy. |
 | [Video editing](https://samyangzh.com/editing/) | Visual storytelling, pacing, sound, and the ideas behind an edit. |
 | [Off duty](https://samyangzh.com/interests/) | LEGO, writing, and a draggable sticker wall. |
-| [Travel](https://samyangzh.com/travel/) | A world map ready to highlight the countries I’ve visited. |
+| [Travel](https://samyangzh.com/travel/) | A world map highlighting the countries I’ve visited, with a country count and travel list. |
 
 Each page has its own URL and static HTML. Projects are covered together on the Work page; older project URLs redirect to the matching section.
 
@@ -94,7 +94,7 @@ After a website change, rebuild and check it, then commit the source changes tog
 
 Update `visitedCountryIds` in [`src/travel.mjs`](src/travel.mjs) with the map’s three-digit ISO numeric IDs as strings, preserving leading zeros. Use IDs from the World Atlas dataset used by the map. Add only confirmed visits.
 
-The list currently starts empty. Rebuilding updates the highlights, count, and country list together. Duplicate or unknown IDs fail the build. Selecting a country in the browser only inspects it; it does not change the travel log.
+Rebuilding updates the highlights, count, and country list together. Repeat trips count once; broad regions need specific country names before they can be added. Duplicate or unknown IDs fail the build. Selecting a country in the browser only inspects it; it does not change the travel log.
 
 ### Add floorball photos
 
