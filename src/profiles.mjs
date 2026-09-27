@@ -3,7 +3,7 @@ export const profiles = {
     "lede": "I’m Sam Zhihuan Yang, a high school student at The Webb Schools, Class of 2028. I build engineering and media projects, lead competition teams, and enjoy video editing and sports."
   },
   "sports": {
-    "lede": "Floorball has been part of my life for 11+ years. As a former team captain and starting center, I’ve competed in regional and national youth tournaments."
+    "lede": "Badminton and floorball are my main sports. I’ve played floorball for 11+ years and captain my badminton team. I also make time for plenty of other ways to stay active."
   },
   "editing": {
     "lede": "I cut footage. Move things around. Watch it again. Keep the parts that make me feel something.",
