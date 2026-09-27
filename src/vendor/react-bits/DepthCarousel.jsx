@@ -89,7 +89,7 @@ export default function DepthCarousel({ items, reducedMotion = false }) {
     goTo(current.start + step);
   }
   function keyDown(event) {
-    if (event.target.tagName === 'SELECT' || event.altKey || event.metaKey || event.ctrlKey) return;
+    if (event.altKey || event.metaKey || event.ctrlKey) return;
     const targets = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: count - 1 };
     if (event.key in targets) { event.preventDefault(); goTo(targets[event.key]); }
   }
@@ -112,6 +112,6 @@ export default function DepthCarousel({ items, reducedMotion = false }) {
       <div className="depth-carousel__caption" aria-live="polite" aria-atomic="true"><span>{String(active + 1).padStart(2, '0')} / {count}</span><p>{items[active].caption}</p></div>
       <div className="depth-carousel__arrows"><button type="button" aria-label="Previous photo" disabled={active === 0} onClick={() => goTo(active - 1)}>←</button><button type="button" aria-label="Next photo" disabled={active === count - 1} onClick={() => goTo(active + 1)}>→</button></div>
     </div>
-    <div className="depth-carousel__footer"><p>Swipe or drag · Use ← → keys</p><label>Jump to photo<select value={active} onChange={event => goTo(Number(event.target.value))}>{items.map((item, i) => <option key={item.id} value={i}>{String(i + 1).padStart(2, '0')} — {item.caption}</option>)}</select></label></div>
+    <div className="depth-carousel__footer"><p>Swipe or drag · Use ← → keys</p></div>
   </div>;
 }
