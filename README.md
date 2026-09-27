@@ -27,7 +27,7 @@ Each page has its own URL and static HTML. Projects are covered together on the 
 - Electric purple, black backgrounds, stencil type, paper grain, and small acid-green accents.
 - A custom logo in the header and favicon, with an “Always curious” stamp in the compact mobile header.
 - Aurora backgrounds, rotating role text, glitch effects, scroll-responsive type, spotlight cards, tilting thumbnails, and click sparks.
-- A short mouse ribbon that fades out within 0.3 seconds of inactivity; touch input does not create a trail.
+- A flowing mouse ribbon that fades out within 0.45 seconds of inactivity; touch input does not create a trail.
 - Faint animated English quotes behind the homepage introduction.
 - Stickers that support dragging, touch, and keyboard movement. Arrow keys move a focused sticker, Shift increases the step, and Home resets it.
 - An SVG world map with a country picker, visited-country highlights, and a shared count and list.

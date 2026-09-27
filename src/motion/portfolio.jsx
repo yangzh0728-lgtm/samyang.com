@@ -134,8 +134,8 @@ export function createPortfolioMotion({ paused = false } = {}) {
   document.body.append(cursorHost);
   register('.rb-cursor-trail', ({ host }) => finePointer.matches ? <ActiveEffect host={host}>
     <Ribbons global colors={cursorColors} thicknesses={cursorWidths} backgroundColor={transparentBackground}
-      baseSpring={.18} baseFriction={.62} offsetFactor={.0045} pointCount={24}
-      maxAge={160} speedMultiplier={.75} enableFade idleTimeout={300} />
+      baseSpring={.18} baseFriction={.62} offsetFactor={.0045} pointCount={32}
+      maxAge={240} speedMultiplier={.7} enableFade idleTimeout={450} />
   </ActiveEffect> : null);
 
   function setPaused(value) {
