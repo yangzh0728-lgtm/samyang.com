@@ -4,6 +4,7 @@ import { resolve, dirname } from 'node:path';
 import { profiles } from '../src/profiles.mjs';
 import { experienceGroups, education, sportsExperience, skills } from '../src/resume.mjs';
 import { renderTravelMap } from './travel-map.mjs';
+import { renderFloorballGallery } from './photo-gallery.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const [homeHero, editArt, chapterDirectory, stickerWall] = await Promise.all(
@@ -73,7 +74,8 @@ function photo(file, alt, caption) {
 const home = `${homeHero}${chapterDirectory}`;
 
 function resumeEntry(entry, showPeriods = true) {
-  return `<article class="resume-entry${showPeriods ? '' : ' resume-entry--undated'} reveal" id="${entry.id}">${showPeriods ? `<div class="resume-period">${escape(entry.period || '')}</div>` : ''}<div class="resume-entry-content"><h3>${escape(entry.title)}</h3><p class="resume-role">${escape(entry.role)}</p>${entry.summary ? `<p class="resume-summary">${escape(entry.summary)}</p>` : ''}${entry.points?.length ? `<ul class="resume-points">${entry.points.map(point => `<li>${escape(point)}</li>`).join('')}</ul>` : ''}${entry.recognition?.length ? `<div class="resume-recognition" aria-label="Recognition">${entry.recognition.map(item => `<span>${escape(item)}</span>`).join('')}</div>` : ''}${entry.link ? `<a class="resume-external" href="${entry.link.url}" target="_blank" rel="noopener noreferrer">${entry.link.label}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ''}</div></article>`;
+  const links = entry.links ?? (entry.link ? [entry.link] : []);
+  return `<article class="resume-entry${showPeriods ? '' : ' resume-entry--undated'} reveal" id="${entry.id}">${showPeriods ? `<div class="resume-period">${escape(entry.period || '')}</div>` : ''}<div class="resume-entry-content"><h3>${escape(entry.title)}</h3><p class="resume-role">${escape(entry.role)}</p>${entry.summary ? `<p class="resume-summary">${escape(entry.summary)}</p>` : ''}${entry.points?.length ? `<ul class="resume-points">${entry.points.map(point => `<li>${escape(point)}</li>`).join('')}</ul>` : ''}${entry.recognition?.length ? `<div class="resume-recognition" aria-label="Recognition">${entry.recognition.map(item => `<span>${escape(item)}</span>`).join('')}</div>` : ''}${links.length ? `<div class="resume-links">${links.map(link => `<a class="resume-external" href="${escape(link.url)}" target="_blank" rel="noopener noreferrer">${escape(link.label)}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>`).join('')}</div>` : ''}</div></article>`;
 }
 
 function resumeGroup(id, title, entries, index, showPeriods = true) {
@@ -91,6 +93,7 @@ const work = `${pageHero({ path: '/work/', label: 'SELECTED EXPERIENCE', first: 
 
 const sports = `${pageHero({ path: '/sports/', label: 'SPORTS / COMPETITION & TEAMWORK', first: 'On the', second: 'playing field.', lede: profiles.sports.lede })}
 <div class="resume-sheet section-pad">${resumeGroup('competitive-sports', 'My main sports', sportsExperience, '01')}
+${renderFloorballGallery()}
 <section class="resume-group" id="other-sports" aria-labelledby="other-sports-title"><div class="resume-group-heading"><span class="eyebrow">02</span><h2 id="other-sports-title">Also in the mix</h2></div><p class="other-sports">Soccer · Basketball · Tennis · Frisbee · Ice skating · Swimming · Rowing · Golf</p></section></div>${nextChapter('/editing/')}`;
 
 const editing = `${pageHero({ path: '/editing/', label: 'VIDEO EDITING / PICTURE + SOUND', first: 'Finding', second: 'the feeling.', lede: profiles.editing.lede, chips: ['Visual storytelling', 'Rhythm & pacing', 'Sound & color'] })}<section class="editing-feature section-pad" aria-labelledby="edit-feature-title">${editArt}<div class="editing-feature-copy reveal"><p class="eyebrow">A DIFFERENT WAY TO BUILD</p><h2 id="edit-feature-title">Every cut<br><em>counts.</em></h2><p>It’s where my technical curiosity meets my creative side — a chance to shape how a story looks, sounds, and feels.</p></div></section>${storySections(profiles.editing.sections)}${nextChapter('/interests/')}`;

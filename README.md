@@ -15,7 +15,7 @@ My personal website: a place for the things I build, the sports I play, and the 
 | [Home](https://samyangzh.com/) | An introduction, rotating roles, background quotes, and a directory of chapters. |
 | [About](https://samyangzh.com/about/) | My background, from Hangzhou to Toronto to Los Angeles, and my education. |
 | [Work](https://samyangzh.com/work/) | Projects, engineering competitions, leadership, and skills, grouped into concise résumé entries. |
-| [Sports](https://samyangzh.com/sports/) | Badminton and floorball, plus the other sports I enjoy. |
+| [Sports](https://samyangzh.com/sports/) | Badminton and floorball, a floorball photo gallery, and the other sports I enjoy. |
 | [Video editing](https://samyangzh.com/editing/) | Visual storytelling, pacing, sound, and the ideas behind an edit. |
 | [Off duty](https://samyangzh.com/interests/) | LEGO, writing, and a draggable sticker wall. |
 | [Travel](https://samyangzh.com/travel/) | A world map ready to highlight the countries I’ve visited. |
@@ -30,6 +30,7 @@ Each page has its own URL and static HTML. Projects are covered together on the 
 - A flowing mouse ribbon that fades out within 0.45 seconds of inactivity; touch input does not create a trail.
 - Faint animated English quotes behind the homepage introduction.
 - Stickers that support dragging, touch, and keyboard movement. Arrow keys move a focused sticker, Shift increases the step, and Home resets it.
+- A floorball gallery based on React Bits Carousel, with swipe/drag navigation, arrows, thumbnails, and captions. It shows an intentional empty state until photos are added.
 - An SVG world map with a country picker, visited-country highlights, and a shared count and list.
 
 The **Motion on/off** control works across pages for the current session. The site respects the operating system’s reduced-motion preference by default. Core content and navigation remain available without JavaScript, and decorative overlays do not block links or buttons.
@@ -77,6 +78,8 @@ The preview is a static server, with no automatic rebuild or hot reload. After e
 | Chapter, sticker, quote, and map styles | [`src/motion/`](src/motion/) |
 | Motion preferences and legacy homepage links | [`src/app.js`](src/app.js) |
 | Sticker, quote, and map interactions | [`src/interactions/`](src/interactions/) |
+| Floorball photos and captions | [`src/galleries/floorball.mjs`](src/galleries/floorball.mjs) |
+| Gallery markup and validation | [`scripts/photo-gallery.mjs`](scripts/photo-gallery.mjs) |
 | Visited countries | [`src/travel.mjs`](src/travel.mjs) |
 | Map generation | [`scripts/travel-map.mjs`](scripts/travel-map.mjs) |
 | Logo, images, and textures | [`dist/assets/`](dist/assets/) |
@@ -91,6 +94,14 @@ After a website change, rebuild and check it, then commit the source changes tog
 Update `visitedCountryIds` in [`src/travel.mjs`](src/travel.mjs) with the map’s three-digit ISO numeric IDs as strings, preserving leading zeros. Use IDs from the World Atlas dataset used by the map. Add only confirmed visits.
 
 The list currently starts empty. Rebuilding updates the highlights, count, and country list together. Duplicate or unknown IDs fail the build. Selecting a country in the browser only inspects it; it does not change the travel log.
+
+### Add floorball photos
+
+Original photos belong in the local media library (`media/photos/floorball/` beside the website checkout). That folder stays outside Git and is not published automatically.
+
+Copy selected, prepared images to `dist/assets/floorball/`, then add their metadata to `src/galleries/floorball.mjs`: a unique `id`, local `src`, descriptive `alt` text, `caption`, and original `width` / `height`. Run the build and checks. Empty galleries show “Coming soon”; a single photo needs no navigation controls, and multiple photos enable the carousel. Portrait images are shown in full rather than cropped. Without JavaScript, photos remain available in a horizontally scrolling gallery.
+
+The carousel is manually controlled. Motion off keeps browsing available with immediate transitions and preserves the selected photo. The local photo folders and their contents are not copied into a deployment by the build.
 
 ## Deployment
 
@@ -111,6 +122,6 @@ Use `main` as the production branch when connecting the GitHub repository. Autom
 
 The car and floorball images are labeled **editorial concept images**. The editing timeline is decorative; it is not a playable showreel. Personal photos and footage can replace those assets as they become available.
 
-Animation components come from [React Bits](https://www.reactbits.dev/): Aurora, BlurText, GlitchText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, ClickSpark, and Ribbons. Their pinned upstream revision and local adaptations are recorded in the [vendor README](src/vendor/react-bits/README.md). Their license is included in the [vendor directory](src/vendor/react-bits/LICENSE.md) and the [published bundle](dist/react-bits-license.txt).
+Animation components come from [React Bits](https://www.reactbits.dev/): Aurora, BlurText, GlitchText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, ClickSpark, Ribbons, and Carousel. Their pinned upstream revision and local adaptations are recorded in the [vendor README](src/vendor/react-bits/README.md). Their license is included in the [vendor directory](src/vendor/react-bits/LICENSE.md) and the [published bundle](dist/react-bits-license.txt).
 
 Map boundaries come from Natural Earth via the pinned World Atlas package; attribution is also shown on the Travel page. Fonts: DM Sans, Barlow Condensed, and Black Ops One.

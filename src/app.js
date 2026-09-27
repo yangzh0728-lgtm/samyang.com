@@ -2,6 +2,7 @@ import { createPortfolioMotion } from './motion/portfolio.jsx';
 import { createStickerWall } from './interactions/sticker-wall.js';
 import { createTravelMap } from './interactions/travel-map.js';
 import { createHeroQuotes } from './interactions/hero-quotes.js';
+import { createPhotoGalleries } from './motion/gallery.jsx';
 
 const legacyRoutes = {
   '#about': '/about/', '#work': '/work/', '#sports': '/sports/', '#editing': '/editing/',
@@ -30,10 +31,12 @@ if (!redirectLegacyLink()) {
   try { savedMotion = sessionStorage.getItem('sam-motion'); } catch { /* Storage is optional. */ }
   let motionPaused = savedMotion === 'off' || (savedMotion !== 'on' && reduceMotion.matches);
   const portfolioMotion = createPortfolioMotion({ paused: motionPaused });
+  const photoGalleries = createPhotoGalleries({ paused: motionPaused });
 
   function updateMotion(paused) {
     motionPaused = paused;
     portfolioMotion.setPaused(paused);
+    photoGalleries.setPaused(paused);
     document.documentElement.classList.toggle('motion-static', paused);
     document.body.classList.toggle('motion-paused', paused);
     document.body.classList.toggle('motion-enabled', !paused);
