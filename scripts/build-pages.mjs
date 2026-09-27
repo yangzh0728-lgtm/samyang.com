@@ -80,7 +80,7 @@ function resumeGroup(id, title, entries, index, showPeriods = true) {
 }
 
 const about = `${pageHero({ path: '/about/', label: 'ABOUT / SAM ZHIHUAN YANG', first: 'Student. Builder.', second: 'Always curious.', lede: profiles.story.lede })}
-<section class="about-background section-pad"><p>From Hangzhou, China, to Toronto, Canada, to LA, US, I’ve learned to find my feet in new places. I’m interested in engineering, entrepreneurship, sports, and telling the stories behind the things I build.</p></section>
+<section class="about-background section-pad"><p>From Hangzhou, China, to Toronto, Canada, to Los Angeles, US, I’ve learned to find my feet in new places. I’m interested in engineering, entrepreneurship, sports, and telling the stories behind the things I build.</p></section>
 <div class="resume-sheet section-pad">${resumeGroup('education', 'Education', education, '01')}</div>${nextChapter('/work/')}`;
 
 const work = `${pageHero({ path: '/work/', label: 'SELECTED EXPERIENCE', first: 'Work &', second: 'experience.', lede: 'I like turning an idea into something that works. Here’s what I’ve been building.' })}
