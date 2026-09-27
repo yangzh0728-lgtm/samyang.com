@@ -35,20 +35,20 @@ export function renderTravelMap(visitedIds = visitedCountryIds) {
   }).join('');
 
   return `<section class="travel-atlas section-pad" aria-labelledby="atlas-title" data-travel-map>
-    <div class="atlas-topline"><div><p class="eyebrow">MY TRAVEL LOG / WORLD VIEW</p><h2 id="atlas-title">Places leave a mark.</h2></div><div class="travel-count"><strong data-travel-count>${String(marked.length).padStart(2, '0')}</strong><span>COUNTRIES<br>ADDED</span></div></div>
+    <div class="atlas-topline"><div><p class="eyebrow">MY TRAVEL LOG / WORLD VIEW</p><h2 id="atlas-title">Places leave a mark.</h2></div><div class="travel-count"><strong data-travel-count>${String(marked.length).padStart(2, '0')}</strong><span>PLACES<br>VISITED</span></div></div>
     <div class="atlas-frame">
       <div class="atlas-toolbar"><div class="atlas-legend"><span><i class="legend-visited"></i>Visited</span><span><i></i>Not marked</span></div><span class="atlas-stamp">STILL EXPLORING ↗</span></div>
       <div class="atlas-viewport">
         <svg class="world-map" viewBox="0 0 1200 624" role="img" aria-labelledby="world-map-title world-map-description">
-          <title id="world-map-title">Sam’s travel map</title><desc id="world-map-description">${marked.length ? `${marked.length} countries marked as visited. See the country list below.` : 'No countries have been added to the travel log yet.'} Use the country picker below to inspect the map.</desc>
+          <title id="world-map-title">Sam’s travel map</title><desc id="world-map-description">${marked.length ? `${marked.length} places marked as visited. See the list below.` : 'No places have been added to the travel log yet.'} Use the place picker below to inspect the map.</desc>
           <path class="map-graticule" d="${path(geoGraticule10())}"/>${shapes}
         </svg>
         <span class="atlas-coordinate" aria-hidden="true">180° W &nbsp; / &nbsp; 0° &nbsp; / &nbsp; 180° E</span>
       </div>
-      <div class="atlas-controls"><div class="country-picker"><label for="travel-country">FIND A COUNTRY</label><select id="travel-country" disabled><option value="">Explore the map</option>${countries.map(country => `<option value="${escape(country.id)}">${escape(country.properties.name)}</option>`).join('')}</select></div><div class="country-readout" aria-live="polite" aria-atomic="true"><strong data-country-name>The world is open.</strong><span data-country-status>Hover or tap a country to take a look.</span></div></div>
+      <div class="atlas-controls"><div class="country-picker"><label for="travel-country">FIND A PLACE</label><select id="travel-country" disabled><option value="">Explore the map</option>${countries.map(country => `<option value="${escape(country.id)}">${escape(country.properties.name)}</option>`).join('')}</select></div><div class="country-readout" aria-live="polite" aria-atomic="true"><strong data-country-name>The world is open.</strong><span data-country-status>Hover or tap a place to take a look.</span></div></div>
     </div>
-    <div class="travel-log"><div><p class="eyebrow">BEEN THERE / THE LIST</p><h3>${marked.length ? 'A few places. A lot of memories.' : 'Travel log coming soon.'}</h3></div>${marked.length ? `<ul class="visited-countries">${marked.map(country => `<li>${escape(country.properties.name)}</li>`).join('')}</ul>` : '<p class="travel-empty">I’m putting my travels on the map.<br>The countries I’ve visited will light up here.</p>'}</div>
+    <div class="travel-log"><div><p class="eyebrow">BEEN THERE / THE LIST</p><h3>${marked.length ? 'A few places. A lot of memories.' : 'Travel log coming soon.'}</h3></div>${marked.length ? `<ul class="visited-countries">${marked.map(country => `<li>${escape(country.properties.name)}</li>`).join('')}</ul>` : '<p class="travel-empty">I’m putting my travels on the map.<br>The places I’ve visited will light up here.</p>'}</div>
     <p class="map-source">Map data: <a href="https://www.naturalearthdata.com/about/terms-of-use/" target="_blank" rel="noopener noreferrer">Natural Earth<span class="sr-only"> (opens in a new tab)</span></a> · Countries &amp; territories.</p>
-    <noscript><p class="travel-noscript">The map and visited-country list are visible above. Enable JavaScript to use the country picker.</p></noscript>
+    <noscript><p class="travel-noscript">The map and visited-place list are visible above. Enable JavaScript to use the place picker.</p></noscript>
   </section>`;
 }
