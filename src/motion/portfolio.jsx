@@ -37,7 +37,7 @@ class EffectBoundary extends Component {
 }
 
 const Markup = ({ html, className = '' }) => <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
-const roles = ['BUILDER.', 'ATHLETE.', 'CREATOR.', 'VIDEO EDITOR.'];
+const roles = ['BUILDER.', 'ENTREPRENEUR.', 'ATHLETE.', 'CREATOR.', 'VIDEO EDITOR.'];
 const auroraColors = ['#631BFF', '#D58BFF', '#8B33FF'];
 const cursorColors = ['#B36BFF', '#D8ADFF', '#D5FF43'];
 const cursorWidths = [10, 4, 1.5];
