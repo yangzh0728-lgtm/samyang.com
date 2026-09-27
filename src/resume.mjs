@@ -46,8 +46,8 @@ export const experienceGroups = [
 ];
 
 export const education = [
-  { id: 'webb', title: 'The Webb Schools', role: 'High School · Claremont, CA', period: 'Class of 2028' },
-  { id: 'trinity', title: 'Trinity College School', role: 'Grade 9 · Port Hope, Ontario, Canada', period: '2025–2026 school year' },
+  { id: 'webb', title: 'The Webb Schools', role: 'High School · Claremont, CA', period: 'Class of 2028', website: 'https://www.webb.org/' },
+  { id: 'trinity', title: 'Trinity College School', role: 'Grade 9 · Port Hope, Ontario, Canada', period: '2025–2026 school year', website: 'https://www.tcs.on.ca/' },
   { id: 'middle-school', title: 'Middle School', role: 'Toronto, Canada', period: '' },
   { id: 'elementary-school', title: 'Elementary School', role: 'Hangzhou, China', period: '' }
 ];
