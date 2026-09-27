@@ -1,6 +1,6 @@
 export const profiles = {
   "story": {
-    "lede": "I’m Sam Zhihuan Yang, a high school student at The Webb Schools, Class of 2028. I build engineering and media projects, lead competition teams, and enjoy video editing and sports."
+    "lede": "I’m Sam Zhihuan Yang — online, I usually go by sun_rain. I’m a high school student at The Webb Schools, Class of 2028. I build engineering and media projects, lead competition teams, and enjoy video editing and sports."
   },
   "sports": {
     "lede": "Badminton and floorball are my main sports. I’ve played floorball for 11+ years and captain my badminton team. I also make time for plenty of other ways to stay active."

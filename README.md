@@ -25,7 +25,7 @@ Each page has its own URL and static HTML. Projects are covered together on the 
 ## Design and interactions
 
 - Electric purple, black backgrounds, stencil type, paper grain, and small acid-green accents.
-- A custom logo in the header and favicon, with an “Always curious” stamp in the compact mobile header.
+- A custom logo in the header and favicon, with a “sun_rain / Always curious” stamp in the compact mobile header. The About introduction connects my online nickname to my name.
 - A homepage aurora and subtle purple Ferrofluid backgrounds in inner-page headers, plus rotating role text, glitch effects, scroll-responsive type, spotlight cards, tilting thumbnails, and click sparks.
 - A flowing mouse ribbon that fades out within 0.45 seconds of inactivity; touch input does not create a trail.
 - Faint animated English quotes behind the homepage introduction.
