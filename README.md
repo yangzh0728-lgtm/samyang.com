@@ -67,6 +67,8 @@ The Travel map uses an Equal Earth projection of [Natural Earth](https://www.nat
 
 ## Content and artwork
 
+The shared header uses Sam’s custom purple SY monogram and SAM YANG wordmark (`dist/assets/sam-yang-logo.png`). The original artwork is preserved; CSS frames its central design for desktop and mobile headers. The logo links to the homepage.
+
 Professional and educational facts come from Sam's supplied résumé screenshot; personal interests and creative copy build on prior instructions. The résumé establishes 11+ years of floorball and supplies the listed competition results. The source image, original Word file, phone number, and email are not bundled with the website.
 
 The car and floorball images are labeled editorial concepts, not photos of Sam's actual vehicle or equipment. The video-editing timeline is decorative, not a playable showreel. No awards, project results, or software expertise were invented.

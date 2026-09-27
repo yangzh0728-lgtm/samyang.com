@@ -4,6 +4,11 @@ body{overflow-x:clip}
 body:before{content:'';position:fixed;inset:0;z-index:90;pointer-events:none;background:url('/assets/paper-grain.svg') repeat;opacity:.055;mix-blend-mode:screen}
 em{font-style:normal;letter-spacing:-.045em}
 .site-header{border-bottom:1px solid #b36bff70}
+/* Frame the existing logo artwork without changing the original image. */
+.wordmark.site-logo{position:relative;display:block;flex-shrink:0;width:112px;height:68px;overflow:hidden;letter-spacing:normal;line-height:0}
+.site-logo img{position:absolute;display:block;width:124%;height:auto;max-width:none;left:-14%;top:-58%}
+@media(max-width:1000px){.wordmark.site-logo{width:96px;height:58px}.site-header nav{gap:22px}}
+@media(max-width:600px){.wordmark.site-logo{width:92px;height:56px}}
 .site-header nav a:hover,.footer-nav a:hover{color:var(--acid)}
 .site-header nav a:after{background:var(--acid)}
 a:focus-visible,button:focus-visible{outline-color:var(--acid)}
