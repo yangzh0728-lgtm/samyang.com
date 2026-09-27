@@ -17,7 +17,7 @@ My personal website: a place for the things I build, the sports I play, and the 
 | [Work](https://samyangzh.com/work/) | Projects, engineering competitions, leadership, and skills, grouped into concise résumé entries. |
 | [Sports](https://samyangzh.com/sports/) | Badminton and floorball, a floorball photo gallery, and the other sports I enjoy. |
 | [Video editing](https://samyangzh.com/editing/) | Visual storytelling, pacing, sound, and the ideas behind an edit. |
-| [Off duty](https://samyangzh.com/interests/) | LEGO, writing, draggable stickers, and an interactive spray-paint wall. |
+| [Off duty](https://samyangzh.com/interests/) | LEGO, writing, and an interactive spray-paint wall. |
 | [Travel](https://samyangzh.com/travel/) | A world map highlighting the countries I’ve visited, with a country count and travel list. |
 
 Each page has its own URL and static HTML. Projects are covered together on the Work page; older project URLs redirect to the matching section.
@@ -30,7 +30,6 @@ Each page has its own URL and static HTML. Projects are covered together on the 
 - Page transitions, headings, and section entrances use gentle fades without shaking the layout.
 - A flowing mouse ribbon that fades out within 0.45 seconds of inactivity; touch input does not create a trail.
 - Faint animated English quotes behind the homepage introduction.
-- Stickers that support dragging, touch, and keyboard movement. Arrow keys move a focused sticker, Shift increases the step, and Home resets it.
 - A short SY-logo loading intro on the first visit per tab, with a purple sweep and fade into the page. It skips motion-off/reduced-motion visits, allows immediate interaction, and times out safely if loading stalls.
 - A spray-paint wall with colors, personal stencils, splats, undo, and tap-to-wash/hold-to-melt controls. Extra effects contain optional sound, a synthesized lo-fi loop, rain, and surprise tools. Keyboard users can move with arrows and paint with Enter; motion off keeps painting available. Paint resets each visit.
 - A floorball gallery based on React Bits Depth Carousel, with a receding photo stack, swipe/drag navigation, arrows, and captions. It includes 32 personal floorball photos covering games, teams, and tournament memories.
@@ -78,9 +77,9 @@ The preview is a static server, with no automatic rebuild or hot reload. After e
 | Biography and video-editing copy | [`src/profiles.mjs`](src/profiles.mjs) |
 | Rotating roles, cursor trail, and React animation setup | [`src/motion/portfolio.jsx`](src/motion/portfolio.jsx) |
 | Punk styling, responsive logo, and header stamp | [`src/motion/zine.css`](src/motion/zine.css) |
-| Chapter, sticker, quote, and map styles | [`src/motion/`](src/motion/) |
+| Chapter, spray wall, quote, and map styles | [`src/motion/`](src/motion/) |
 | Motion preferences and legacy homepage links | [`src/app.js`](src/app.js) |
-| Sticker, quote, and map interactions | [`src/interactions/`](src/interactions/) |
+| Spray wall, quote, and map interactions | [`src/interactions/`](src/interactions/) |
 | Floorball photos and captions | [`src/galleries/floorball.mjs`](src/galleries/floorball.mjs) |
 | Gallery markup and validation | [`scripts/photo-gallery.mjs`](scripts/photo-gallery.mjs) |
 | Visited countries | [`src/travel.mjs`](src/travel.mjs) |

@@ -15,7 +15,6 @@ import Ribbons from '../vendor/react-bits/Ribbons';
 import './portfolio.css';
 import './chapters.css';
 import './zine.css';
-import './stickers.css';
 
 // Continuous effects sleep outside the viewport and in background tabs.
 function ActiveEffect({ host, children, fallback = null }) {

@@ -1,6 +1,5 @@
 import { createPortfolioMotion } from './motion/portfolio.jsx';
 import { createSprayWall } from './interactions/spray-wall.js';
-import { createStickerWall } from './interactions/sticker-wall.js';
 import { createTravelMap } from './interactions/travel-map.js';
 import { createHeroQuotes } from './interactions/hero-quotes.js';
 import { createPhotoGalleries } from './motion/gallery.jsx';
@@ -23,7 +22,6 @@ function redirectLegacyLink() {
 window.addEventListener('hashchange', redirectLegacyLink);
 
 if (!redirectLegacyLink()) {
-  createStickerWall();
   createTravelMap();
   createHeroQuotes();
   const motionButton = document.querySelector('.motion-toggle');
