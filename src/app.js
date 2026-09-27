@@ -63,7 +63,7 @@ if (!redirectLegacyLink()) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.remove('reveal-pending');
-          if (!motionPaused) entry.target.classList.add('glitch-enter');
+          if (!motionPaused) entry.target.classList.add('content-enter');
           observer.unobserve(entry.target);
         }
       });

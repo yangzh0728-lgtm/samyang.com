@@ -79,9 +79,9 @@ body.motion-paused .spotlight-surface:before{opacity:0}
 /* Chapters: a compact home and independent editorial pages. */
 @view-transition{navigation:auto}
 ::view-transition-old(root){animation:page-out .18s ease both}
-::view-transition-new(root){animation:page-in .35s ease both}
+::view-transition-new(root){animation:page-in .2s ease both}
 @keyframes page-out{to{opacity:0}}
-@keyframes page-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes page-in{from{opacity:0}to{opacity:1}}
 .motion-static *,.motion-static *:before,.motion-static *:after{animation:none!important;transition:none!important}
 .motion-static::view-transition-old(root),.motion-static::view-transition-new(root){animation:none!important}
 @media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none!important}}

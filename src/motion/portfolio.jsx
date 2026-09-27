@@ -72,10 +72,10 @@ export function createPortfolioMotion({ paused = false } = {}) {
     ({ text }) => <span aria-hidden="true"><GlitchText as="span" enableOnHover speed={.35} className="zine-glitch">{text}</GlitchText></span>, 'rb-heading', { label: true });
 
   register('.page-title > span, .page-title > em, .resume-group-heading h2, .story-section h2',
-    ({ text, host }) => <span aria-hidden="true"><BlurText as="span" text={text} animateBy={host.closest('.hero') ? 'letters' : 'words'}
-      delay={25} direction="bottom" stepDuration={.06} className="rb-blur"
-      animationFrom={{ filter: 'none', opacity: 1, x: -7, y: 3 }}
-      animationTo={[{ x: 7, y: -2 }, { x: -3, y: 1 }, { x: 0, y: 0 }]} />
+    ({ text }) => <span aria-hidden="true"><BlurText as="span" text={text} animateBy="words"
+      delay={25} stepDuration={.24} className="rb-blur"
+      animationFrom={{ filter: 'none', opacity: 0 }}
+      animationTo={[{ filter: 'none', opacity: 1 }]} />
     </span>, 'rb-heading', { label: true });
 
   register('.hero-top .eyebrow:first-child, .page-hero > .eyebrow, .section-kicker > .eyebrow:first-child, .hero-index > span:first-child',
