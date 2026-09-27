@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-motion.mjs && node scripts/build-pages.mjs",
-    "check": "python3 scripts/check-pages.py && node --test scripts/travel-map.test.mjs scripts/photo-gallery.test.mjs scripts/site-loader.test.mjs",
+    "check": "python3 scripts/check-pages.py && node --test scripts/travel-map.test.mjs scripts/photo-gallery.test.mjs scripts/site-loader.test.mjs scripts/paint-history.test.mjs",
     "preview": "python3 -m http.server 4173 --bind 127.0.0.1 --directory dist"
   },
   "dependencies": {

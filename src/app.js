@@ -1,4 +1,5 @@
 import { createPortfolioMotion } from './motion/portfolio.jsx';
+import { createSprayWall } from './interactions/spray-wall.js';
 import { createStickerWall } from './interactions/sticker-wall.js';
 import { createTravelMap } from './interactions/travel-map.js';
 import { createHeroQuotes } from './interactions/hero-quotes.js';
@@ -32,11 +33,13 @@ if (!redirectLegacyLink()) {
   let motionPaused = savedMotion === 'off' || (savedMotion !== 'on' && reduceMotion.matches);
   const portfolioMotion = createPortfolioMotion({ paused: motionPaused });
   const photoGalleries = createPhotoGalleries({ paused: motionPaused });
+  const sprayWall = createSprayWall({ paused: motionPaused });
 
   function updateMotion(paused) {
     motionPaused = paused;
     portfolioMotion.setPaused(paused);
     photoGalleries.setPaused(paused);
+    sprayWall.setPaused(paused);
     document.documentElement.classList.toggle('motion-static', paused);
     document.body.classList.toggle('motion-paused', paused);
     document.body.classList.toggle('motion-enabled', !paused);

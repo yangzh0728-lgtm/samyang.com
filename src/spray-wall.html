@@ -1,0 +1,57 @@
+<section class="spray-section section-pad" id="spray-wall" aria-labelledby="spray-title">
+  <div class="spray-heading"><div><p class="eyebrow">NO RULES / JUST PLAY</p><h2 id="spray-title">Spray <em>wall.</em></h2></div><span class="spray-stamp" aria-hidden="true">WASH IT<br>OFF LATER ↓</span></div>
+  <p class="spray-hint" id="spray-instructions">Hold and drag to spray. Double-tap to splat. Pick a stencil, then tap to stamp it. Hold Wash to melt it slowly. Keyboard: focus the wall, move with arrow keys, and press Enter to paint. Shift + Enter makes a splat.</p>
+  <div class="spray-wall" id="spray-canvas-wall" tabindex="0" role="group" aria-label="Interactive spray paint wall" aria-describedby="spray-instructions">
+    <p class="spray-ghost" aria-hidden="true">MAKE STUFF.<br>KEEP GOING.</p>
+    <canvas class="spray-paint" role="img" aria-label="Spray paint wall" aria-describedby="spray-instructions"></canvas>
+    <canvas class="spray-overlay" aria-hidden="true"></canvas>
+    <div class="spray-squeegee" hidden></div>
+    <p class="spray-toast" role="status" hidden></p>
+    <noscript><p class="spray-noscript">Turn on JavaScript to paint the wall.</p></noscript>
+  </div>
+  <div class="spray-tools" hidden>
+    <div class="spray-row" role="group" aria-label="Paint color">
+      <span class="spray-label">Cans</span>
+      <button type="button" class="spray-can" style="--can:#b36bff" aria-pressed="true" aria-label="Electric purple" data-color="#b36bff"></button>
+      <button type="button" class="spray-can" style="--can:#7828d4" aria-pressed="false" aria-label="Deep violet" data-color="#7828d4"></button>
+      <button type="button" class="spray-can" style="--can:#d5ff43" aria-pressed="false" aria-label="Acid lime" data-color="#d5ff43"></button>
+      <button type="button" class="spray-can" style="--can:#ff4fa3" aria-pressed="false" aria-label="Hot pink" data-color="#ff4fa3"></button>
+      <button type="button" class="spray-can" style="--can:#ff3b3b" aria-pressed="false" aria-label="Red" data-color="#ff3b3b"></button>
+      <button type="button" class="spray-can" style="--can:#ff7a1a" aria-pressed="false" aria-label="Orange" data-color="#ff7a1a"></button>
+      <button type="button" class="spray-can" style="--can:#ffd23f" aria-pressed="false" aria-label="Yellow" data-color="#ffd23f"></button>
+      <button type="button" class="spray-can" style="--can:#3de0ff" aria-pressed="false" aria-label="Cyan" data-color="#3de0ff"></button>
+      <button type="button" class="spray-can" style="--can:#f0eaf3" aria-pressed="false" aria-label="White" data-color="#f0eaf3"></button>
+      <button type="button" class="spray-can spray-can-black" style="--can:#09070d" aria-pressed="false" aria-label="Black" data-color="#09070d"></button>
+      <button type="button" class="spray-can spray-can-mix" aria-pressed="false" aria-label="Rainbow mix" data-color="mix"></button>
+      <label class="spray-can spray-can-pick" aria-label="Pick any color"><input type="color" class="spray-custom" value="#00ffa3"></label>
+    </div>
+    <div class="spray-row" role="group" aria-label="Stencils">
+      <span class="spray-label">Stencils</span>
+      <button type="button" class="spray-chip" aria-pressed="true" data-stencil="none">✕ Free spray</button>
+      <button type="button" class="spray-chip" aria-pressed="false" data-stencil="SY">SY</button>
+      <button type="button" class="spray-chip" aria-pressed="false" data-stencil="sun_rain">sun_rain</button>
+      <button type="button" class="spray-chip" aria-pressed="false" data-stencil="brick">LEGO brick</button>
+      <button type="button" class="spray-chip" aria-pressed="false" data-stencil="ball">Floorball</button>
+      <button type="button" class="spray-chip" aria-pressed="false" data-stencil="shuttle">Shuttlecock</button>
+      <button type="button" class="spray-chip" aria-pressed="false" data-stencil="play">Play ▶</button>
+      <button type="button" class="spray-chip" aria-pressed="false" data-stencil="star" aria-label="Asterisk">✱</button>
+    </div>
+    <details class="spray-extras"><summary>Extra effects</summary><div class="spray-row" role="group" aria-label="Extra effects">
+      <span class="spray-label">Chill</span>
+      <button type="button" class="spray-chip" data-action="sound" aria-pressed="false">Sound</button>
+      <button type="button" class="spray-chip" data-action="music" aria-pressed="false">Lo-fi loop</button>
+      <button type="button" class="spray-chip" data-action="rain" aria-pressed="false">Rain</button>
+      <button type="button" class="spray-chip" data-action="shake">Shake the can</button>
+      <button type="button" class="spray-chip" data-action="dice">Surprise me</button>
+    </div>
+    </details>
+    <div class="spray-row">
+      <label class="spray-label" for="spray-nozzle">Nozzle</label>
+      <input type="range" id="spray-nozzle" class="spray-nozzle" min="8" max="60" value="24">
+      <span class="spray-spacer"></span>
+      <button type="button" class="spray-btn spray-btn-dark" data-action="undo" title="Undo (two-finger tap or Ctrl+Z)">Undo ↶</button>
+      <button type="button" class="spray-btn spray-btn-paper" data-action="tag">Tag it</button>
+      <button type="button" class="spray-btn" data-action="wash" title="Tap to wash, hold to melt slowly">Wash ↓</button>
+    </div>
+  </div>
+</section>
