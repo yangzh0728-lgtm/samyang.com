@@ -1,6 +1,7 @@
 import { createPortfolioMotion } from './motion/portfolio.jsx';
 import { createStickerWall } from './interactions/sticker-wall.js';
 import { createTravelMap } from './interactions/travel-map.js';
+import { createHeroQuotes } from './interactions/hero-quotes.js';
 
 const legacyRoutes = {
   '#about': '/about/', '#work': '/work/', '#sports': '/sports/', '#editing': '/editing/',
@@ -22,6 +23,7 @@ window.addEventListener('hashchange', redirectLegacyLink);
 if (!redirectLegacyLink()) {
   createStickerWall();
   createTravelMap();
+  createHeroQuotes();
   const motionButton = document.querySelector('.motion-toggle');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let savedMotion;
