@@ -57,6 +57,10 @@ for expected in ('projects', 'legacy-garage', 'caliguide', 'engineering', 'fiber
 assert not any(link.startswith('/work/') and link != '/work/' and not link.startswith('/work/#') for page in pages.values() for link in page.links), 'A link still points to an individual project page'
 assert '11+ years' in (ROOT / 'sports/index.html').read_text(), 'Floorball tenure was not updated'
 travel = pages[ROOT / 'travel/index.html']
-assert {'atlas-title', 'world-map-title', 'world-map-description', 'travel-country'} <= travel.ids, 'Travel map or country picker is missing'
+assert 'atlas-title' in travel.ids, 'Travel teaser is missing'
+travel_html = travel.path.read_text()
+assert 'COMING SOON' in travel_html and 'A FEW HINTS' in travel_html, 'Travel teaser copy is missing'
+assert not {'world-map-title', 'world-map-description', 'travel-country'} & travel.ids, 'Hidden travel map is still rendered'
+assert 'data-travel-count' not in travel_html and 'visited-countries' not in travel_html, 'Travel totals or full list are still rendered'
 assert '/travel/' in pages[ROOT / 'index.html'].links, 'Travel is missing from the homepage'
-print(f'Passed: {len(EXPECTED) - len(REDIRECTS)} content pages, {len(REDIRECTS)} legacy redirects, résumé entries, travel map and navigation verified; all local links/assets/anchors resolve.')
+print(f'Passed: {len(EXPECTED) - len(REDIRECTS)} content pages, {len(REDIRECTS)} legacy redirects, résumé entries, travel teaser and navigation verified; all local links/assets/anchors resolve.')

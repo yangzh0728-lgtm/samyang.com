@@ -1,4 +1,19 @@
 /* The atlas is static SVG: country highlights also work without JavaScript. */
+.travel-teaser{padding-top:16px;padding-bottom:80px}
+.travel-teaser-paper{position:relative;max-width:1080px;margin:auto;padding:clamp(24px,5vw,64px);border:1px solid #b36bff66;background:linear-gradient(125deg,#21122e,#100c16 65%);box-shadow:10px 10px 0 #000}
+.travel-teaser-top,.travel-teaser-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.travel-teaser-top .eyebrow,.travel-teaser-bottom .eyebrow{font-size:12px;letter-spacing:.12em;color:#b7a6c9}
+.travel-soon-stamp{display:inline-block;padding:10px 14px;color:#cba2ff;border:2px solid currentColor;transform:rotate(4deg);font:600 14px/1.2 ui-monospace,monospace;letter-spacing:.12em}
+.travel-teaser-copy{padding:clamp(40px,6vw,80px) 0}
+.travel-teaser-copy h2{font:600 clamp(42px,6vw,78px)/1 var(--condensed);letter-spacing:-.02em;color:#eee7f5}
+.travel-teaser-copy p{margin-top:24px;color:#b7a6c9;font-size:17px;line-height:1.8}
+.travel-teaser-bottom{padding-top:24px;border-top:1px dashed #b36bff44}
+.travel-hints{list-style:none;display:flex;flex-wrap:wrap;gap:14px;padding:0;margin:0}
+.travel-hints li{padding:12px 18px;border:1px solid #b36bff55;color:#aa83c7;transform:rotate(-5deg);font:600 clamp(20px,3vw,30px)/1 ui-monospace,monospace;letter-spacing:.15em}
+.travel-hints li:nth-child(2){transform:rotate(4deg)}
+.travel-hints li:nth-child(3){transform:rotate(-2deg)}
+.travel-hints abbr{text-decoration:none}
+@media(max-width:450px){.travel-teaser-top{gap:22px}.travel-teaser-bottom{align-items:flex-start;flex-direction:column}.travel-hints{gap:10px}.travel-hints li{padding:11px 13px}.travel-teaser-copy p{font-size:16px}}
 [data-page="/travel/"] .page-hero{padding-top:30px;padding-bottom:34px}
 [data-page="/travel/"] .breadcrumbs{margin-bottom:28px}
 [data-page="/travel/"] .page-hero>.eyebrow{margin-bottom:14px}

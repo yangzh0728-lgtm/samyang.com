@@ -3,7 +3,6 @@ import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { profiles } from '../src/profiles.mjs';
 import { experienceGroups, education, sportsExperience, skills } from '../src/resume.mjs';
-import { renderTravelMap } from './travel-map.mjs';
 import { renderFloorballGallery } from './photo-gallery.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -107,7 +106,14 @@ const interests = `${pageHero({ path: '/interests/', label: 'OFF DUTY / THE OTHE
   ['Following curiosity', 'Not everything needs to become a finished project. I like making room for the ideas that begin as play — a different way to build something, a story to tell, or a question I want to follow.']
 ])}${nextChapter('/travel/')}`;
 
-const travel = `${pageHero({ path: '/travel/', label: 'TRAVEL / MY WORLD MAP', first: 'A little', second: 'further.', lede: 'New places. Different perspectives. A growing map of the places I’ve been.' })}${renderTravelMap()}${nextChapter('/about/')}`;
+const travel = `${pageHero({ path: '/travel/', label: 'TRAVEL / COMING SOON', first: 'Postcards', second: 'in progress.', lede: 'A few memories collected. Stories still to tell.' })}
+<section class="travel-teaser section-pad" aria-labelledby="atlas-title">
+  <div class="travel-teaser-paper">
+    <div class="travel-teaser-top"><span class="eyebrow">FROM SOMEWHERE / TO YOU</span><span class="travel-soon-stamp">COMING SOON</span></div>
+    <div class="travel-teaser-copy"><h2 id="atlas-title">Still unpacking<br>the stories.</h2><p>Little moments from further afield.<br>I’ll share them here when they’re ready.</p></div>
+    <div class="travel-teaser-bottom"><span class="eyebrow">A FEW HINTS</span><ul class="travel-hints" aria-label="Hints of places I’ve visited"><li><abbr title="Netherlands">NLD</abbr></li><li><abbr title="Japan">JPN</abbr></li><li><abbr title="Hong Kong">HKG</abbr></li></ul></div>
+  </div>
+</section>${nextChapter('/about/')}`;
 
 const pages = [
   ['/', 'Always Curious', 'Sam Yang — student, builder, athlete, and creator. Explore my projects, story, sports, video editing, and interests.', home],
@@ -116,7 +122,7 @@ const pages = [
   ['/sports/', 'Sports', profiles.sports.lede, sports],
   ['/editing/', 'Video Editing', profiles.editing.lede, editing],
   ['/interests/', 'Off Duty', 'LEGO, writing, and the other things Sam Yang loves.', interests],
-  ['/travel/', 'Travel', 'Sam Yang’s world travel map — places visited, one country at a time.', travel]
+  ['/travel/', 'Travel', 'Travel stories from Sam Yang — coming soon. A few hints of places along the way.', travel]
 ];
 for (const [path, title, description, content] of pages) {
   const directory = resolve(root, 'dist', `.${path}`);
