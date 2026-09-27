@@ -2,6 +2,12 @@
 .hero .hero-aurora,.page-hero .hero-aurora{opacity:.95;inset:0;background:radial-gradient(ellipse at 55% -10%,#8136df75,transparent 75%)}
 .hero-aurora .aurora-container{width:100%;height:100%}
 .hero-aurora:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent,#09070d22 32%,#09070d 95%);pointer-events:none}
+/* Subtle liquid contours on inner-page headers; the homepage keeps its aurora. */
+.page-hero>.page-ferrofluid{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 85% 30%,#68229b25,transparent 72%)}
+.page-ferrofluid .ferrofluid-container{opacity:.45;mask-image:linear-gradient(90deg,#0003,#0008 45%,#000);-webkit-mask-image:linear-gradient(90deg,#0003,#0008 45%,#000)}
+.page-ferrofluid:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#09070d0d 15%,#09070d40 65%,#09070d 100%);pointer-events:none}
+.page-ferrofluid canvas[hidden]{display:none!important}
+@media(max-width:600px){.page-ferrofluid .ferrofluid-container{opacity:.32;mask-image:linear-gradient(90deg,#0006,#000);-webkit-mask-image:linear-gradient(90deg,#0006,#000)}}
 .hero h1{margin-top:55px;margin-bottom:30px}
 .hero h1>.rb-heading,.page-title>.rb-heading{animation:none}
 .hero h1>.rb-heading>span{display:block}

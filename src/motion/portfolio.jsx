@@ -1,6 +1,7 @@
 import { Component, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import Aurora from '../vendor/react-bits/Aurora';
+import Ferrofluid from '../vendor/react-bits/Ferrofluid';
 import BlurText from '../vendor/react-bits/BlurText';
 import GlitchText from '../vendor/react-bits/GlitchText';
 import DecryptedText from '../vendor/react-bits/DecryptedText';
@@ -39,6 +40,7 @@ class EffectBoundary extends Component {
 const Markup = ({ html, className = '' }) => <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
 const roles = ['BUILDER.', 'ENTREPRENEUR.', 'ATHLETE.', 'CREATOR.', 'VIDEO EDITOR.'];
 const auroraColors = ['#631BFF', '#D58BFF', '#8B33FF'];
+const ferrofluidColors = ['#7133B8', '#A85CEF', '#CA91FF'];
 const cursorColors = ['#B36BFF', '#D8ADFF', '#D5FF43'];
 const cursorWidths = [10, 4, 1.5];
 const transparentBackground = [0, 0, 0, 0];
@@ -59,6 +61,12 @@ export function createPortfolioMotion({ paused = false } = {}) {
   register('.hero-aurora', ({ host }) => <ActiveEffect host={host}>
     <Aurora colorStops={auroraColors} amplitude={1.25} blend={.55} speed={1.05} />
   </ActiveEffect>, 'rb-aurora');
+
+  register('.page-ferrofluid', ({ host }) => <ActiveEffect host={host}>
+    <Ferrofluid colors={ferrofluidColors} speed={.12} scale={1.15} turbulence={.7}
+      fluidity={.12} rimWidth={.23} sharpness={2} shimmer={.65} glow={1.3}
+      flowDirection="up" opacity={.75} mouseInteraction={false} dpr={.85} />
+  </ActiveEffect>);
 
   register('.hero-name, .hero h1 > em, .footer-name > span, .footer-name > em',
     ({ text }) => <span aria-hidden="true"><GlitchText as="span" enableOnHover speed={.35} className="zine-glitch">{text}</GlitchText></span>, 'rb-heading', { label: true });

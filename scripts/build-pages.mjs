@@ -51,7 +51,7 @@ ${header(path)}<main id="main">${content}</main>${footer()}
 function pageHero({ path, label, first, second, lede, chips = [] }) {
   const project = path.startsWith('/work/') && path !== '/work/';
   return `<section class="page-hero section-pad" aria-labelledby="page-title">
-    <div class="hero-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="page-ferrofluid" aria-hidden="true"></div>
     <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>${project ? '<a href="/work/">Work</a><span aria-hidden="true">/</span>' : ''}<span aria-current="page">${names[path]}</span></nav>
     <p class="eyebrow">${label}</p><h1 class="page-title" id="page-title"><span>${first}</span><em>${second}</em></h1>
     <div class="page-hero-bottom"><p>${escape(lede)}</p>${chips.length ? `<div class="tags">${chips.map(chip => `<span>${escape(chip)}</span>`).join('')}</div>` : ''}</div>
