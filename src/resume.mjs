@@ -38,8 +38,8 @@ export const experienceGroups = [
 ];
 
 export const education = [
-  { id: 'webb', title: 'The Webb Schools', role: 'High School · Claremont, CA', period: 'Class of 2028', summary: 'Coursework includes advanced experimental physics, honors precalculus, economics, technology seminar, and media art.' },
-  { id: 'trinity', title: 'Trinity College School', role: 'Grade 9 · Port Hope, Ontario, Canada', period: '2025–2026 school year', summary: 'Coursework included digital technology innovation, mathematics, science, English, music, and Spanish.' },
+  { id: 'webb', title: 'The Webb Schools', role: 'High School · Claremont, CA', period: 'Class of 2028' },
+  { id: 'trinity', title: 'Trinity College School', role: 'Grade 9 · Port Hope, Ontario, Canada', period: '2025–2026 school year' },
   { id: 'middle-school', title: 'Middle School', role: 'Toronto, Canada', period: '' },
   { id: 'elementary-school', title: 'Elementary School', role: 'Hangzhou, China', period: '' }
 ];
