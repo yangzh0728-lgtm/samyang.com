@@ -19,6 +19,8 @@
 .rb-scroller{display:flex;width:max-content;white-space:nowrap;will-change:transform;font:600 clamp(34px,4.4vw,65px)/1 var(--condensed);letter-spacing:-.025em}
 .rb-ticker-copy{display:block;flex-shrink:0;padding-right:26px}
 .rb-ticker-static{font:600 42px/1 var(--condensed);white-space:nowrap}
+/* A drawn separator cannot turn into a colored emoji on mobile platforms. */
+.ticker .ticker-mark{display:inline-block;width:.6em;height:.6em;margin:0 .32em;vertical-align:.02em;font:inherit;background:currentColor;clip-path:polygon(43% 0,57% 0,57% 33%,80% 10%,90% 20%,67% 43%,100% 43%,100% 57%,67% 57%,90% 80%,80% 90%,57% 67%,57% 100%,43% 100%,43% 67%,20% 90%,10% 80%,33% 57%,0 57%,0 43%,33% 43%,10% 20%,20% 10%,43% 33%)}
 .rb-resume-spotlight{padding:20px;margin:-20px;border:0;border-radius:0;background:transparent;overflow:visible}
 .rb-resume-spotlight:before{inset:-1px;border-left:2px solid #ba80ff;opacity:0}
 .rb-resume-spotlight>div{position:relative}

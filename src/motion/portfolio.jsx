@@ -42,6 +42,7 @@ const auroraColors = ['#631BFF', '#D58BFF', '#8B33FF'];
 const cursorColors = ['#B36BFF', '#D8ADFF', '#D5FF43'];
 const cursorWidths = [13, 5, 2];
 const transparentBackground = [0, 0, 0, 0];
+const tickerLine = <>BUILD. PLAY. REPEAT. <span className="ticker-mark" /> ALWAYS CURIOUS. <span className="ticker-mark" /></>;
 
 export function createPortfolioMotion({ paused = false } = {}) {
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
@@ -80,8 +81,8 @@ export function createPortfolioMotion({ paused = false } = {}) {
       mainClassName="rb-role" splitLevelClassName="rb-role-word" transition={{ type: 'spring', damping: 28, stiffness: 350 }} />
   </ActiveEffect>);
 
-  register('.ticker', ({ host }) => <ActiveEffect host={host} fallback={<div className="rb-ticker-static">BUILD. PLAY. REPEAT. ✳ ALWAYS CURIOUS. ✳</div>}>
-    <ScrollVelocity texts={['BUILD. PLAY. REPEAT. ✳ ALWAYS CURIOUS. ✳']} velocity={55} stutter={true} numCopies={4}
+  register('.ticker', ({ host }) => <ActiveEffect host={host} fallback={<div className="rb-ticker-static">{tickerLine}</div>}>
+    <ScrollVelocity texts={[tickerLine]} velocity={55} stutter={true} numCopies={4}
       velocityMapping={{ input: [0, 1000], output: [0, 3] }} className="rb-ticker-copy"
       parallaxClassName="rb-parallax" scrollerClassName="rb-scroller" />
   </ActiveEffect>, 'rb-ticker');
