@@ -6,7 +6,7 @@ export const profiles = {
     "lede": "Badminton and floorball are my main sports. I’ve played floorball for 11+ years and captain my badminton team. I also make time for plenty of other ways to stay active."
   },
   "editing": {
-    "lede": "I cut footage. Move things around. Watch it again. Keep the parts that make me feel something.",
+    "lede": "I cut footage. Move things around. Watch it again. Keep the parts that make me feel something. My edits have reached over 1.04 million views across online platforms.",
     "sections": [
       [
         "Why I edit",
