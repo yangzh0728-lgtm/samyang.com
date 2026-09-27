@@ -7,11 +7,11 @@ export const experienceGroups = [
       { id: 'legacy-garage', title: 'Legacy Garage 26', role: 'Founder / Project Lead', period: '2025–Present',
         summary: 'Founded a student-led engineering and media project restoring a 1968 Chevrolet Corvair.',
         points: ['Work with an experienced mechanic to study automotive systems and restoration.', 'Lead a student team across engineering research, media, partnerships, and educational content.'],
-        link: { url: 'https://www.instagram.com/legacy_garage26/', label: '@legacy_garage26' } },
+        link: { url: 'https://www.instagram.com/legacy_garage26/', label: 'Legacy Garage on Instagram' } },
       { id: 'caliguide', title: 'CaliGuide', role: 'Founder / Developer', period: '2025–Present',
         summary: 'Developing a free information platform to help newcomers navigate everyday life in California.',
         points: ['Designed the information structure and user experience around practical questions, from driver’s licenses to banking.', 'Deployed and managed the site with AWS EC2, Ubuntu, Caddy, GitHub, and Route 53.'],
-        link: { url: 'https://www.caliguide.org/', label: 'caliguide.org' } }
+        link: { url: 'https://www.caliguide.org/', label: 'Visit CaliGuide' } }
     ]
   },
   {

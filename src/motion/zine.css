@@ -50,7 +50,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--acid)}
 .ticker i{font-style:normal;font-family:var(--condensed)}
 .resume-recognition>span{border-radius:0;box-shadow:3px 3px 0 #000;border-color:#b36bff80}
 .resume-group-heading{border-bottom-style:dashed}
-.resume-external:hover,.resume-jump a:hover{color:var(--acid)}
+.resume-external:hover,.resume-external:focus-visible{color:var(--ink);background:var(--acid);border-color:var(--acid)}.resume-jump a:hover{color:var(--acid)}
 .next-chapter{background:#7428b3;animation:none;border-top:3px solid #09070d;border-bottom:3px solid #09070d;box-shadow:0 8px 0 #000}
 .next-chapter-title{font-family:var(--condensed);text-transform:uppercase;font-weight:600}
 .next-chapter:hover .next-chapter-title>span{color:var(--acid);transform:translate(6px,-6px)}

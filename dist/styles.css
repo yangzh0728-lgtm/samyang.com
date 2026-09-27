@@ -205,7 +205,7 @@ body.motion-paused .spotlight-surface:before{opacity:0}
 .resume-points li{padding-left:4px;margin-top:6px}.resume-points li::marker{color:var(--accent)}
 .resume-recognition{display:flex;flex-wrap:wrap;gap:7px;margin-top:19px}
 .resume-recognition>span{border:1px solid #b36bff44;background:#21102e;color:#d5b2fa;font-size:11px;line-height:1.7;padding:6px 9px;max-width:100%}
-.resume-external{display:inline-block;font-size:12px;color:var(--accent);border-bottom:1px solid #b36bff66;padding-bottom:3px;margin-top:20px}
+.resume-external{display:inline-flex;align-items:center;gap:12px;max-width:100%;min-height:44px;font-size:14px;font-weight:600;line-height:1.45;color:var(--accent);background:#b36bff12;border:1px solid #b36bff99;padding:11px 16px;margin-top:20px;box-shadow:3px 3px 0 #000}.resume-external>span[aria-hidden]{flex-shrink:0}
 .resume-external:hover{color:var(--white)}
 .resume-skills{margin:0}.resume-skills>div{display:grid;grid-template-columns:155px 1fr;gap:38px;border-bottom:1px solid var(--line);padding:22px 0}
 .resume-skills dt{font-size:13px;color:var(--white)}.resume-skills dd{margin:0;font-size:15px;line-height:1.7;color:var(--muted)}
