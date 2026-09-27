@@ -41,8 +41,8 @@ const Markup = ({ html, className = '' }) => <div className={className} dangerou
 const roles = ['BUILDER.', 'ENTREPRENEUR.', 'ATHLETE.', 'CREATOR.', 'VIDEO EDITOR.'];
 const auroraColors = ['#631BFF', '#D58BFF', '#8B33FF'];
 const ferrofluidColors = ['#7133B8', '#A85CEF', '#CA91FF'];
-const cursorColors = ['#B36BFF', '#D8ADFF', '#D5FF43'];
-const cursorWidths = [10, 4, 1.5];
+const cursorColors = ['#C080FF', '#E9D2FF', '#D5FF43'];
+const cursorWidths = [13, 5.5, 2];
 const transparentBackground = [0, 0, 0, 0];
 const tickerLine = <>BUILD. PLAY. REPEAT. <span className="ticker-mark" /> ALWAYS CURIOUS. <span className="ticker-mark" /></>;
 
