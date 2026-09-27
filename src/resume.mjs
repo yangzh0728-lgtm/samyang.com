@@ -11,7 +11,11 @@ export const experienceGroups = [
       { id: 'caliguide', title: 'CaliGuide', role: 'Founder / Developer', period: '2025–Present',
         summary: 'Developing a free information platform to help newcomers navigate everyday life in California.',
         points: ['Designed the information structure and user experience around practical questions, from driver’s licenses to banking.', 'Deployed and managed the site with AWS EC2, Ubuntu, Caddy, GitHub, and Route 53.'],
-        link: { url: 'https://www.caliguide.org/', label: 'Visit CaliGuide' } }
+        link: { url: 'https://www.caliguide.org/', label: 'Visit CaliGuide' } },
+      { id: 'webb-technology-seminar', title: 'Webb Technology & Seminar', role: 'Student · Course portfolio',
+        summary: 'Documenting hands-on projects and reflections from my Technology & Seminar course at The Webb Schools.',
+        points: ['Includes an Arduino parking sensor built with an ultrasonic sensor, LEDs, and feedback from classmates, documented in an innovator journal.'],
+        link: { url: 'https://yangzh0728-lgtm.github.io/webbts/?v=f475e88a533fe01505f9c991b76426eeec24f5ba', label: 'Explore my course portfolio' } }
     ]
   },
   {
