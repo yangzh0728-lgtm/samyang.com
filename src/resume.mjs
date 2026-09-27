@@ -25,7 +25,10 @@ export const experienceGroups = [
         summary: 'Led a multidisciplinary team building a fiber-optic health-monitoring prototype for early risk detection in AI data centers.',
         points: ['Coordinated a custom PCB, sensor-data acquisition, and a monitoring dashboard; tested signal loss with an optical attenuator.', 'Directed product positioning, market analysis, business-model development, and competition pitches.'],
         recognition: ['Conrad Challenge Global Top 10 / Global Finalist Alternate', 'Blue Ocean Competition Top 500'],
-        link: { url: 'https://github.com/yangzh0728-lgtm/FiberScope-X', label: 'View on GitHub' } },
+        links: [
+          { url: 'https://fiber-scope-x.vercel.app/', label: 'Visit FiberScope-X' },
+          { url: 'https://github.com/yangzh0728-lgtm/FiberScope-X', label: 'View on GitHub' }
+        ] },
       { id: 'novatex', title: 'NovaTex SE / EcoWeave', role: 'Engineering Innovation Competitions · Team Captain', period: 'Grades 9–11',
         summary: 'Led team coordination, project planning, and competition preparation for a sustainability-focused innovation project.',
         points: ['Guided the team’s submission and presentation.'], recognition: ['Conrad Innovator recognition'] },
