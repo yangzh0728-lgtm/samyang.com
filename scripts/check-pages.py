@@ -4,7 +4,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1] / 'dist'
-EXPECTED = {'/', '/about/', '/work/', '/work/legacy-garage/', '/work/engineering/', '/work/caliguide/', '/sports/', '/editing/', '/interests/'}
+EXPECTED = {'/', '/about/', '/work/', '/work/legacy-garage/', '/work/engineering/', '/work/caliguide/', '/sports/', '/editing/', '/interests/', '/travel/'}
 REDIRECTS = {'/work/legacy-garage/': '/work/#legacy-garage', '/work/engineering/': '/work/#engineering', '/work/caliguide/': '/work/#caliguide'}
 
 
@@ -56,4 +56,7 @@ for expected in ('projects', 'legacy-garage', 'caliguide', 'engineering', 'fiber
     assert expected in work.ids, f'Missing résumé entry/category: {expected}'
 assert not any(link.startswith('/work/') and link != '/work/' and not link.startswith('/work/#') for page in pages.values() for link in page.links), 'A link still points to an individual project page'
 assert '11+ years' in (ROOT / 'sports/index.html').read_text(), 'Floorball tenure was not updated'
-print(f'Passed: 6 content pages, 3 legacy redirects, résumé entries and navigation verified; all local links/assets/anchors resolve.')
+travel = pages[ROOT / 'travel/index.html']
+assert {'atlas-title', 'world-map-title', 'world-map-description', 'travel-country'} <= travel.ids, 'Travel map or country picker is missing'
+assert '/travel/' in pages[ROOT / 'index.html'].links, 'Travel is missing from the homepage'
+print(f'Passed: {len(EXPECTED) - len(REDIRECTS)} content pages, {len(REDIRECTS)} legacy redirects, résumé entries, travel map and navigation verified; all local links/assets/anchors resolve.')

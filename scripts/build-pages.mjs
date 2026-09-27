@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { profiles } from '../src/profiles.mjs';
 import { experienceGroups, education, sportsExperience, skills } from '../src/resume.mjs';
+import { renderTravelMap } from './travel-map.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const [homeHero, editArt, chapterDirectory, stickerWall] = await Promise.all(
@@ -10,20 +11,20 @@ const [homeHero, editArt, chapterDirectory, stickerWall] = await Promise.all(
 );
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const slug = value => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const names = { '/': 'Home', '/about/': 'About', '/work/': 'Work', '/sports/': 'Sports', '/editing/': 'Video editing', '/interests/': 'Off duty' };
+const names = { '/': 'Home', '/about/': 'About', '/work/': 'Work', '/sports/': 'Sports', '/editing/': 'Video editing', '/interests/': 'Off duty', '/travel/': 'Travel' };
 
 function header(current) {
   return `<a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="wordmark" href="/" aria-label="Sam Yang home">S<span>Y</span></a>
-    <nav aria-label="Main navigation">${[['/work/', 'Work'], ['/about/', 'About'], ['/sports/', 'Sports'], ['/editing/', 'Editing']].map(([url, name]) => `<a href="${url}"${current === url || (url === '/work/' && current.startsWith(url)) ? ' aria-current="page"' : ''}>${name}</a>`).join('')}</nav>
+    <nav aria-label="Main navigation">${[['/work/', 'Work'], ['/about/', 'About'], ['/sports/', 'Sports'], ['/editing/', 'Editing'], ['/travel/', 'Travel']].map(([url, name]) => `<a href="${url}"${current === url || (url === '/work/' && current.startsWith(url)) ? ' aria-current="page"' : ''}>${name}</a>`).join('')}</nav>
     <button class="motion-toggle" aria-pressed="false" aria-label="Pause animations"><span class="motion-symbol" aria-hidden="true">Ⅱ</span><span class="motion-label">Motion on</span></button>
   </header>`;
 }
 
 function footer() {
   return `<footer class="site-footer"><div class="footer-top"><p>MAKE STUFF.<br>KEEP GOING.</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
-    <nav class="footer-nav" aria-label="Explore the site">${['/', '/about/', '/work/', '/sports/', '/editing/', '/interests/'].map(url => `<a href="${url}">${names[url]}</a>`).join('')}</nav>
+    <nav class="footer-nav" aria-label="Explore the site">${['/', '/about/', '/work/', '/sports/', '/editing/', '/interests/', '/travel/'].map(url => `<a href="${url}">${names[url]}</a>`).join('')}</nav>
     <div class="footer-name" aria-hidden="true"><span>Sam</span> <em>Yang.</em></div><div class="footer-bottom"><span>© <span id="year">2026</span> SAM YANG</span><span>STUDENT. BUILDER. ATHLETE. CREATOR.</span><span>ALWAYS CURIOUS.</span></div></footer>`;
 }
 
@@ -95,7 +96,9 @@ const interests = `${pageHero({ path: '/interests/', label: 'OFF DUTY / THE OTHE
   ['LEGO', 'I love LEGO for the possibilities in a handful of pieces. It’s a place to build, take something apart, and try a different idea simply because I’m curious where it might go.'],
   ['Writing and ideas', 'Writing gives me another way to explore the things I care about. Engineering, moving between places, sports, and the people behind a project all leave me with questions worth thinking through.'],
   ['Following curiosity', 'Not everything needs to become a finished project. I like making room for the ideas that begin as play — a different way to build something, a story to tell, or a question I want to follow.']
-])}${nextChapter('/about/')}`;
+])}${nextChapter('/travel/')}`;
+
+const travel = `${pageHero({ path: '/travel/', label: 'TRAVEL / MY WORLD MAP', first: 'A little', second: 'further.', lede: 'New places. Different perspectives. A growing map of the places I’ve been.' })}${renderTravelMap()}${nextChapter('/about/')}`;
 
 const pages = [
   ['/', 'Always Curious', 'Sam Yang — student, builder, athlete, and creator. Explore my projects, story, sports, video editing, and interests.', home],
@@ -103,7 +106,8 @@ const pages = [
   ['/work/', 'Work & Experience', 'Sam Yang’s projects, engineering competitions, student leadership, and technical skills.', work],
   ['/sports/', 'Sports', profiles.sports.lede, sports],
   ['/editing/', 'Video Editing', profiles.editing.lede, editing],
-  ['/interests/', 'Off Duty', 'LEGO, writing, and the other things Sam Yang loves.', interests]
+  ['/interests/', 'Off Duty', 'LEGO, writing, and the other things Sam Yang loves.', interests],
+  ['/travel/', 'Travel', 'Sam Yang’s world travel map — places visited, one country at a time.', travel]
 ];
 for (const [path, title, description, content] of pages) {
   const directory = resolve(root, 'dist', `.${path}`);

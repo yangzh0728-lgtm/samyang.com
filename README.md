@@ -10,8 +10,9 @@ A personal portfolio with concise résumé-style entries for work, education, an
 - `/sports/` — floorball and badminton roles and results, plus other sports.
 - `/editing/` — video editing, pacing, and visual storytelling.
 - `/interests/` — LEGO, writing, and curiosity outside the main projects.
+- `/travel/` — an interactive world map and a list of confirmed visited countries.
 
-There are six content pages. Work covers each project directly in a short entry with a role, period, and key contributions. The former `/work/legacy-garage/`, `/work/engineering/`, and `/work/caliguide/` routes redirect to the appropriate overview entry. There are no individual project detail pages.
+There are seven content pages. Work covers each project directly in a short entry with a role and key contributions. The former `/work/legacy-garage/`, `/work/engineering/`, and `/work/caliguide/` routes redirect to the appropriate overview entry. There are no individual project detail pages.
 
 Every route is a static HTML document, so direct links, refresh, browser history, navigation, and content work without client-side routing. Older homepage section/profile hashes redirect to their corresponding pages when JavaScript is enabled.
 
@@ -36,6 +37,8 @@ Add the custom domain under the Vercel project's Settings → Domains. If DNS is
 
 - Shared page layout, navigation, and page-specific sections: `scripts/build-pages.mjs`.
 - Résumé entries, education, sports results, and skills: `src/resume.mjs`.
+- Visited countries: `src/travel.mjs` (`visitedCountryIds`, using ISO numeric IDs from the map).
+- Build-time map generation: `scripts/travel-map.mjs`; map interaction and styling: `src/interactions/travel-map.js` and `src/motion/travel.css`.
 - Short biography and editing copy: `src/profiles.mjs`.
 - Homepage hero, chapter directory, and editing artwork: `src/*.html`.
 - Shared styling: `dist/styles.css`.
@@ -56,7 +59,9 @@ On devices with a mouse, purple ribbons with a thin acid-green accent follow the
 
 The homepage has a moving violet Aurora, blurred letter entrances, a rotating role label, a scroll-responsive ribbon, a spotlight chapter list with tilting thumbnails, a magnetic link, and click sparks. Inner pages share the Aurora, decrypting labels, blurred heading entrances, and click sparks; résumé entries also have a pointer spotlight.
 
-Motion off restores static HTML, removes animation roots and canvases, and carries between pages for the session. OS reduced motion sets the default. Continuous effects unmount outside the viewport and in hidden tabs. Click sparks render only while active. Touch uses ordinary tap navigation without card tilt. The background has a non-WebGL fallback, and all six pages remain readable without JavaScript. Native links, skip links, breadcrumbs, active navigation, and category anchors remain intact.
+Motion off restores static HTML, removes animation roots and canvases, and carries between pages for the session. OS reduced motion sets the default. Continuous effects unmount outside the viewport and in hidden tabs. Click sparks render only while active. Touch uses ordinary tap navigation without card tilt. The background has a non-WebGL fallback, and all seven pages remain readable without JavaScript. Native links, skip links, breadcrumbs, active navigation, and category anchors remain intact.
+
+The Travel map uses an Equal Earth projection of [Natural Earth](https://www.naturalearthdata.com/about/terms-of-use/) public-domain country boundaries, distributed by pinned `world-atlas@2.0.2`. D3 Geo and TopoJSON Client run only during the build; the browser receives static SVG and a small interaction module, with no map API or runtime data fetch. Small islands have locator dots. Hover, tap, or the keyboard-accessible country picker can inspect countries without editing the travel log. Confirmed country IDs drive the purple highlights, count, and text list together; the list is empty until Sam provides his travels. Tests check empty, populated, duplicate, and invalid country data.
 
 ## Content and artwork
 
