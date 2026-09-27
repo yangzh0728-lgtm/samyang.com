@@ -1,74 +1,116 @@
+<p align="center">
+  <img src="dist/assets/sam-yang-logo.png" alt="Sam Yang logo" width="180" height="180">
+</p>
+
 # Sam Yang — Always Curious
 
-A personal portfolio with concise résumé-style entries for work, education, and sports. Black and electric purple, stencil typography, paper textures, acid-green accents, and eleven official React Bits animation components.
+My personal website: a place for the things I build, the sports I play, and the stories I want to tell. Engineering, entrepreneurship, video editing, LEGO, and travel — brought together with a black-and-purple, punk-inspired design.
 
-## Pages
+**[Visit the website](https://samyangzh.com/)**
 
-- `/` — a concise introduction and visual chapter directory.
-- `/about/` — background and education.
-- `/work/` — grouped projects, engineering competitions, student leadership, and skills.
-- `/sports/` — floorball and badminton roles and results, plus other sports.
-- `/editing/` — video editing, pacing, and visual storytelling.
-- `/interests/` — LEGO, writing, and curiosity outside the main projects.
-- `/travel/` — an interactive world map and a list of confirmed visited countries.
+## Inside the site
 
-There are seven content pages. Work covers each project directly in a short entry with a role and key contributions. The former `/work/legacy-garage/`, `/work/engineering/`, and `/work/caliguide/` routes redirect to the appropriate overview entry. There are no individual project detail pages.
+| Page | What’s there |
+| --- | --- |
+| [Home](https://samyangzh.com/) | An introduction, rotating roles, background quotes, and a directory of chapters. |
+| [About](https://samyangzh.com/about/) | My background, from Hangzhou to Toronto to Los Angeles, and my education. |
+| [Work](https://samyangzh.com/work/) | Projects, engineering competitions, leadership, and skills, grouped into concise résumé entries. |
+| [Sports](https://samyangzh.com/sports/) | Badminton and floorball, plus the other sports I enjoy. |
+| [Video editing](https://samyangzh.com/editing/) | Visual storytelling, pacing, sound, and the ideas behind an edit. |
+| [Off duty](https://samyangzh.com/interests/) | LEGO, writing, and a draggable sticker wall. |
+| [Travel](https://samyangzh.com/travel/) | A world map ready to highlight the countries I’ve visited. |
 
-Every route is a static HTML document, so direct links, refresh, browser history, navigation, and content work without client-side routing. Older homepage section/profile hashes redirect to their corresponding pages when JavaScript is enabled.
+Each page has its own URL and static HTML. Projects are covered together on the Work page; older project URLs redirect to the matching section.
 
-## Build and run
+## Design and interactions
+
+- Electric purple, black backgrounds, stencil type, paper grain, and small acid-green accents.
+- A custom logo in the header and favicon, with an “Always curious” stamp in the compact mobile header.
+- Aurora backgrounds, rotating role text, glitch effects, scroll-responsive type, spotlight cards, tilting thumbnails, and click sparks.
+- A short mouse ribbon that fades out within 0.25 seconds of inactivity; touch input does not create a trail.
+- Faint animated English quotes behind the homepage introduction.
+- Stickers that support dragging, touch, and keyboard movement. Arrow keys move a focused sticker, Shift increases the step, and Home resets it.
+- An SVG world map with a country picker, visited-country highlights, and a shared count and list.
+
+The **Motion on/off** control works across pages for the current session. The site respects the operating system’s reduced-motion preference by default. Core content and navigation remain available without JavaScript, and decorative overlays do not block links or buttons.
+
+## Stack
+
+The site combines generated HTML and CSS with small React animation islands. It uses **React**, **Motion**, **OGL**, and locally bundled **React Bits** components. **esbuild** creates the browser bundle. **D3 Geo**, **TopoJSON Client**, and **World Atlas** generate the travel map at build time.
+
+There is no application backend, database, map API key, or required environment variable. Fonts load from Google Fonts; animation components are bundled locally.
+
+## Run locally
+
+Requirements: **Node.js 22 or newer**, npm, and **Python 3**.
 
 ```sh
+git clone https://github.com/yangzh0728-lgtm/samyang.com.git
+cd samyang.com
 npm ci
 npm run build
 npm run check
 npm run preview
 ```
 
-Open http://127.0.0.1:4173/. The site is static HTML with locally bundled React animation islands. Node.js 22+ and Python 3 are required for the build and preview commands.
+Open [the local preview](http://127.0.0.1:4173/). Stop the server with `Ctrl+C`.
 
-## Deploy with Vercel
+| Command | Purpose |
+| --- | --- |
+| `npm run build` | Bundle the animation code and generate seven pages plus three legacy redirects. |
+| `npm run check` | Check page structure, local links, assets, anchors, and travel-map data. |
+| `npm run preview` | Serve `dist/` locally on port 4173. |
 
-Import `yangzh0728-lgtm/samyang.com` from GitHub and keep the repository root (`./`) as the Root Directory. `vercel.json` configures the Other framework preset, `npm ci`, `npm run build`, and the `dist` output directory. No environment variables are required. The production branch is `main`; once the GitHub integration is connected, pushes to it deploy automatically.
+The preview is a static server, with no automatic rebuild or hot reload. After editing source files, run `npm run build` and refresh the browser.
 
-Add the custom domain under the Vercel project's Settings → Domains. If DNS is managed at GoDaddy, copy the exact A/CNAME values Vercel shows into GoDaddy DNS, then verify the domain in Vercel. Keep existing mail and verification records. Vercel provisions HTTPS after domain verification.
+## Where to edit
 
-## Edit
+| Change | File or directory |
+| --- | --- |
+| Shared header, footer, navigation, and page layouts | [`scripts/build-pages.mjs`](scripts/build-pages.mjs) |
+| Homepage name, introduction, location, and quotes | [`src/home-hero.html`](src/home-hero.html) |
+| Homepage chapter order and descriptions | [`src/chapter-directory.html`](src/chapter-directory.html) |
+| Work entries, education, sports results, and skills | [`src/resume.mjs`](src/resume.mjs) |
+| Biography and video-editing copy | [`src/profiles.mjs`](src/profiles.mjs) |
+| Rotating roles, cursor trail, and React animation setup | [`src/motion/portfolio.jsx`](src/motion/portfolio.jsx) |
+| Punk styling, responsive logo, and header stamp | [`src/motion/zine.css`](src/motion/zine.css) |
+| Chapter, sticker, quote, and map styles | [`src/motion/`](src/motion/) |
+| Motion preferences and legacy homepage links | [`src/app.js`](src/app.js) |
+| Sticker, quote, and map interactions | [`src/interactions/`](src/interactions/) |
+| Visited countries | [`src/travel.mjs`](src/travel.mjs) |
+| Map generation | [`scripts/travel-map.mjs`](scripts/travel-map.mjs) |
+| Logo, images, and textures | [`dist/assets/`](dist/assets/) |
+| Base stylesheet | [`dist/styles.css`](dist/styles.css) |
 
-- Shared page layout, navigation, and page-specific sections: `scripts/build-pages.mjs`.
-- Résumé entries, education, sports results, and skills: `src/resume.mjs`.
-- Visited countries: `src/travel.mjs` (`visitedCountryIds`, using ISO numeric IDs from the map).
-- Build-time map generation: `scripts/travel-map.mjs`; map interaction and styling: `src/interactions/travel-map.js` and `src/motion/travel.css`.
-- Short biography and editing copy: `src/profiles.mjs`.
-- Homepage hero, chapter directory, and editing artwork: `src/*.html`.
-- Shared styling: `dist/styles.css`.
-- Motion preferences, scroll entrances, and old-link compatibility: `src/app.js`.
-- React Bits mounting, pause/resume, and responsive effects: `src/motion/`.
-- Pinned upstream components and license: `src/vendor/react-bits/`.
-- The esbuild animation bundle: `scripts/build-motion.mjs`.
+**`dist/` contains both generated files and maintained assets.** Do not delete it as a disposable build folder: `dist/assets/` and `dist/styles.css` are maintained directly. Edit templates and source files rather than generated page HTML or `dist/app.js` / `dist/app.css`.
 
-Run `npm run build` after changing source, templates, or profile copy. Generated `dist/**/index.html` files are committed for static hosting.
+After a website change, rebuild and check it, then commit the source changes together with the updated generated files in `dist/`.
 
-## Motion and accessibility
+### Add a visited country
 
-The site uses the official [React Bits](https://www.reactbits.dev/) source for Aurora, BlurText, GlitchText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, ClickSpark, and Ribbons. Upstream is pinned and licensed in `src/vendor/react-bits/README.md`. React, Motion, and OGL are bundled locally; there is no runtime component CDN.
+Update `visitedCountryIds` in [`src/travel.mjs`](src/travel.mjs) with the map’s three-digit ISO numeric IDs as strings, preserving leading zeros. Use IDs from the World Atlas dataset used by the map. Add only confirmed visits.
 
-The interests page has a draggable sticker wall (`src/interactions/sticker-wall.js`). Mouse and touch use pointer capture; keyboard users can move a focused sticker with arrow keys, use Shift for larger steps, or press Home to reset it. A reset button restores the whole board. Manual movement remains available with motion off, and positions stay inside the board when it resizes.
+The list currently starts empty. Rebuilding updates the highlights, count, and country list together. Duplicate or unknown IDs fail the build. Selecting a country in the browser only inspects it; it does not change the travel log.
 
-On devices with a mouse, purple ribbons with a thin acid-green accent follow the pointer on every page. The overlay never intercepts clicks. It fades and stops rendering after the mouse rests, clears when the pointer leaves, and unmounts with Motion off or when the tab is hidden. Touch input does not create a trail.
+## Deployment
 
-Nine quotes from Sam’s supplied image are translated into English in the homepage hero background. Faint purple type drifts and fades through three groups on desktop and one quote at a time on smaller screens. The decorative layer never intercepts clicks or repeats content to screen readers. It pauses offscreen and in hidden tabs; Motion off and reduced motion leave a static selection. Text lives in `src/home-hero.html`, styling in `src/motion/hero-quotes.css`, and visibility handling in `src/interactions/hero-quotes.js`.
+[`vercel.json`](vercel.json) configures the repository for static deployment on Vercel:
 
-The homepage has a moving violet Aurora, blurred letter entrances, a rotating role label, a scroll-responsive ribbon, a spotlight chapter list with tilting thumbnails, a magnetic link, and click sparks. Inner pages share the Aurora, decrypting labels, blurred heading entrances, and click sparks; résumé entries also have a pointer spotlight.
+| Setting | Value |
+| --- | --- |
+| Root directory | Repository root |
+| Framework | Other / no framework preset |
+| Install command | `npm ci` |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Trailing slashes | Enabled |
 
-Motion off restores static HTML, removes animation roots and canvases, and carries between pages for the session. OS reduced motion sets the default. Continuous effects unmount outside the viewport and in hidden tabs. Click sparks render only while active. Touch uses ordinary tap navigation without card tilt. The background has a non-WebGL fallback, and all seven pages remain readable without JavaScript. Native links, skip links, breadcrumbs, active navigation, and category anchors remain intact.
+Use `main` as the production branch when connecting the GitHub repository. Automatic deployment depends on that integration being enabled. The built `dist/` directory can also be served by a static host that supports directory index pages.
 
-The Travel map uses an Equal Earth projection of [Natural Earth](https://www.naturalearthdata.com/about/terms-of-use/) public-domain country boundaries, distributed by pinned `world-atlas@2.0.2`. D3 Geo and TopoJSON Client run only during the build; the browser receives static SVG and a small interaction module, with no map API or runtime data fetch. Small islands have locator dots. Hover, tap, or the keyboard-accessible country picker can inspect countries without editing the travel log. Confirmed country IDs drive the purple highlights, count, and text list together; the list is empty until Sam provides his travels. Tests check empty, populated, duplicate, and invalid country data.
+## Artwork and credits
 
-## Content and artwork
+The car and floorball images are labeled **editorial concept images**. The editing timeline is decorative; it is not a playable showreel. Personal photos and footage can replace those assets as they become available.
 
-The shared header uses Sam’s custom purple SY monogram and SAM YANG wordmark (`dist/assets/sam-yang-logo.png`). The original artwork is preserved; CSS frames its central design for desktop and mobile headers. The logo links to the homepage.
+Animation components come from [React Bits](https://www.reactbits.dev/): Aurora, BlurText, GlitchText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, ClickSpark, and Ribbons. Their pinned upstream revision and local adaptations are recorded in the [vendor README](src/vendor/react-bits/README.md). Their license is included in the [vendor directory](src/vendor/react-bits/LICENSE.md) and the [published bundle](dist/react-bits-license.txt).
 
-Professional and educational facts come from Sam's supplied résumé screenshot; personal interests and creative copy build on prior instructions. The résumé establishes 11+ years of floorball and supplies the listed competition results. The source image, original Word file, phone number, and email are not bundled with the website.
-
-The car and floorball images are labeled editorial concepts, not photos of Sam's actual vehicle or equipment. The video-editing timeline is decorative, not a playable showreel. No awards, project results, or software expertise were invented.
+Map boundaries come from Natural Earth via the pinned World Atlas package; attribution is also shown on the Travel page. Fonts: DM Sans, Barlow Condensed, and Black Ops One.
