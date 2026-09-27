@@ -40,7 +40,7 @@ const Markup = ({ html, className = '' }) => <div className={className} dangerou
 const roles = ['BUILDER.', 'ATHLETE.', 'CREATOR.', 'VIDEO EDITOR.'];
 const auroraColors = ['#631BFF', '#D58BFF', '#8B33FF'];
 const cursorColors = ['#B36BFF', '#D8ADFF', '#D5FF43'];
-const cursorWidths = [13, 5, 2];
+const cursorWidths = [10, 4, 1.5];
 const transparentBackground = [0, 0, 0, 0];
 const tickerLine = <>BUILD. PLAY. REPEAT. <span className="ticker-mark" /> ALWAYS CURIOUS. <span className="ticker-mark" /></>;
 
@@ -134,8 +134,8 @@ export function createPortfolioMotion({ paused = false } = {}) {
   document.body.append(cursorHost);
   register('.rb-cursor-trail', ({ host }) => finePointer.matches ? <ActiveEffect host={host}>
     <Ribbons global colors={cursorColors} thicknesses={cursorWidths} backgroundColor={transparentBackground}
-      baseSpring={.18} baseFriction={.62} offsetFactor={.006} pointCount={40}
-      maxAge={400} speedMultiplier={.5} enableFade idleTimeout={750} />
+      baseSpring={.18} baseFriction={.62} offsetFactor={.0045} pointCount={40}
+      maxAge={320} speedMultiplier={.5} enableFade idleTimeout={750} />
   </ActiveEffect> : null);
 
   function setPaused(value) {
