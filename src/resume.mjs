@@ -53,8 +53,8 @@ export const education = [
 ];
 
 export const sportsExperience = [
-  { id: 'floorball', title: 'Floorball', role: 'Player & Team Leader', period: '11+ years',
-    summary: 'Former team captain and starting center, with experience in regional and national youth tournaments.',
+  { id: 'floorball', title: 'Floorball', role: 'Player · Assistant Coach & Trainer', period: '11+ years',
+    summary: 'Former team captain and starting center, with experience in regional and national youth tournaments. Now also serving as an assistant coach and trainer.',
     points: [
       '2nd Place — National Youth U Series Floorball Championship (Middle School Division).',
       '1st Place — National Oriental Cup Floorball League Final Championship.',
