@@ -68,12 +68,12 @@ function photo(file, alt, caption) {
 
 const home = `${homeHero}${chapterDirectory}`;
 
-function resumeEntry(entry) {
-  return `<article class="resume-entry reveal" id="${entry.id}"><div class="resume-period">${escape(entry.period || '')}</div><div class="resume-entry-content"><h3>${escape(entry.title)}</h3><p class="resume-role">${escape(entry.role)}</p>${entry.summary ? `<p class="resume-summary">${escape(entry.summary)}</p>` : ''}${entry.points?.length ? `<ul class="resume-points">${entry.points.map(point => `<li>${escape(point)}</li>`).join('')}</ul>` : ''}${entry.recognition?.length ? `<div class="resume-recognition" aria-label="Recognition">${entry.recognition.map(item => `<span>${escape(item)}</span>`).join('')}</div>` : ''}${entry.link ? `<a class="resume-external" href="${entry.link.url}" target="_blank" rel="noopener noreferrer">${entry.link.label}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ''}</div></article>`;
+function resumeEntry(entry, showPeriods = true) {
+  return `<article class="resume-entry${showPeriods ? '' : ' resume-entry--undated'} reveal" id="${entry.id}">${showPeriods ? `<div class="resume-period">${escape(entry.period || '')}</div>` : ''}<div class="resume-entry-content"><h3>${escape(entry.title)}</h3><p class="resume-role">${escape(entry.role)}</p>${entry.summary ? `<p class="resume-summary">${escape(entry.summary)}</p>` : ''}${entry.points?.length ? `<ul class="resume-points">${entry.points.map(point => `<li>${escape(point)}</li>`).join('')}</ul>` : ''}${entry.recognition?.length ? `<div class="resume-recognition" aria-label="Recognition">${entry.recognition.map(item => `<span>${escape(item)}</span>`).join('')}</div>` : ''}${entry.link ? `<a class="resume-external" href="${entry.link.url}" target="_blank" rel="noopener noreferrer">${entry.link.label}<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ''}</div></article>`;
 }
 
-function resumeGroup(id, title, entries, index) {
-  return `<section class="resume-group" id="${id}" aria-labelledby="${id}-title"><div class="resume-group-heading"><span class="eyebrow">${index}</span><h2 id="${id}-title">${title}</h2><span class="resume-count">${String(entries.length).padStart(2, '0')}</span></div>${entries.map(resumeEntry).join('')}</section>`;
+function resumeGroup(id, title, entries, index, showPeriods = true) {
+  return `<section class="resume-group" id="${id}" aria-labelledby="${id}-title"><div class="resume-group-heading"><span class="eyebrow">${index}</span><h2 id="${id}-title">${title}</h2><span class="resume-count">${String(entries.length).padStart(2, '0')}</span></div>${entries.map(entry => resumeEntry(entry, showPeriods)).join('')}</section>`;
 }
 
 const about = `${pageHero({ path: '/about/', label: 'ABOUT / SAM ZHIHUAN YANG', first: 'Student. Builder.', second: 'Always curious.', lede: profiles.story.lede })}
@@ -83,7 +83,7 @@ const about = `${pageHero({ path: '/about/', label: 'ABOUT / SAM ZHIHUAN YANG', 
 
 const work = `${pageHero({ path: '/work/', label: 'SELECTED EXPERIENCE', first: 'Work &', second: 'experience.', lede: 'I like turning an idea into something that works. Here’s what I’ve been building.' })}
 <nav class="resume-jump" aria-label="Experience categories"><a href="#projects">Projects <sup>02</sup></a><a href="#engineering">Engineering <sup>03</sup></a><a href="#leadership">Leadership <sup>01</sup></a><a href="#skills">Skills</a></nav>
-<div class="resume-sheet section-pad">${experienceGroups.map((group, i) => resumeGroup(group.id, group.title, group.entries, `0${i + 1}`)).join('')}
+<div class="resume-sheet section-pad">${experienceGroups.map((group, i) => resumeGroup(group.id, group.title, group.entries, `0${i + 1}`, false)).join('')}
 <section class="resume-group" id="skills" aria-labelledby="skills-title"><div class="resume-group-heading"><span class="eyebrow">04</span><h2 id="skills-title">Skills</h2></div><dl class="resume-skills">${skills.map(([name, detail]) => `<div><dt>${name}</dt><dd>${detail}</dd></div>`).join('')}</dl></section></div>${nextChapter('/sports/')}`;
 
 const sports = `${pageHero({ path: '/sports/', label: 'SPORTS / COMPETITION & TEAMWORK', first: 'On the', second: 'playing field.', lede: profiles.sports.lede })}
