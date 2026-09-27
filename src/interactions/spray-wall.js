@@ -1,3 +1,4 @@
+import { icon } from '../icons.mjs';
 import '../motion/spray.css';
 import { createPaintHistory } from './paint-history.mjs';
 
@@ -475,7 +476,7 @@ export function createSprayWall({ paused = false } = {}) {
     const s = stencils[Math.floor(Math.random() * stencils.length)];
     setStencil(s.dataset.stencil);
     nozzle.value = 10 + Math.floor(Math.random() * 45);
-    toast(s.dataset.stencil === 'none' ? 'Free spray' : s.textContent);
+    toast(s.dataset.stencil === 'none' ? 'Free spray' : s.getAttribute('aria-label') || s.textContent);
   });
   action('undo').addEventListener('click', undo);
 
@@ -495,7 +496,7 @@ export function createSprayWall({ paused = false } = {}) {
   });
   function endHold() {
     clearTimeout(holdTimer); holdTimer = null;
-    melting = false; washBtn.textContent = 'Wash ↓';
+    melting = false; washBtn.innerHTML = `Wash ${icon('arrow-down')}`;
   }
   washBtn.addEventListener('pointerup', endHold);
   washBtn.addEventListener('pointercancel', () => { didHold = true; endHold(); });

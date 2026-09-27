@@ -1,3 +1,4 @@
+import { icon } from './icons.mjs';
 import { createPortfolioMotion } from './motion/portfolio.jsx';
 import { createSprayWall } from './interactions/spray-wall.js';
 import { createTravelMap } from './interactions/travel-map.js';
@@ -45,7 +46,7 @@ if (!redirectLegacyLink()) {
     motionButton.setAttribute('aria-label', paused ? 'Enable animations' : 'Pause animations');
     motionButton.title = paused ? 'Enable animations' : 'Pause animations';
     motionButton.querySelector('.motion-label').textContent = paused ? 'Motion off' : 'Motion on';
-    motionButton.querySelector('.motion-symbol').textContent = paused ? '▷' : 'Ⅱ';
+    motionButton.querySelector('.motion-symbol').innerHTML = icon(paused ? 'play' : 'pause');
     if (paused) document.querySelectorAll('.reveal-pending').forEach(element => element.classList.remove('reveal-pending'));
   }
   updateMotion(motionPaused);

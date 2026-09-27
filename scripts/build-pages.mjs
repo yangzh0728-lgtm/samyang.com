@@ -1,3 +1,4 @@
+import { renderIconText } from '../src/icons.mjs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
@@ -47,7 +48,7 @@ function documentPage({ path, title, description, content }) {
   <script>try{const p=sessionStorage.getItem('sam-motion');document.documentElement.classList.toggle('motion-static',p==='off'||(p!=='on'&&matchMedia('(prefers-reduced-motion: reduce)').matches));}catch{}</script>
   <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/app.css"><script type="module" src="/app.js"></script>
 </head><body id="top" data-page="${path}"${['/about/', '/work/', '/sports/'].includes(path) ? ' class="resume-page"' : ''}>
-${loaderMarkup}${header(path)}<main id="main">${content}</main>${footer()}
+${renderIconText(`${loaderMarkup}${header(path)}<main id="main">${content}</main>${footer()}`)}
 </body></html>\n`;
 }
 
@@ -141,6 +142,6 @@ const redirects = {
 for (const [path, target] of Object.entries(redirects)) {
   const directory = resolve(root, 'dist', `.${path}`);
   await mkdir(directory, { recursive: true });
-  await writeFile(resolve(directory, 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=${target}"><title>Work &amp; Experience — Sam Yang</title>${favicon}<link rel="canonical" href="${target}"><link rel="stylesheet" href="/styles.css"></head><body><main class="section-pad"><h1>Work &amp; experience</h1><p><a href="${target}">Continue to the experience overview ↗</a></p></main></body></html>\n`);
+  await writeFile(resolve(directory, 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=${target}"><title>Work &amp; Experience — Sam Yang</title>${favicon}<link rel="canonical" href="${target}"><link rel="stylesheet" href="/styles.css"></head><body><main class="section-pad"><h1>Work &amp; experience</h1><p><a href="${target}">Continue to the experience overview</a></p></main></body></html>\n`);
 }
 console.log(`Built ${pages.length} pages and ${Object.keys(redirects).length} legacy redirects.`);

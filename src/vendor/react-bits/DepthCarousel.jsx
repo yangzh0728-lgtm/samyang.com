@@ -1,3 +1,4 @@
+import { icon } from '../../icons.mjs';
 // Adapted from React Bits DepthCarousel, revision 5d0c00e7594c898e989b250d022806961f4c8478.
 // Copyright 2026 David Haz. MIT + Commons Clause; see LICENSE.md.
 // Retains upstream depth/spread/tilt, brightness, and blur layout.
@@ -110,8 +111,8 @@ export default function DepthCarousel({ items, reducedMotion = false }) {
     </div>
     <div className="depth-carousel__details">
       <div className="depth-carousel__caption" aria-live="polite" aria-atomic="true"><span>{String(active + 1).padStart(2, '0')} / {count}</span><p>{items[active].caption}</p></div>
-      <div className="depth-carousel__arrows"><button type="button" aria-label="Previous photo" disabled={active === 0} onClick={() => goTo(active - 1)}>←</button><button type="button" aria-label="Next photo" disabled={active === count - 1} onClick={() => goTo(active + 1)}>→</button></div>
+      <div className="depth-carousel__arrows"><button type="button" aria-label="Previous photo" disabled={active === 0} onClick={() => goTo(active - 1)}><span dangerouslySetInnerHTML={{ __html: icon('arrow-left') }} /></button><button type="button" aria-label="Next photo" disabled={active === count - 1} onClick={() => goTo(active + 1)}><span dangerouslySetInnerHTML={{ __html: icon('arrow-right') }} /></button></div>
     </div>
-    <div className="depth-carousel__footer"><p>Swipe or drag · Use ← → keys</p></div>
+    <div className="depth-carousel__footer"><p>Swipe or drag · Use left / right arrow keys</p></div>
   </div>;
 }

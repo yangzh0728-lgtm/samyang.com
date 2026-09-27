@@ -247,3 +247,6 @@ body.motion-paused .spotlight-surface:before{opacity:0}
 [data-page="/editing/"] .page-title{font-size:clamp(58px,7vw,104px)}
 [data-page="/editing/"] .page-hero-bottom{margin-top:24px}
 @media(max-width:600px){.bilibili-player{box-shadow:4px 4px 0 #000}}
+
+/* Platform-independent icons: inherit the surrounding size and brand color. */
+.site-icon{display:inline-block;width:1em;height:1em;vertical-align:-.12em;flex-shrink:0;overflow:visible;pointer-events:none}.hero-asterisk .site-icon,.chapter-play-symbol .site-icon{display:block;margin-inline:auto}.motion-symbol{display:inline-flex;align-items:center}.motion-symbol .site-icon{vertical-align:0}

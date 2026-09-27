@@ -1,3 +1,4 @@
+import { icon } from '../icons.mjs';
 import { Component, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import Aurora from '../vendor/react-bits/Aurora';
@@ -115,7 +116,7 @@ export function createPortfolioMotion({ paused = false } = {}) {
           </div>
           {caption && <Markup html={caption} />}
         </div>
-        <span className="chapter-go" aria-hidden="true">↗</span>
+        <span className="chapter-go" aria-hidden="true" dangerouslySetInnerHTML={{ __html: icon('arrow-up-right') }} />
       </div>
     </SpotlightCard>;
   }, 'rb-card');
