@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { createRoot } from 'react-dom/client';
-import Carousel from '../vendor/react-bits/Carousel';
+import DepthCarousel from '../vendor/react-bits/DepthCarousel';
 import './gallery.css';
 
 class GalleryBoundary extends Component {
@@ -25,7 +25,7 @@ export function createPhotoGalleries({ paused = false } = {}) {
     if (current === value) return;
     current = value;
     for (const { root, fallback, items } of galleries) {
-      root.render(<GalleryBoundary fallback={fallback}><Carousel items={items} reducedMotion={value} /></GalleryBoundary>);
+      root.render(<GalleryBoundary fallback={fallback}><DepthCarousel items={items} reducedMotion={value} /></GalleryBoundary>);
     }
   }
   setPaused(paused);

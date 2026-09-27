@@ -1,0 +1,23 @@
+/* DepthCarousel styling adapted for Sam's photo archive. */
+.depth-carousel{max-width:100%;background:radial-gradient(ellipse at 60% 35%,#32134766,transparent 65%),#0c0911;border:1px solid #b36bff44;padding:20px 0;box-shadow:7px 7px 0 #000}
+.depth-carousel:focus-visible{outline:2px solid #d5ff43;outline-offset:5px}
+.depth-carousel__stage{position:relative;width:100%;perspective:1400px;perspective-origin:50% 50%;overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none}
+.depth-carousel__stage:active{cursor:grabbing}
+.depth-carousel__card{position:absolute;top:50%;left:44%;margin:0;overflow:hidden;background:#100b17;border:1px solid #ae73db88;box-shadow:0 20px 45px #0009;transform:translate(-50%,-50%);will-change:transform,opacity,filter}
+.depth-carousel__card img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.depth-carousel__frame{position:absolute;top:12px;left:12px;padding:6px 8px;background:#09070de8;border:1px solid #b36bff55;color:#dbbaff;font:11px/1 ui-monospace,monospace}
+.depth-carousel__unavailable:not([hidden]){display:grid;place-items:center;position:absolute;inset:0;color:#cdbede;font-size:16px}
+.depth-carousel__details{display:flex;justify-content:space-between;gap:20px;padding:14px 24px 24px;align-items:center}
+.depth-carousel__caption>span{font:12px/1.5 ui-monospace,monospace;color:#ba86f1}
+.depth-carousel__caption p{font-size:17px;line-height:1.5;color:#eee7f5;margin-top:6px}
+.depth-carousel__arrows{display:flex;gap:10px;flex-shrink:0}
+.depth-carousel__arrows button{width:44px;height:44px;border:1px solid #b36bff;background:#271436;color:#dbbaff;font-size:26px;cursor:pointer}
+.depth-carousel__arrows button:hover:not(:disabled){background:#b36bff;color:#09070d}
+.depth-carousel__arrows button:disabled{opacity:.3;cursor:default}
+.depth-carousel__footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px 0;border-top:1px dashed #b36bff33}
+.depth-carousel__footer p{font-size:12px;color:#b5a5c5}
+.depth-carousel__footer label{display:grid;gap:6px;font-size:12px;color:#baa3cb;max-width:100%}
+.depth-carousel__footer select{font:14px/1.4 var(--font);color:#eadcf7;background:#160d20;border:1px solid #8b59b3;padding:10px;max-width:100%;width:270px}
+@media(max-width:600px){.depth-carousel{padding-top:8px;box-shadow:4px 4px 0 #000}.depth-carousel__details{padding:8px 14px 20px;align-items:flex-start}.depth-carousel__caption p{font-size:15px}.depth-carousel__footer{padding:18px 14px 0;align-items:flex-start;flex-direction:column}.depth-carousel__footer label,.depth-carousel__footer select{width:100%}.depth-carousel__frame{font-size:9px;top:7px;left:7px}}
+@media(prefers-reduced-motion:reduce){.depth-carousel__card{will-change:auto}}
+.motion-static .depth-carousel__card{will-change:auto}

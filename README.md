@@ -31,7 +31,7 @@ Each page has its own URL and static HTML. Projects are covered together on the 
 - A flowing mouse ribbon that fades out within 0.45 seconds of inactivity; touch input does not create a trail.
 - Faint animated English quotes behind the homepage introduction.
 - Stickers that support dragging, touch, and keyboard movement. Arrow keys move a focused sticker, Shift increases the step, and Home resets it.
-- A floorball gallery based on React Bits Carousel, with swipe/drag navigation, arrows, thumbnails, and captions. It shows an intentional empty state until photos are added.
+- A floorball gallery based on React Bits Depth Carousel, with a receding photo stack, swipe/drag navigation, arrows, a photo picker, and captions. It includes 32 personal floorball photos covering games, teams, and tournament memories.
 - An SVG world map with a country picker, visited-country highlights, and a shared count and list.
 
 The **Motion on/off** control works across pages for the current session. The site respects the operating system’s reduced-motion preference by default. Core content and navigation remain available without JavaScript, and decorative overlays do not block links or buttons.
@@ -123,6 +123,6 @@ Use `main` as the production branch when connecting the GitHub repository. Autom
 
 The car and floorball images are labeled **editorial concept images**. The editing timeline is decorative; it is not a playable showreel. Personal photos and footage can replace those assets as they become available.
 
-Animation components come from [React Bits](https://www.reactbits.dev/): Aurora, BlurText, GlitchText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, ClickSpark, Ribbons, and Carousel. Their pinned upstream revision and local adaptations are recorded in the [vendor README](src/vendor/react-bits/README.md). Their license is included in the [vendor directory](src/vendor/react-bits/LICENSE.md) and the [published bundle](dist/react-bits-license.txt).
+Animation components come from [React Bits](https://www.reactbits.dev/): Aurora, BlurText, GlitchText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, ClickSpark, Ribbons, Carousel, and DepthCarousel. Their pinned upstream revision and local adaptations are recorded in the [vendor README](src/vendor/react-bits/README.md). Their license is included in the [vendor directory](src/vendor/react-bits/LICENSE.md) and the [published bundle](dist/react-bits-license.txt).
 
 Map boundaries come from Natural Earth via the pinned World Atlas package; attribution is also shown on the Travel page. Fonts: DM Sans, Barlow Condensed, and Black Ops One.
