@@ -13,6 +13,8 @@ const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', 
 const slug = value => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const names = { '/': 'Home', '/about/': 'About', '/work/': 'Work', '/sports/': 'Sports', '/editing/': 'Video editing', '/interests/': 'Off duty', '/travel/': 'Travel' };
 
+const favicon = '<link rel="icon" type="image/png" sizes="1254x1254" href="/assets/sam-yang-logo.png">';
+
 function header(current) {
   return `<a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
@@ -34,7 +36,7 @@ function documentPage({ path, title, description, content }) {
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09070d"><meta name="description" content="${escape(description)}">
   <title>${escape(title)} — Sam Yang</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23b36bff'/%3E%3Ctext x='20' y='27' text-anchor='middle' font-family='Arial' font-size='21' font-weight='bold' fill='%2309070d'%3ESY%3C/text%3E%3C/svg%3E">
+  ${favicon}
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;450;500;600;700&family=Black+Ops+One&display=swap" rel="stylesheet">
   <script>try{const p=sessionStorage.getItem('sam-motion');document.documentElement.classList.toggle('motion-static',p==='off'||(p!=='on'&&matchMedia('(prefers-reduced-motion: reduce)').matches));}catch{}</script>
@@ -123,6 +125,6 @@ const redirects = {
 for (const [path, target] of Object.entries(redirects)) {
   const directory = resolve(root, 'dist', `.${path}`);
   await mkdir(directory, { recursive: true });
-  await writeFile(resolve(directory, 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=${target}"><title>Work &amp; Experience — Sam Yang</title><link rel="canonical" href="${target}"><link rel="stylesheet" href="/styles.css"></head><body><main class="section-pad"><h1>Work &amp; experience</h1><p><a href="${target}">Continue to the experience overview ↗</a></p></main></body></html>\n`);
+  await writeFile(resolve(directory, 'index.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=${target}"><title>Work &amp; Experience — Sam Yang</title>${favicon}<link rel="canonical" href="${target}"><link rel="stylesheet" href="/styles.css"></head><body><main class="section-pad"><h1>Work &amp; experience</h1><p><a href="${target}">Continue to the experience overview ↗</a></p></main></body></html>\n`);
 }
 console.log(`Built ${pages.length} pages and ${Object.keys(redirects).length} legacy redirects.`);
