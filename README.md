@@ -1,6 +1,6 @@
 # Sam Yang — Always Curious
 
-A personal portfolio with concise résumé-style entries for work, education, and sports. Black and electric purple, stencil typography, paper textures, acid-green accents, and ten official React Bits animation components.
+A personal portfolio with concise résumé-style entries for work, education, and sports. Black and electric purple, stencil typography, paper textures, acid-green accents, and eleven official React Bits animation components.
 
 ## Pages
 
@@ -48,9 +48,11 @@ Run `npm run build` after changing source, templates, or profile copy. Generated
 
 ## Motion and accessibility
 
-The site uses the official [React Bits](https://www.reactbits.dev/) source for Aurora, BlurText, GlitchText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, and ClickSpark. Upstream is pinned and licensed in `src/vendor/react-bits/README.md`. React, Motion, and OGL are bundled locally; there is no runtime component CDN.
+The site uses the official [React Bits](https://www.reactbits.dev/) source for Aurora, BlurText, GlitchText, DecryptedText, RotatingText, ScrollVelocity, SpotlightCard, TiltedCard, Magnet, ClickSpark, and Ribbons. Upstream is pinned and licensed in `src/vendor/react-bits/README.md`. React, Motion, and OGL are bundled locally; there is no runtime component CDN.
 
 The interests page has a draggable sticker wall (`src/interactions/sticker-wall.js`). Mouse and touch use pointer capture; keyboard users can move a focused sticker with arrow keys, use Shift for larger steps, or press Home to reset it. A reset button restores the whole board. Manual movement remains available with motion off, and positions stay inside the board when it resizes.
+
+On devices with a mouse, purple ribbons with a thin acid-green accent follow the pointer on every page. The overlay never intercepts clicks. It fades and stops rendering after the mouse rests, clears when the pointer leaves, and unmounts with Motion off or when the tab is hidden. Touch input does not create a trail.
 
 The homepage has a moving violet Aurora, blurred letter entrances, a rotating role label, a scroll-responsive ribbon, a spotlight chapter list with tilting thumbnails, a magnetic link, and click sparks. Inner pages share the Aurora, decrypting labels, blurred heading entrances, and click sparks; résumé entries also have a pointer spotlight.
 

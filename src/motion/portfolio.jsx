@@ -10,6 +10,7 @@ import SpotlightCard from '../vendor/react-bits/SpotlightCard';
 import TiltedCard from '../vendor/react-bits/TiltedCard';
 import Magnet from '../vendor/react-bits/Magnet';
 import ClickSpark from '../vendor/react-bits/ClickSpark';
+import Ribbons from '../vendor/react-bits/Ribbons';
 import './portfolio.css';
 import './chapters.css';
 import './zine.css';
@@ -38,6 +39,9 @@ class EffectBoundary extends Component {
 const Markup = ({ html, className = '' }) => <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
 const roles = ['BUILDER.', 'ATHLETE.', 'CREATOR.', 'VIDEO EDITOR.'];
 const auroraColors = ['#631BFF', '#D58BFF', '#8B33FF'];
+const cursorColors = ['#B36BFF', '#D8ADFF', '#D5FF43'];
+const cursorWidths = [13, 5, 2];
+const transparentBackground = [0, 0, 0, 0];
 
 export function createPortfolioMotion({ paused = false } = {}) {
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
@@ -122,6 +126,16 @@ export function createPortfolioMotion({ paused = false } = {}) {
   register('.rb-click-sparks', ({ host }) => <ActiveEffect host={host}>
     <ClickSpark global sparkColor="#CF9BFF" sparkSize={12} sparkRadius={32} sparkCount={9} duration={550} />
   </ActiveEffect>);
+
+  const cursorHost = document.createElement('div');
+  cursorHost.className = 'rb-cursor-trail';
+  cursorHost.setAttribute('aria-hidden', 'true');
+  document.body.append(cursorHost);
+  register('.rb-cursor-trail', ({ host }) => finePointer.matches ? <ActiveEffect host={host}>
+    <Ribbons global colors={cursorColors} thicknesses={cursorWidths} backgroundColor={transparentBackground}
+      baseSpring={.18} baseFriction={.62} offsetFactor={.006} pointCount={40}
+      maxAge={400} speedMultiplier={.5} enableFade idleTimeout={750} />
+  </ActiveEffect> : null);
 
   function setPaused(value) {
     if (value === currentPaused) return;

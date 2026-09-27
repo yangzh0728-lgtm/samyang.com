@@ -25,6 +25,11 @@
 .rb-magnet-content{display:flex;align-items:center;gap:22px}
 .rb-magnet-inner{display:block}
 .rb-click-sparks{position:fixed;inset:0;pointer-events:none;z-index:1000}
+.rb-cursor-trail{position:fixed;inset:0;pointer-events:none;z-index:999;overflow:hidden}
+.rb-cursor-trail *{pointer-events:none!important}
+.rb-cursor-trail .ribbons-container{width:100%;height:100%}
+.motion-static .rb-cursor-trail,.page-hidden .rb-cursor-trail{display:none}
+@media(hover:none),(pointer:coarse){.rb-cursor-trail{display:none}}
 .next-chapter{position:relative;overflow:hidden;background:linear-gradient(110deg,#451577,#6b28a4,#3a145c);background-size:200% 100%;animation:chapter-glow 8s ease-in-out infinite alternate}
 .next-chapter:before{content:'';position:absolute;inset:0;opacity:0;background:radial-gradient(ellipse at right,#d198ff55,transparent 70%);transition:opacity .5s}
 .next-chapter:hover:before{opacity:1}
