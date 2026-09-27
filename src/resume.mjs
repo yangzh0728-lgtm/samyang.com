@@ -67,7 +67,7 @@ export const sportsExperience = [
     ] },
   { id: 'badminton', title: 'Badminton', role: 'Player & Team Captain', period: 'Grade 9–Present',
     summary: 'Team captain, developing leadership, communication, and competitive decision-making.',
-    points: ['CISAA 2nd place in men’s doubles.', 'School team MVP (Grade 9).'] }
+    points: ['Silver Medal — CISAA Junior Boys’ Doubles (Seed 1).', 'Most Valuable Player (MVP) — Badminton Season.'] }
 ];
 
 export const skills = [
