@@ -59,5 +59,3 @@ export const skills = [
   ['Technology', 'GitHub, AWS EC2, Ubuntu, Caddy, Route 53, basic web development'],
   ['Project skills', 'Research, project management, team leadership, outreach, interviewing']
 ];
-
-export const languages = [['Chinese', 'Native'], ['English', 'Fluent / Advanced'], ['Spanish', 'Beginner']];

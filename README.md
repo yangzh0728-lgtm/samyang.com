@@ -5,7 +5,7 @@ A personal portfolio with concise résumé-style entries for work, education, an
 ## Pages
 
 - `/` — a concise introduction and visual chapter directory.
-- `/about/` — background, education, and languages.
+- `/about/` — background and education.
 - `/work/` — grouped projects, engineering competitions, student leadership, and skills.
 - `/sports/` — floorball and badminton roles and results, plus other sports.
 - `/editing/` — video editing, pacing, and visual storytelling.
@@ -35,7 +35,7 @@ Add the custom domain under the Vercel project's Settings → Domains. If DNS is
 ## Edit
 
 - Shared page layout, navigation, and page-specific sections: `scripts/build-pages.mjs`.
-- Résumé entries, education, sports results, skills, and languages: `src/resume.mjs`.
+- Résumé entries, education, sports results, and skills: `src/resume.mjs`.
 - Short biography and editing copy: `src/profiles.mjs`.
 - Homepage hero, chapter directory, and editing artwork: `src/*.html`.
 - Shared styling: `dist/styles.css`.

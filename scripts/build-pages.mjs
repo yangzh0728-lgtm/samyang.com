@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { profiles } from '../src/profiles.mjs';
-import { experienceGroups, education, sportsExperience, skills, languages } from '../src/resume.mjs';
+import { experienceGroups, education, sportsExperience, skills } from '../src/resume.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const [homeHero, editArt, chapterDirectory, stickerWall] = await Promise.all(
@@ -78,8 +78,7 @@ function resumeGroup(id, title, entries, index, showPeriods = true) {
 
 const about = `${pageHero({ path: '/about/', label: 'ABOUT / SAM ZHIHUAN YANG', first: 'Student. Builder.', second: 'Always curious.', lede: profiles.story.lede })}
 <section class="about-background section-pad"><p>From Hangzhou to Canada to California, I’ve learned to find my feet in new places. I’m interested in engineering, entrepreneurship, sports, and telling the stories behind the things I build.</p></section>
-<div class="resume-sheet section-pad">${resumeGroup('education', 'Education', education, '01')}
-<section class="resume-group" id="languages" aria-labelledby="languages-title"><div class="resume-group-heading"><span class="eyebrow">02</span><h2 id="languages-title">Languages</h2></div><dl class="language-list">${languages.map(([name, level]) => `<div><dt>${name}</dt><dd>${level}</dd></div>`).join('')}</dl></section></div>${nextChapter('/work/')}`;
+<div class="resume-sheet section-pad">${resumeGroup('education', 'Education', education, '01')}</div>${nextChapter('/work/')}`;
 
 const work = `${pageHero({ path: '/work/', label: 'SELECTED EXPERIENCE', first: 'Work &', second: 'experience.', lede: 'I like turning an idea into something that works. Here’s what I’ve been building.' })}
 <nav class="resume-jump" aria-label="Experience categories"><a href="#projects">Projects <sup>02</sup></a><a href="#engineering">Engineering <sup>03</sup></a><a href="#leadership">Leadership <sup>01</sup></a><a href="#skills">Skills</a></nav>
