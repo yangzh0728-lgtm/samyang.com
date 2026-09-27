@@ -56,9 +56,9 @@ export const sportsExperience = [
   { id: 'floorball', title: 'Floorball', role: 'Player · Assistant Coach & Trainer', period: '11+ years',
     summary: 'Former team captain and starting center, with experience in regional and national youth tournaments. Now also serving as an assistant coach and trainer.',
     points: [
-      '2nd Place — National Youth U Series Floorball Championship (Middle School Division).',
+      '2nd Place — 3rd National Youth U Series Floorball Championship (Middle School Division).',
       '1st Place — National Oriental Cup Floorball League Final Championship.',
-      '3rd Place — National Youth U Series Floorball Championship (Middle School Division).',
+      '3rd Place — 2nd National Youth U Series Floorball Championship (Middle School Division).',
       'U12 Champion — 7th ISPO Shanghai Youth Floorball Championship.',
       '4th Place — National Youth U Series Floorball Championship, East China (U12 Division).',
       '2nd Place — 6th National Youth Floorball Championship (U10 Division).',
