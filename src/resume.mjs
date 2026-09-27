@@ -55,7 +55,16 @@ export const education = [
 export const sportsExperience = [
   { id: 'floorball', title: 'Floorball', role: 'Player & Team Leader', period: '11+ years',
     summary: 'Former team captain and starting center, with experience in regional and national youth tournaments.',
-    points: ['1st Place — Oriental Cup Final (2024).', '2nd Place — National Youth U Series (2024).'] },
+    points: [
+      '2nd Place — National Youth U Series Floorball Championship (Middle School Division).',
+      '1st Place — National Oriental Cup Floorball League Final Championship.',
+      '3rd Place — National Youth U Series Floorball Championship (Middle School Division).',
+      'U12 Champion — 7th ISPO Shanghai Youth Floorball Championship.',
+      '4th Place — National Youth U Series Floorball Championship, East China (U12 Division).',
+      '2nd Place — 6th National Youth Floorball Championship (U10 Division).',
+      '3rd Place — 5th National Youth Floorball Championship (U10 Division).',
+      '3rd Place & Best Player — “Shanghanxie Cup” Shanghai Youth U Series Floorball League (U10 Division).'
+    ] },
   { id: 'badminton', title: 'Badminton', role: 'Player & Team Captain', period: 'Grade 9–Present',
     summary: 'Team captain, developing leadership, communication, and competitive decision-making.',
     points: ['CISAA 2nd place in men’s doubles.', 'School team MVP (Grade 9).'] }
