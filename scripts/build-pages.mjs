@@ -17,7 +17,7 @@ function header(current) {
   return `<a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="wordmark site-logo" href="/" aria-label="Sam Yang home"><img src="/assets/sam-yang-logo.png" width="1254" height="1254" alt="" decoding="async"></a>
-    <nav aria-label="Main navigation">${[['/work/', 'Work'], ['/about/', 'About'], ['/sports/', 'Sports'], ['/editing/', 'Editing'], ['/travel/', 'Travel']].map(([url, name]) => `<a href="${url}"${current === url || (url === '/work/' && current.startsWith(url)) ? ' aria-current="page"' : ''}>${name}</a>`).join('')}</nav>
+    <nav aria-label="Main navigation">${[['/about/', 'About'], ['/work/', 'Work'], ['/sports/', 'Sports'], ['/editing/', 'Editing'], ['/travel/', 'Travel']].map(([url, name]) => `<a href="${url}"${current === url || (url === '/work/' && current.startsWith(url)) ? ' aria-current="page"' : ''}>${name}</a>`).join('')}</nav>
     <button class="motion-toggle" aria-pressed="false" aria-label="Pause animations"><span class="motion-symbol" aria-hidden="true">Ⅱ</span><span class="motion-label">Motion on</span></button>
   </header>`;
 }
