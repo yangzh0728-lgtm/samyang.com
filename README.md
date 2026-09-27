@@ -31,6 +31,7 @@ Each page has its own URL and static HTML. Projects are covered together on the 
 - A flowing mouse ribbon that fades out within 0.45 seconds of inactivity; touch input does not create a trail.
 - Faint animated English quotes behind the homepage introduction.
 - Stickers that support dragging, touch, and keyboard movement. Arrow keys move a focused sticker, Shift increases the step, and Home resets it.
+- A short SY-logo loading intro on the first visit per tab, with a purple sweep and fade into the page. It skips motion-off/reduced-motion visits, allows immediate interaction, and times out safely if loading stalls.
 - A floorball gallery based on React Bits Depth Carousel, with a receding photo stack, swipe/drag navigation, arrows, and captions. It includes 32 personal floorball photos covering games, teams, and tournament memories.
 - An SVG world map with a country picker, visited-country highlights, and a shared count and list.
 

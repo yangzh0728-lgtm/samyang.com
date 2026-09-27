@@ -9,6 +9,9 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const [homeHero, editArt, chapterDirectory, stickerWall] = await Promise.all(
   ['home-hero.html', 'edit-art.html', 'chapter-directory.html', 'sticker-wall.html'].map(file => readFile(resolve(root, 'src', file), 'utf8'))
 );
+const [loaderMarkup, loaderStyles, loaderScript] = await Promise.all(
+  ['src/site-loader.html', 'src/site-loader.css', 'src/interactions/site-loader.js'].map(file => readFile(resolve(root, file), 'utf8'))
+);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const slug = value => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const names = { '/': 'Home', '/about/': 'About', '/work/': 'Work', '/sports/': 'Sports', '/editing/': 'Video editing', '/interests/': 'Off duty', '/travel/': 'Travel' };
@@ -38,12 +41,13 @@ function documentPage({ path, title, description, content }) {
   <meta name="theme-color" content="#09070d"><meta name="description" content="${escape(description)}">
   <title>${escape(title)} — Sam Yang</title>
   ${favicon}
+  <style>${loaderStyles}</style><script>${loaderScript}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;450;500;600;700&family=Black+Ops+One&display=swap" rel="stylesheet">
   <script>try{const p=sessionStorage.getItem('sam-motion');document.documentElement.classList.toggle('motion-static',p==='off'||(p!=='on'&&matchMedia('(prefers-reduced-motion: reduce)').matches));}catch{}</script>
   <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/app.css"><script type="module" src="/app.js"></script>
 </head><body id="top" data-page="${path}"${['/about/', '/work/', '/sports/'].includes(path) ? ' class="resume-page"' : ''}>
-${header(path)}<main id="main">${content}</main>${footer()}
+${loaderMarkup}${header(path)}<main id="main">${content}</main>${footer()}
 </body></html>\n`;
 }
 
